@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import {MatButtonToggleModule} from '@angular/material/button-toggle'
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -22,56 +22,34 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+const material = [
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatBottomSheetModule,
+  MatBadgeModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatMenuModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatFormFieldModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatToolbarModule,
+];
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatBottomSheetModule,
-    MatBadgeModule,
-    MatProgressSpinnerModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatInputModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatToolbarModule,
-  ],
+  imports: [material],
 
-  exports: [
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatBottomSheetModule,
-    MatBadgeModule,
-    MatProgressSpinnerModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatInputModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatToolbarModule,
-  ],
+  exports: [material],
 })
 export class MaterialModule {}
