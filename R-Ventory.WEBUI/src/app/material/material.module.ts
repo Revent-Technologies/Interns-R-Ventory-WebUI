@@ -73,5 +73,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTableModule,
     MatToolbarModule,
   ],
+  
 })
 export class MaterialModule {}
