@@ -13,7 +13,16 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [WebappComponent, SidebarComponent, DashboardComponent, ProcurementComponent, InventoryComponent, ProductsCategoryComponent, BreadcrumbComponent, HeaderComponent],
+  declarations: [
+    WebappComponent,
+    SidebarComponent,
+    DashboardComponent,
+    ProcurementComponent,
+    InventoryComponent,
+    ProductsCategoryComponent,
+    BreadcrumbComponent,
+    HeaderComponent,
+  ],
   imports: [CommonModule, WebappRoutingModule, MaterialModule],
 })
 export class WebappModule {}
