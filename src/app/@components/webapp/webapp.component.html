@@ -1,0 +1,11 @@
+<section id="webapp">
+  <app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+
+  <div class="body" [ngClass]="getBodyClass()">
+    <mat-toolbar>
+      <span>Procurement</span>
+    </mat-toolbar>
+    <app-breadcrumb></app-breadcrumb>
+    <router-outlet></router-outlet>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+.rv-breadcrumbs {
+  .breadcrumb {
+    height: 2rem;
+    // background-color: coral;
+    justify-content: start;
+    align-items: center;
+
+    & a {
+      text-decoration: none;
+      padding-right: 1rem;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 10px;
+        padding-right: 0.3rem;
+      }
+    }
+    span {
+      padding-left: 1rem;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 8px;
+        padding-right: 0.1rem;
+      }
+    }
+  }
+}

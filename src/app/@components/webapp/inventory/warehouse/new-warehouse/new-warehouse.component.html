@@ -1,0 +1,100 @@
+<!-- <div class="modal-container">
+  <div class="title-container">
+    <h1 class="zns-heading-5 fw-600">Add a New WareHouse</h1>
+
+    <div matRipple class="close-icon-container">
+      <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+    </div>
+  </div>
+
+  WareHouse Information.
+
+  <div mat-dialog-content class="form">
+    <form>
+      <p>
+        <mat-form-field aappearance="fill">
+          <input matInput placeholder="Warehouse name" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="warehouseCode" />
+        </mat-form-field>
+      </p>
+      <div mat-dialog-actions>
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="modal-container">
+  <div class="title-container">
+    <h1 class="zns-heading-5 fw-600 head">Add New WareHouse</h1>
+
+    <div matRipple class="close-icon-container">
+      <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+    </div>
+  </div>
+
+  <p>WareHouse Information</p>
+
+  <div class="form">
+    <form [formGroup]="myForm">
+      <div class="col-12">
+        <div class="input-style1">
+          <input typr="text" 
+          formControlName="warehouseName"
+          placeholder="WareHouse Name" />
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-style1">
+          <input type="text"
+          formControlName="warehousecode"
+           placeholder="WareHouse Code" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button matRipple class="btn zns-btn-primary-outline mb-4">
+          Cancel
+        </button>
+        <button matRipple class="btn zns-btn-primary mb-4">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="modal-container">
+  <div class="title-container">
+      <h1 class="zns-heading-5 fw-600 welcome">Add a New WareHouse</h1>
+      <div matRipple class="close-icon-container">
+              <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+      </div>
+    </div>
+
+  
+
+    <div class="login-form" (ngSubmit)="onSubmitForm()">
+      <form [formGroup]="myForm" >
+        <div class="col-12">
+          <div class="input-style1">
+            <input text="text" formControlName="warehouseName" placeholder="WareHouse" />
+          </div>
+
+          <div class="col-12">
+            <div class="input-style1">
+              <input text="text" formControlName="warehouseCode" placeholder="Warehouse Code (3chars)" />
+            </div>
+          </div>
+        </div>
+
+        
+      </form>
+    </div>
+</div>
+ -->

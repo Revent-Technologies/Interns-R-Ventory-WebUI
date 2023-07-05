@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+$min-width-breakpoints: (
+  zns-sm: 576px,
+  zns-md: 768px,
+  zns-lg: 992px,
+  zns-xl: 1200px,
+  zns-xxl: 1400px,
+);
+
+$max-width-breakpoints: (
+  zns-xsm: 575.98px,
+  zns-sm: 767.98px,
+  zns-md: 991.98px,
+  zns-lg: 1199.98px,
+  zns-xl: 1399.98px,
+);
+
+@mixin zns-media-query-min($key) {
+  $size: map.get($min-width-breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin zns-media-query-max($key) {
+  $size: map.get($max-width-breakpoints, $key);
+
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin zns-media-query-between($key1, $key2) {
+  @media only screen and (min-width: $key1) and (max-width: $key2) {
+    @content;
+  }
+}

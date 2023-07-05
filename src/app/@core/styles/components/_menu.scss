@@ -1,0 +1,98 @@
+.zns-menu {
+  min-height: unset !important;
+  border-radius: 0.3125rem !important;
+  -webkit-box-shadow: 0px 2px 10px 0px #2222221a !important;
+  box-shadow: 0px 2px 10px 0px #2222221a !important;
+  // -webkit-box-shadow: 0px 11.61887264251709px 124.27999877929688px 0px #2548992b !important;
+  // box-shadow: 0px 11.61887264251709px 124.27999877929688px 0px #2548992b !important;
+  // -webkit-box-shadow: 0px 10px 25px rgb(232 232 232 / 50%) !important;
+  // box-shadow: 0px 10px 25px rgb(232 232 232 / 50%) !important;
+
+  .mat-menu-item {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    height: 2rem !important;
+    line-height: 2rem !important;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+    .item-container {
+      // display: -webkit-box;
+      // display: -ms-flexbox;
+      // display: flex;
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 0.625rem;
+
+      .item-text {
+        font-size: 0.875rem;
+        margin-bottom: 0rem;
+        -webkit-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+      }
+
+      .item-icon {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        svg {
+          path {
+            -webkit-transition: all 0.25s ease;
+            -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+          }
+        }
+      }
+    }
+
+    &:hover:not([disabled]) {
+      background-color: var(--zns-primary-color-50) !important;
+
+      .item-container {
+        .item-text {
+          color: var(--zns-primary-color);
+        }
+
+        .item-icon {
+          svg {
+            path {
+              stroke: var(--zns-primary-color);
+            }
+          }
+        }
+      }
+    }
+
+    &.zns-mat-menu-item-danger {
+      &:hover:not([disabled]) {
+        background-color: var(--zns-error-50) !important;
+
+        .item-container {
+          .item-text {
+            color: var(--zns-error);
+          }
+
+          .item-icon {
+            svg {
+              path {
+                stroke: var(--zns-error);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
