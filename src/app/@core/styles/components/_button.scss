@@ -1,0 +1,205 @@
+@use '../abstracts/theme' as *;
+
+.btn  {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+
+  &:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    background: var(--zns-neutral-200);
+    color: var(--zns-neutral-400);
+    border-color: var(--zns-neutral-200);
+    opacity: 1;
+    cursor: not-allowed;
+  }
+}
+
+.zns-btn-md {
+  font-size: 1rem !important;
+  padding: 0.375rem 1rem !important;
+}
+
+.zns-btn-lg {
+  font-size: 1.125rem !important;
+  padding: 0.4375rem 1.25rem !important;
+}
+
+.zns-btn-xl {
+  font-size: 1.25rem !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+.zns-btn-full {
+  width: 100%;
+}
+
+.zns-btn-with-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zns-btn-primary-text {
+  background-color: var(--zns-white);
+  color: var(--zns-primary-color);
+
+  &:hover {
+    background-color: var(--zns-primary-color-50);
+    color: var(--zns-primary-color);
+  }
+
+  // &:focus {
+  //   background-color: var(--zns-primary-color-50);
+  //   color: var(--zns-primary-color);
+  // }
+}
+
+.zns-btn-primary {
+  background-color: var(--zns-primary-color);
+  color: var(--zns-white);
+
+  &:hover {
+    background-color: var(--zns-primary-color-400);
+    color: var(--zns-white);
+  }
+
+  &:focus {
+    background-color: var(--zns-primary-color-700);
+    color: var(--zns-white);
+  }
+}
+
+.zns-btn-primary-outline {
+  color: var(--zns-primary-color);
+  border: 0.09375rem solid var(--zns-primary-color);
+  // border: 0.0625rem solid var(--zns-primary-color);
+
+  &:hover {
+    color: var(--zns-primary-color);
+  }
+
+  &:focus {
+    color: var(--zns-primary-color);
+  }
+}
+
+.zns-btn-accent {
+  background-color: var(--zns-accent-color);
+  color: var(--zns-white);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--zns-accent-color-600) !important;
+    color: var(--zns-white) !important;
+    border-color: unset !important;
+  }
+}
+
+.zns-btn-accent-outline {
+  color: var(--zns-accent-color);
+  // color: var(--zns-accent-color-900);
+  border: 0.09375rem solid var(--zns-accent-color);
+  // border: 0.0625rem solid var(--zns-accent-color);
+  background-color: var(--zns-accent-color-50);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--zns-accent-color) !important;
+    // color: var(--zns-accent-color-900) !important;
+    border: 0.09375rem solid var(--zns-accent-color) !important;
+    // border: 0.0625rem solid var(--zns-accent-color) !important;
+    background-color: var(--zns-accent-color-50) !important;
+  }
+}
+
+.zns-btn-danger {
+  background-color: var(--zns-error);
+  color: var(--zns-white);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--zns-error) !important;
+    color: var(--zns-white) !important;
+  }
+}
+
+.zns-btn-neutral {
+  color: var(--zns-neutral);
+  border: 0.09375rem solid var(--zns-neutral-100);
+  // border: 0.0625rem solid var(--zns-neutral-100);
+  background-color: var(--zns-neutral-50);
+
+  &:hover,
+  &:focus {
+    background-color: var(--zns-neutral-50);
+    color: var(--zns-neutral);
+  }
+}
+
+.zns-badge {
+  height: 1rem;
+  min-width: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
+
+  &.error {
+    color: var(--zns-white) !important;
+    background: var(--zns-error);
+  }
+
+  &.success {
+    color: var(--zns-white) !important;
+    background: var(--zns-success);
+  }
+
+  &.warning {
+    color: var(--zns-white) !important;
+    background: var(--zns-warning);
+  }
+
+  &.info {
+    color: var(--zns-white) !important;
+    background: var(--zns-info);
+  }
+}
+
+.navbar-toggler {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}

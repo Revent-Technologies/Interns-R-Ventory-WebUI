@@ -1,0 +1,21 @@
+@use 'theme' as *;
+
+.zns-text-primary {
+  color: var(--zns-primary-color) !important;
+}
+
+.zns-text-accent {
+  color: var(--zns-accent-color) !important;
+}
+
+.zns-text-black {
+  color: var(--zns-black) !important;
+}
+
+.zns-text-white {
+  color: var(--zns-white) !important;
+}
+
+.zns-bg-primary {
+  background: var(--zns-primary-color) !important;
+}

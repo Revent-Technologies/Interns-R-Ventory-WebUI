@@ -1,0 +1,56 @@
+<section class="rv-login-bg">
+  <div class="rv-box">
+    <div class="rv-box-container">
+      <div class="rv-head-logo">
+        <h1 class="zns-heading-1 fw-600">R-ventory</h1>
+      </div>
+
+      <h1 class="zns-heading-5 fw-600 welcome">Welcome Back</h1>
+
+      <div class="login-form">
+        <form [formGroup]="loginForm">
+          <div class="col-12">
+            <div class="input-style1 input-md">
+              <label class="input-label">Label <span>(Optional)</span></label>
+
+              <mat-form-field appearance="outline" [style.width.%]="100">
+                <input
+                  matInput
+                  placeholder="Placeholder"
+                  formControlName="email"
+                />
+
+                <!-- <mat-error *ngIf="formControls['email'].invalid">
+                  <img
+                    src="/assets/icons/error.svg"
+                    alt=""
+                    class="img-fluid error-icon"
+                  />
+
+                  This field is required
+                </mat-error> -->
+              </mat-form-field>
+            </div>
+
+            <!-- <div class="col-12">
+              <div class="input-style1">
+                <input
+                  text="password"
+                  placeholder="password"
+                  id="password"
+                  name="password"
+                />
+              </div>
+            </div> -->
+          </div>
+
+          <button matRipple class="btn zns-btn-primary zns-btn-md mb-4">
+            Login
+          </button>
+        </form>
+      </div>
+
+      <a href="#" class="forgot-password-link">Forgot Password?</a>
+    </div>
+  </div>
+</section>

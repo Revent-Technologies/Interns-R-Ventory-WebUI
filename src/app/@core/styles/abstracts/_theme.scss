@@ -1,0 +1,33 @@
+@use 'colors' as *;
+
+@mixin generateColors($colors) {
+  @each $name, $shades in $colors {
+    @each $shade, $value in $shades {
+      @if #{$shade} == 'default' {
+        #{$name}: $value;
+      } @else {
+        #{$name}-#{$shade}: $value;
+      }
+    }
+  }
+
+  @each $name, $shades in $general-colors {
+    @each $shade, $value in $shades {
+      @if #{$shade} == 'default' {
+        #{$name}: $value;
+      } @else {
+        #{$name}-#{$shade}: $value;
+      }
+    }
+  }
+}
+
+:root {
+  @each $theme, $colors in $themed-colors {
+    .zns-theme {
+      @if #{$theme} == '--zns-theme' {
+        @include generateColors($colors);
+      }
+    }
+  }
+}

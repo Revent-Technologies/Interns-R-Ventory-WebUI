@@ -1,0 +1,27 @@
+<div class="rv-breadcrumbs">
+  <nav>
+    <ol class="breadcrumb">
+      <li
+        *ngFor="
+          let breadcrumb of breadcrumbs$ | async;
+          let last = last;
+          let first = first
+        "
+        [ngClass]="{ active: last }"
+      >
+        <span *ngIf="last && !first"> {{ breadcrumb.label }}</span>
+
+        <a *ngIf="first" [routerLink]="breadcrumb.url">
+          <span>
+            <img src="../../../../assets/icons/home.svg" alt="home page icon" />
+          </span>
+          <span> / </span>
+        </a>
+
+        <a *ngIf="!last && !first" [routerLink]="breadcrumb.url">
+          {{ breadcrumb.label }} <span>/</span>
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>

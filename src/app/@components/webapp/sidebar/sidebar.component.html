@@ -1,0 +1,176 @@
+<section id="rv-sidebar">
+  <div class="rv-sidenav" [ngClass]="collapsed ? 'rv-sidenav-collapsed' : ''">
+    <div class="rv-logo-container">
+      <button class="rv-logo" (click)="toggleCollapse()">R</button>
+      <div class="rv-logo-text" @fadeInOut *ngIf="collapsed">Reventory</div>
+      <button class="rv-btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+        <span class="material-icons rv-icon">close</span>
+      </button>
+    </div>
+
+    <ul class="rv-sidenav-nav">
+      <li class="rv-sidenav-nav-item">
+        <a
+          href=""
+          class="rv-sidenav-nav-link"
+          [routerLink]="['dashboard']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <!-- <span class="material-icons rv-sidenav-link-icon">dashboard</span> -->
+          <span class="rv-sidenav-link-icon icon"
+            ><img
+              src="../../../../assets/icons/dashboard.svg"
+              alt="dashboard-icon"
+          /></span>
+
+          <span class="rv-sidenav-link-text" @fadeInOut *ngIf="collapsed"
+            >dashboard</span
+          >
+        </a>
+      </li>
+      <mat-accordion>
+        <!-- Sales -->
+        <li class="rv-sidenav-nav-item">
+          <a class="rv-sidenav-nav-link" *ngIf="!collapsed">
+            <!-- <span class="material-icons rv-sidenav-link-icon">dataset</span> -->
+            <span class="rv-sidenav-link-icon icon" (click)="toggleCollapse()"
+              ><img
+                src="../../../../assets/icons/sales-module.svg"
+                alt="sales-icon"
+            /></span>
+          </a>
+
+          <mat-expansion-panel *ngIf="collapsed">
+            <mat-expansion-panel-header>
+              <!-- <span class="material-icons rv-sidenav-link-icon">dataset</span> -->
+              <span class="rv-sidenav-link-icon icon"
+                ><img
+                  src="../../../../assets/icons/sales-module.svg"
+                  alt="sales-icon"
+              /></span>
+
+              <span class="rv-sidenav-link-text" @fadeInOut *ngIf="collapsed"
+                >Sales</span
+              >
+            </mat-expansion-panel-header>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Sales quotation</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Customers</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Goods Delivered</a
+              >
+            </div>
+          </mat-expansion-panel>
+        </li>
+
+        <!-- Procurement -->
+        <li class="rv-sidenav-nav-item">
+          <a class="rv-sidenav-nav-link" *ngIf="!collapsed">
+            <!-- <span class="material-icons rv-sidenav-link-icon">description</span> -->
+            <span class="rv-sidenav-link-icon icon" (click)="toggleCollapse()"
+              ><img
+                src="../../../../assets/icons/procurement.svg"
+                alt="procurement-icon"
+            /></span>
+          </a>
+
+          <mat-expansion-panel *ngIf="collapsed">
+            <mat-expansion-panel-header>
+              <!-- <span class="material-icons rv-sidenav-link-icon">description</span> -->
+              <span class="rv-sidenav-link-icon icon"
+                ><img
+                  src="../../../../assets/icons/procurement.svg"
+                  alt="procurement-icon"
+              /></span>
+
+              <span class="rv-sidenav-link-text" @fadeInOut *ngIf="collapsed"
+                >Procurement</span
+              >
+            </mat-expansion-panel-header>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Purchase Request</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Vendors</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Goods Received</a
+              >
+            </div>
+          </mat-expansion-panel>
+        </li>
+
+        <!-- inventory -->
+        <li class="rv-sidenav-nav-item">
+          <a class="rv-sidenav-nav-link" *ngIf="!collapsed">
+            <!-- <span class="material-icons rv-sidenav-link-icon">inventory</span> -->
+            <span class="rv-sidenav-link-icon icon" (click)="toggleCollapse()"
+              ><img
+                src="../../../../assets/icons/inventory.svg"
+                alt="inventory-icon"
+            /></span>
+          </a>
+          <mat-expansion-panel *ngIf="collapsed">
+            <mat-expansion-panel-header>
+              <!-- <span class="material-icons rv-sidenav-link-icon">inventory</span> -->
+              <span class="rv-sidenav-link-icon icon"
+                ><img
+                  src="../../../../assets/icons/inventory.svg"
+                  alt="Inventory-icon"
+              /></span>
+              <span class="rv-sidenav-link-text" @fadeInOut *ngIf="collapsed"
+                >Inventory</span
+              >
+            </mat-expansion-panel-header>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Products</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a
+                [routerLink]="['inventory', 'products-category']"
+                (click)="toggleCollapse()"
+                >Products Category</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Warehouse</a
+              >
+            </div>
+
+            <div class="inner-links">
+              <a [routerLink]="['procurement']" (click)="toggleCollapse()"
+                >Internal Transfer</a
+              >
+            </div>
+          </mat-expansion-panel>
+        </li>
+      </mat-accordion>
+    </ul>
+  </div>
+</section>
