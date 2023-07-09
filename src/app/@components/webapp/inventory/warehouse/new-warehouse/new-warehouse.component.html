@@ -1,58 +1,100 @@
-<section id="new-warehouse">
-  <div class="new-warehouse-header">
-    <h6 class="zns-heading-6 fw-700 mb-0">Add New WareHouse</h6>
+<!-- <div class="modal-container">
+  <div class="title-container">
+    <h1 class="zns-heading-5 fw-600">Add a New WareHouse</h1>
 
-    <div matRipple class="close-icon-container" (click)="closeDialog()">
+    <div matRipple class="close-icon-container">
       <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
     </div>
   </div>
 
-  <div class="paragraph">
-    <p class="zns-para-1">WareHouse Information</p>
+  WareHouse Information.
+
+  <div mat-dialog-content class="form">
+    <form>
+      <p>
+        <mat-form-field aappearance="fill">
+          <input matInput placeholder="Warehouse name" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="warehouseCode" />
+        </mat-form-field>
+      </p>
+      <div mat-dialog-actions>
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="modal-container">
+  <div class="title-container">
+    <h1 class="zns-heading-5 fw-600 head">Add New WareHouse</h1>
+
+    <div matRipple class="close-icon-container">
+      <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+    </div>
   </div>
 
-  <form [formGroup]="warehouseForm">
-    <div class="row">
+  <p>WareHouse Information</p>
+
+  <div class="form">
+    <form [formGroup]="myForm">
       <div class="col-12">
-        <div class="input-style1 input-md">
-          <mat-form-field appearance="outline">
-            <input
-              matInput
-              placeholder="WareHouse Name"
-              formControlName="warehousename"
-            />
-          </mat-form-field>
+        <div class="input-style1">
+          <input typr="text" 
+          formControlName="warehouseName"
+          placeholder="WareHouse Name" />
         </div>
       </div>
 
       <div class="col-12">
-        <div class="input-style1 input-md">
-          <mat-form-field appearance="outline">
-            <input
-              matInput
-              placeholder="WareHouse Code"
-              formControlName="warehouseCode"
-            />
-          </mat-form-field>
+        <div class="input-style1">
+          <input type="text"
+          formControlName="warehousecode"
+           placeholder="WareHouse Code" />
         </div>
+      </div>
+
+      <div class="actions">
+        <button matRipple class="btn zns-btn-primary-outline mb-4">
+          Cancel
+        </button>
+        <button matRipple class="btn zns-btn-primary mb-4">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="modal-container">
+  <div class="title-container">
+      <h1 class="zns-heading-5 fw-600 welcome">Add a New WareHouse</h1>
+      <div matRipple class="close-icon-container">
+              <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
       </div>
     </div>
 
-    <div class="actions">
-      <button
-        matRipple
-        class="btn zns-btn-primary-outline zns-btn-md zns-btn-full"
-      >
-        Cancel
-      </button>
+  
 
-      <button
-        matRipple
-        class="btn zns-btn-primary zns-btn-md zns-btn-full add"
-        (click)="addWarehouse()"
-      >
-        Add
-      </button>
+    <div class="login-form" (ngSubmit)="onSubmitForm()">
+      <form [formGroup]="myForm" >
+        <div class="col-12">
+          <div class="input-style1">
+            <input text="text" formControlName="warehouseName" placeholder="WareHouse" />
+          </div>
+
+          <div class="col-12">
+            <div class="input-style1">
+              <input text="text" formControlName="warehouseCode" placeholder="Warehouse Code (3chars)" />
+            </div>
+          </div>
+        </div>
+
+        
+      </form>
     </div>
-  </form>
-</section>
+</div>
+ -->

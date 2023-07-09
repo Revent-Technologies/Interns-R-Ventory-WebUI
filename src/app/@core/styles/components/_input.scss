@@ -353,7 +353,7 @@ input.mat-input-element {
 .input-lg {
   .mat-form-field-appearance-outline .mat-form-field-infix {
     &:not(:has(mat-chip-list, textarea)) {
-      height: 3.5rem !important;
+      height: 2.5rem !important;
     }
 
     &:has(mat-chip-list) {

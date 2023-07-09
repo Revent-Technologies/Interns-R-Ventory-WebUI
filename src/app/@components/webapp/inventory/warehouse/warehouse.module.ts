@@ -7,15 +7,6 @@ import { HeaderModule } from '../../header/header.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WarehouseRoutingModule } from './warehouse-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  MatSlideToggle,
-  MatSlideToggleModule,
-} from '@angular/material/slide-toggle';
-import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [WarehouseComponent, NewWarehouseComponent],
@@ -27,12 +18,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatToolbarModule,
     MatDialogModule,
     WarehouseRoutingModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatCheckboxModule,
-    MatTableModule,
   ],
   exports: [WarehouseComponent],
 })

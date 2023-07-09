@@ -78,7 +78,7 @@
 }
 
 .zns-btn-primary {
-  background-color:  var(--zns-primary-color);
+  background-color: var(--zns-primary-color);
   color: var(--zns-white);
 
   &:hover {
@@ -87,7 +87,7 @@
   }
 
   &:focus {
-  background:var(--zns-primary-color-700);
+    background-color: var(--zns-primary-color-700);
     color: var(--zns-white);
   }
 }
