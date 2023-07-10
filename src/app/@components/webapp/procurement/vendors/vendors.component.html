@@ -2,7 +2,10 @@
   <app-header [title]="'Vendors'"></app-header>
 
   <div class="create-btn-container">
-    <button class="btn zns-btn-md zns-btn-primary mob-change">
+    <button
+      (click)="openForm()"
+      class="btn zns-btn-md zns-btn-primary mob-change"
+    >
       Add New Vendor
     </button>
   </div>
@@ -293,9 +296,9 @@
         </table>
       </div>
       <mat-paginator
-      [length]="5"
-      [pageSizeOptions]="[5, 10, 15, 20]"
-    ></mat-paginator>
+        [length]="5"
+        [pageSizeOptions]="[5, 10, 15, 20]"
+      ></mat-paginator>
     </ng-container>
   </div>
 </section>

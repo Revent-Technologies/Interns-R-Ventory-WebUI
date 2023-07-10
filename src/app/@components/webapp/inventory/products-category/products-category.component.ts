@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { Subscription } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
+// import { MatTableDataSource } from '@angular/material/table';
 
 export interface Category {
   check: boolean;
@@ -122,7 +122,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
         if (data) {
           console.log(data.categoryName);
         } else {
-          console.log('No dat passed');
+          console.log('No data passed');
         }
       })
     );

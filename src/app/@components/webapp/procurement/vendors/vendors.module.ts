@@ -13,9 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core';
 import { HeaderModule } from '../../header/header.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CreateVendorsComponent } from './create-vendors/create-vendors.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [VendorsComponent],
+  declarations: [VendorsComponent, CreateVendorsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -31,7 +33,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatRippleModule,
     MatPaginatorModule,
+    MatDialogModule,
   ],
   exports: [VendorsComponent],
+  entryComponents: [CreateVendorsComponent],
 })
 export class VendorsModule {}

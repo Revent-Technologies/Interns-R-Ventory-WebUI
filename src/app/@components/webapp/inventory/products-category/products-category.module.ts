@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsCategoryComponent } from './products-category.component';
 import { HeaderModule } from '../../header/header.module';
-import { RouterModule } from '@angular/router';
 import { ProductCategoryRoutingModule } from './products-category-routing.module';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { MatFormFieldModule } from '@angular/material/form-field';

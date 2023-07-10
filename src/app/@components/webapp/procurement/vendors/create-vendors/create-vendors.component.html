@@ -1,4 +1,4 @@
-<section id="new-category-modal">
+<section id="new-vendor-modal">
   <div class="new-category-header">
     <h6 class="zns-heading-6 fw-500 mb-0">Create New Product Category</h6>
     <div matRipple class="close-icon-container" (click)="closeDialog()">
@@ -9,14 +9,40 @@
   <div class="paragraph">
     <p class="zns-para-1">Category Information</p>
   </div>
-  <form [formGroup]="categoryForm">
+  <form [formGroup]="vendorForm">
     <div class="row">
       <div class="col-12">
         <div class="input-style1 input md">
           <mat-form-field appearance="outline">
             <input
               matInput
-              formControlName="categoryName"
+              formControlName="vendorName"
+              type="text"
+              placeholder="Category Name"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-style1 input md">
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              formControlName="vendorEmail"
+              type="text"
+              placeholder="Category Name"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-style1 input md">
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              formControlName="vendorEmail"
               type="text"
               placeholder="Category Name"
             />

@@ -1,0 +1,29 @@
+@use "src/app/@core/styles/abstracts/media-query" as *;
+
+#new-vendor-modal {
+  border-radius: 2.75rem;
+
+  .new-category-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .paragraph {
+    margin-bottom: 1.75rem;
+  }
+
+  .actions {
+    gap: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+  }
+}
