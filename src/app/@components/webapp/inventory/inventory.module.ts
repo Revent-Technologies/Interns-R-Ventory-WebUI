@@ -7,6 +7,7 @@ import { ProductsCategoryModule } from './products-category/products-category.mo
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { InventoryComponent } from './inventory.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [InventoryComponent],
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     ProductsCategoryModule,
     WarehouseModule,
     RouterModule,
+    HttpClientModule
   ],
 })
 export class InventoryModule {}
