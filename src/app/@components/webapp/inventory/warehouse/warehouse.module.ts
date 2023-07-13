@@ -17,6 +17,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { StoreModule } from '@ngrx/store';
+import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
+import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 
 @NgModule({
   declarations: [WarehouseComponent, NewWarehouseComponent],
@@ -34,7 +38,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule,
     MatCheckboxModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSortModule,
+    HttpClientModule,
+   
+   
+
   ],
   exports: [WarehouseComponent],
 })
