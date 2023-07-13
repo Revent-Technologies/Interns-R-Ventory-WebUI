@@ -12,6 +12,7 @@ import {
   MatDialogContainer,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { countryCodes } from 'src/app/@core/constants';
 
 @Component({
   selector: 'app-add-new-category',
@@ -20,6 +21,7 @@ import {
 })
 export class AddNewCategoryComponent {
   catergoryName = '';
+  c = countryCodes
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
