@@ -1,0 +1,59 @@
+{
+  "warehouse": [
+    {
+      "id": "1",
+      "check": true,
+      "categoriesName": "IKeja(IKJ)",
+      "createdBy": "faruq@mail.com",
+      "date":"2022-08-12T00:25:00.000Z",
+      "updatedBy": "Faruq Olaseni",
+      "updateDate": "2023-07-13T10:45:00.000Z",
+      "status": ""
+    },
+
+    {
+        "id": "2",
+      "check": true,
+      "categoriesName": "IKeja(IKJ)",
+      "createdBy": "faruq@mail.com",
+      "date":"2023-07-13T08:27:00.000Z",
+      "updatedBy": "Faruq Olaseni",
+      "updateDate": "2023-07-13T10:45:00.000Z",
+      "status": ""
+    },
+
+    {
+        "id": "3",
+      "check": false,
+      "categoriesName": "IKeja(IKJ)",
+      "createdBy": "faruq@mail.com",
+      "date":"2023-07-13T08:27:00.000Z",
+      "updatedBy": "Faruq Olaseni",
+      "updateDate": "2023-07-13T10:45:00.000Z",
+      "status": ""
+    },
+
+    {
+      "id": "4",
+      "check": true,
+      "categoriesName": "IKeja(IKJ)",
+      "createdBy": "faruq@mail.com",
+      "date":"2023-07-13T08:27:00.000Z",
+      "updatedBy": "Faruq Olaseni",
+      "updateDate": "2023-07-13T10:45:00.000Z",
+      "status": ""
+    },
+
+    {
+      "id": "5",
+      "check": false,
+      "categoriesName": "IKeja(IKJ)",
+      "createdBy": "faruq@mail.com",
+      "date":"2023-07-13T08:27:00.000Z",
+      "updatedBy": "Faruq Olaseni",
+      "updateDate": "2023-07-13T10:45:00.000Z",
+      "status": ""
+    }
+  ]
+
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 
 @Component({
   selector: 'app-new-warehouse',
@@ -12,6 +13,7 @@ export class NewWarehouseComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private warehouseService: WarehouseService,
     @Inject(MAT_DIALOG_DATA) public editdata: any,
     public dialogRef: MatDialogRef<NewWarehouseComponent>
   ) {}
@@ -33,6 +35,7 @@ export class NewWarehouseComponent implements OnInit {
 
   addWarehouse(){
     console.log(this.warehouseForm.value);
+    
   }
   closeDialog() {
     this.dialogRef.close();
