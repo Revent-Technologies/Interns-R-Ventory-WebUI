@@ -21,6 +21,7 @@ import { StoreModule } from '@ngrx/store';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [WarehouseComponent, NewWarehouseComponent],
@@ -41,6 +42,7 @@ import { WarehouseService } from 'src/app/@core/services/warehouse.service';
     MatIconModule,
     MatSortModule,
     HttpClientModule,
+    EffectsModule.forFeature([])
    
    
 

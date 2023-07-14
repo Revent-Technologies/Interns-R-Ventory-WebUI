@@ -1,81 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewWarehouseComponent } from './new-warehouse/new-warehouse.component';
-// import { MatTableDataSource } from '@angular/material/table';
-// import { SelectionModel } from '@angular/cdk/collections';
-// import { MatPaginator } from '@angular/material/paginator';
-// import { MatSort } from '@angular/material/sort';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs'
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import { Warehouse } from 'src/app/@core/interfaces';
 
-// export interface dummyData {
-//   check: boolean;
-//   categoriesName: string;
-//   createdBy: string;
-//   date: Date;
-//   updatedBy: string;
-//   updateDate: Date;
-//   status: string;
- 
-// }
-
-// const dummyDatas: dummyData[] = [
-//   {
-//     check: false,
-//     categoriesName: 'Ikeja(IKJ)',
-//     createdBy: 'faruq@mail.com',
-//     date: new Date(),
-//     updatedBy: 'Faruq Olaseni',
-//     updateDate: new Date(),
-//     status: '',
-   
-//   },
-
-//   {
-//     check: false,
-//     categoriesName: 'Ikeja(IKJ)',
-//     createdBy: 'faruq@mail.com',
-//     date: new Date(),
-//     updatedBy: 'Faruq Olaseni',
-//     updateDate: new Date(),
-//     status: '',
-  
-//   },
-
-//   {
-//     check: false,
-//     categoriesName: 'Ikeja(IKJ)',
-//     createdBy: 'faruq@mail.com',
-//     date: new Date(),
-//     updatedBy: 'Faruq Olaseni',
-//     updateDate: new Date(),
-//     status: '',
-  
-//   },
-
-//   {
-//     check: false,
-//     categoriesName: 'Ikeja(IKJ)',
-//     createdBy: 'faruq@mail.com',
-//     date: new Date(),
-//     updatedBy: 'Faruq Olaseni',
-//     updateDate: new Date(),
-//     status: '',
-   
-//   },
-
-//   {
-//     check: false,
-//     categoriesName: 'Ikeja(IKJ)',
-//     createdBy: 'faruq@mail.com',
-//     date: new Date(),
-//     updatedBy: 'Faruq Olaseni',
-//     updateDate: new Date(),
-//     status: '',
-    
-//   },
-// ];
 
 @Component({
   selector: 'app-warehouse',
