@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CustomersComponent } from './customers.component';
 import { CustomersRoutingModule } from './customers.routing-module';
 import { AddNewCustomerComponent } from './add-new-customer/add-new-customer.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [CustomersComponent, AddNewCustomerComponent],
@@ -32,6 +33,7 @@ import { AddNewCustomerComponent } from './add-new-customer/add-new-customer.com
     MatInputModule,
     MatRippleModule,
     MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [CustomersComponent],
 })

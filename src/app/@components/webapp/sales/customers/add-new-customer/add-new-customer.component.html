@@ -1,1 +1,80 @@
-<p>add-new-customer works!</p>
+<section id="new-customer">
+    <div class="new-customer-header">
+        <h6 class="zns-heading-6 fw-700 mb-0">Add New customer</h6>
+
+        <div matRipple class="close-icon-container" (click)="closeDialog()">
+            <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+        </div>
+    </div>
+
+    <div class="paragraph">
+        <p class="title">Customer Information</p>
+    </div>
+
+    <form [formGroup]="customerForm" (ngSubmit)="submitForm()">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-style1 input-md">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Customer Name" formControlName="customerName" />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="input-style1 input-md">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Customer Email" formControlName="customerEmail" />
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <mat-slide-toggle class="reverse-toggle" (click)="toggle()">Add Address</mat-slide-toggle>
+        <div *ngIf="isExpanded">
+            <div class="row post">
+                <div class="col-12">
+                    <div class="input-style1 input-md">
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Building No., Street Address" formControlName="customerName" />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="input-style1 input-md">
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="City" formControlName="customerEmail" />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row button-container">
+                <div class="col-6 zns-btn-md">
+                    <div class="input-style1 input-md">
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Building No., Street Address" formControlName="customerName" />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="col-6 zns-btn-md">
+                    <div class="input-style1 input-md">
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="City" formControlName="customerEmail" />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button matRipple class="btn zns-btn-primary-outline zns-btn-md zns-btn-full " (click)="closeDialog()">
+                Cancel
+            </button>
+
+            <button matRipple class="btn zns-btn-primary zns-btn-md zns-btn-full add" (click)="addcustomer()">
+                Add
+            </button>
+        </div>
+    </form>
+</section>
