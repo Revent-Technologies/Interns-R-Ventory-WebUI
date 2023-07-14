@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewWarehouseComponent } from './new-warehouse/new-warehouse.component';
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import { Warehouse } from 'src/app/@core/interfaces';
-
 
 @Component({
   selector: 'app-warehouse',
@@ -13,8 +12,11 @@ import { Warehouse } from 'src/app/@core/interfaces';
 })
 export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
-  
-  constructor(public dialog: MatDialog ,private warehouseService: WarehouseService) {}
+
+  constructor(
+    public dialog: MatDialog,
+    private warehouseService: WarehouseService
+  ) {}
 
   displayedColumns: string[] = [
     'check',
@@ -30,13 +32,10 @@ export class WarehouseComponent implements OnInit {
   dataSource: Warehouse[] = [];
 
   ngOnInit() {
-    // this.dataSource = new MatTableDataSource(this.dummyData);
-    // this.dataSource = dummyDatas;
     this.subscription.add(
       this.warehouseService.getWarehouses().subscribe((warehouses) => {
         this.dataSource = warehouses;
-      }
-      )
+      })
     );
   }
 
@@ -50,7 +49,7 @@ export class WarehouseComponent implements OnInit {
     });
   }
 
-  editWarehouse(row: any){
+  editWarehouse(row: any) {
     this.dialog.open(NewWarehouseComponent, {
       data: row,
       disableClose: true,
@@ -58,22 +57,5 @@ export class WarehouseComponent implements OnInit {
       panelClass: 'zns-dialog',
       backdropClass: 'zns-dialog-backdrop',
     });
-    
   }
-
-
- 
 }
-
-// dataSource: MatTableDataSource<any[]> | null = null;
-  // dataSource: selection = new SelectionModel<any>(true, []);
-
-  // totalRecords = 10;
-
-  // @ViewChild(MatPaginator) paginator: MatPaginator | any;
-  // @ViewChild(MatSort) Sort: MatSort | any;
-
- // ngAfterViewInit(): void {
-  //   // this.dataSource!.sort = this.Sort;
-  //   // this.dataSource!.paginator = this.paginator;
-  // }

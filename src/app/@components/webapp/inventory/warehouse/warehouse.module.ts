@@ -8,10 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WarehouseRoutingModule } from './warehouse-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  MatSlideToggle,
-  MatSlideToggleModule,
-} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule,} from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
