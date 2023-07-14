@@ -5,29 +5,29 @@
       "check": true,
       "categoriesName": "IKeja(IKJ)",
       "createdBy": "faruq@mail.com",
-      "date":"2022-08-12T00:25:00.000Z",
+      "date": "2022-08-12T00:25:00.000Z",
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
 
     {
-        "id": "2",
+      "id": "2",
       "check": true,
       "categoriesName": "IKeja(IKJ)",
       "createdBy": "faruq@mail.com",
-      "date":"2023-07-13T08:27:00.000Z",
+      "date": "2023-07-13T08:27:00.000Z",
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
 
     {
-        "id": "3",
+      "id": "3",
       "check": false,
       "categoriesName": "IKeja(IKJ)",
       "createdBy": "faruq@mail.com",
-      "date":"2023-07-13T08:27:00.000Z",
+      "date": "2023-07-13T08:27:00.000Z",
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
@@ -38,7 +38,7 @@
       "check": true,
       "categoriesName": "IKeja(IKJ)",
       "createdBy": "faruq@mail.com",
-      "date":"2023-07-13T08:27:00.000Z",
+      "date": "2023-07-13T08:27:00.000Z",
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
@@ -49,11 +49,78 @@
       "check": false,
       "categoriesName": "IKeja(IKJ)",
       "createdBy": "faruq@mail.com",
-      "date":"2023-07-13T08:27:00.000Z",
+      "date": "2023-07-13T08:27:00.000Z",
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     }
+  ],
+  "productCategory": [
+    {
+      "id": "1",
+      "check": false,
+      "category": "Casual Shoes",
+      "createdBy": "Kola",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": true,
+      "action": true
+    },
+    {
+      "id": "2",
+      "check": true,
+      "category": "Casual Shoes",
+      "createdBy": "Faruq",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": false,
+      "action": false
+    },
+    {
+      "id": "2",
+      "check": false,
+      "category": "Casual Shoes",
+      "createdBy": "Fatimah",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": true,
+      "action": false
+    },
+    {
+      "id": "3",
+      "check": true,
+      "category": "Casual Shoes",
+      "createdBy": "Naveedah",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": true,
+      "action": false
+    },
+    {
+      "id": "4",
+      "check": true,
+      "category": "Casual Shoes",
+      "createdBy": "Mareh",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": true,
+      "action": true
+    },
+    {
+      "id": "5",
+      "check": false,
+      "category": "Casual Shoes",
+      "createdBy": "Abuchi",
+      "date": "2023-07-13T10:45:00.000Z",
+      "lastToUpdate": "Fatima",
+      "updated": "2023-07-13T10:45:00.000Z",
+      "status": false,
+      "action": true
+    }
   ]
-
 }

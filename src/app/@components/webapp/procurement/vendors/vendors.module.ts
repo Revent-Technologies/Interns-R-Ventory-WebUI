@@ -15,6 +15,7 @@ import { HeaderModule } from '../../header/header.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CreateVendorsComponent } from './create-vendors/create-vendors.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [VendorsComponent, CreateVendorsComponent],
@@ -34,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRippleModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatSelectModule,
   ],
   exports: [VendorsComponent],
   entryComponents: [CreateVendorsComponent],

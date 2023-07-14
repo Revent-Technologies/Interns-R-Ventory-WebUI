@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { countryCodes } from 'src/app/@core/constants';
 
 @Component({
   selector: 'app-create-vendors',
@@ -11,6 +12,7 @@ export class CreateVendorsComponent implements OnInit {
   VendorName = '';
   VendorEmail = '';
   vendorPhone = '';
+  countryCode = countryCodes;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
