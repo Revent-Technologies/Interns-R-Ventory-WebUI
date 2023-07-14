@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateVendorsComponent } from './create-vendors/create-vendors.component';
+import { Subscription } from 'rxjs';
 
 export interface Category {
   check: boolean;
@@ -109,6 +112,9 @@ const dummyData: Category[] = [
   styleUrls: ['./vendors.component.scss'],
 })
 export class VendorsComponent implements OnInit {
+  subscription = new Subscription();
+  constructor(public dialog: MatDialog) {}
+
   // Table data
   displayedColumns: string[] = [
     'check',
@@ -123,9 +129,30 @@ export class VendorsComponent implements OnInit {
   ];
   datasource: Category[] = [];
 
-  constructor() {}
-
   ngOnInit(): void {
     this.datasource = dummyData;
+  }
+
+  openForm() {
+    const popup = this.dialog.open(CreateVendorsComponent, {
+      backdropClass: 'zns-dialog-backdrop',
+      autoFocus: true,
+      panelClass: 'zns-dialog',
+      disableClose: true,
+      data: {
+        name: 'Kolawole Omotosho',
+        type: 'React',
+      },
+    });
+
+    this.subscription.add(
+      popup.afterClosed().subscribe((data) => {
+        if (data) {
+          console.log(data.vendorName);
+        } else {
+          console.log('No data passed yet');
+        }
+      })
+    );
   }
 }
