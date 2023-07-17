@@ -30,7 +30,7 @@ const routes: Routes = [
         path: 'procurement',
         data: { breadcrumb: 'Procurement' },
         loadChildren: () =>
-          import(
+          import( 
             'src/app/@components/webapp/procurement/procurement.module'
           ).then((m) => m.ProcurementModule),
       },
