@@ -15,6 +15,7 @@ import { CustomersComponent } from './customers.component';
 import { CustomersRoutingModule } from './customers.routing-module';
 import { AddNewCustomerComponent } from './add-new-customer/add-new-customer.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [CustomersComponent, AddNewCustomerComponent],
@@ -33,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatRippleModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
   ],
   exports: [CustomersComponent],
 })

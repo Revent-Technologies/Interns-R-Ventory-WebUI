@@ -63,4 +63,60 @@
         align-self: stretch;
         width: 100%;
     }
+
+    .tele {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        gap: 0.5rem;
+
+        .tele-input {
+            width: 80%;
+        }
+
+        .telephone {
+            width: 20%;
+
+
+            .label {
+                width: 3rem !important;
+                padding: 0 !important;
+                padding-right: 0.4rem !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .loca {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        gap: 0.5rem;
+
+        .loca-input {
+            width: 50%;
+        }
+
+        .location {
+            width: 50%;
+        }
+
+        .label {
+            width: 3rem !important;
+            padding: 0 !important;
+            padding-right: 0.4rem !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: space-between;
+            font-family: Inter;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
 }
