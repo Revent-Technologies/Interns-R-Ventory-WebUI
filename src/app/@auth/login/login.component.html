@@ -17,6 +17,15 @@
                   formControlName="username"
                 />
               </mat-form-field>
+              <div>
+                {{ usernameErrorMessage }}
+              </div>
+
+              <div>
+                <small>
+                  {{ showDescriptionErrors("username") }}
+                </small>
+              </div>
             </div>
           </div>
 
@@ -29,6 +38,15 @@
                   formControlName="password"
                 />
               </mat-form-field>
+              <div>
+                {{ passwordErrorMessage }}
+              </div>
+
+              <div>
+                <small>
+                  {{ showDescriptionErrors("password") }}
+                </small>
+              </div>
             </div>
           </div>
         </div>
@@ -36,7 +54,7 @@
         <button
           matRipple
           class="btn zns-btn-primary zns-btn-md zns-btn-full"
-          (click)="onButtonClick()"
+          [disabled]="loginForm.invalid"
         >
           Login
         </button>
