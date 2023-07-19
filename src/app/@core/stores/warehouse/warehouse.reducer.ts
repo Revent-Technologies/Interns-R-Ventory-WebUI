@@ -1,13 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { Warehouse } from '../../interfaces';
-import * as WarehouseActions from '../warehouse/warehouse.actions';
+import * as WarehouseActions from './warehouse.actions';
 
-export interface WarehouseState {
+export interface State {
   warehouses: Warehouse[];
   loading: boolean;
 }
 
-export const initialState: WarehouseState = {
+export const initialState: State = {
   warehouses: [],
   loading: false,
 };

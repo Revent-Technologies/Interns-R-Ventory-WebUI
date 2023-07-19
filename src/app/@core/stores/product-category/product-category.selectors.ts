@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromProductCategory from './product-category.reducer';
 const getProductCategoryState =
-  createFeatureSelector<fromProductCategory.ProductCategoryState>(
+  createFeatureSelector<fromProductCategory.State>(
     'productCategory'
   );
 

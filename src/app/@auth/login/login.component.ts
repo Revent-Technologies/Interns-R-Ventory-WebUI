@@ -1,28 +1,41 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
-import { AuthService, User } from 'src/app/@core/services/auth.service';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/@core/interfaces/auth.interface';
+import * as fromApp from 'src/app/@core/stores/app/app.reducer';
+import * as AuthActions from 'src/app/@core/stores/auth/auth.actions';
+import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy {
+  subscription = new Subscription();
+
   loginForm!: FormGroup;
   // loginUser!: User | undefined;
-  usernameErrorMessage = '';
-  passwordErrorMessage = '';
+  loginError = '';
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private store: Store<fromApp.AppState>
   ) {}
 
   ngOnInit() {
     this.buildLoginForm();
+
+    // subscribe to login Error Message
+    this.subscription.add(
+      this.store.select(authSelectors.getAuthMessage).subscribe((message) => {
+        this.loginError = message;
+      })
+    );
   }
 
   buildLoginForm() {
@@ -35,38 +48,28 @@ export class LoginComponent {
   onSubmitForm() {
     if (this.loginForm.valid) {
       console.log('Valid form submitted');
-      const valueSubmitted = this.loginForm.value;
+      const valueSubmitted: User = this.loginForm.value;
 
       // Authenticate
-      this.authService.loginCheck(valueSubmitted.username).subscribe((data) => {
-        console.log(data);
-        // this.loginUser = data;
-
-        if (data) {
-          this.passwordErrorMessage = '';
-          this.usernameErrorMessage = '';
-
-          if (data.password === valueSubmitted.password) {
-            console.log('Password matches');
-            this.authService.login();
-            this.router.navigate(['app', 'dashboard']);
-          } else {
-            this.passwordErrorMessage = 'Password is incorrect';
-            console.log('Password Incorrect');
-            this.authService.logout();
-          }
-        } else {
-          this.usernameErrorMessage = 'User does not exist';
-          this.authService.logout();
-          console.log('New User');
-        }
-      });
+      this.store.dispatch(
+        AuthActions.loginStart({
+          username: valueSubmitted.username,
+          password: valueSubmitted.password,
+        })
+      );
     }
-  }
 
-  onButtonClick() {
-    this.authService.login();
-    this.router.navigate(['app']);
+    this.subscription.add(
+      this.store.select(authSelectors.getAuthPermission).subscribe((data) => {
+        if (data === true) {
+          console.log('logging in...');
+
+          this.router.navigate(['app']);
+        } else {
+          console.log('cant login');
+        }
+      })
+    );
   }
 
   showDescriptionErrors(control: string) {
@@ -82,5 +85,11 @@ export class LoginComponent {
       }
     }
     return '';
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

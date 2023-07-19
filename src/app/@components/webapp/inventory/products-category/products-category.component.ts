@@ -3,11 +3,11 @@ import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { Subscription } from 'rxjs';
-import * as ProductCategoryActions from 'src/app/@core/store/product-category/product-category.actions';
+import * as ProductCategoryActions from 'src/app/@core/stores/product-category/product-category.actions';
 import { ProductCategoryService } from 'src/app/@core/services/product-category.service';
 import { ProductCategory } from 'src/app/@core/interfaces/product-category.interface';
-import { AuthService } from 'src/app/@core/services/auth.service';
-import * as fromApp from 'src/app/@core/store/app/app.reducer';
+import * as fromApp from 'src/app/@core/stores/app/app.reducer';
+import * as productCategorySelectors from 'src/app/@core/stores/product-category/product-category.selectors';
 
 // import { MatTableDataSource } from '@angular/material/table';
 
@@ -36,7 +36,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     'action',
   ];
 
-  datasource!: ProductCategory[];
+  dataSource!: ProductCategory[];
 
   ngOnInit(): void {
     // this.datasource = dummyData;
@@ -74,9 +74,11 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
 
   listenToGetProductCategory() {
     this.subscription.add(
-      this.store.select('productCategory').subscribe((data) => {
-        this.datasource = data.productCategory;
-      })
+      this.store
+        .select(productCategorySelectors.fetchProductCategory)
+        .subscribe((data) => {
+          this.dataSource = data;
+        })
     );
   }
 

@@ -129,5 +129,103 @@
       "status": false,
       "action": true
     }
+  ],
+  "vendors": [
+    {
+      "id": "1",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": true,
+      "action": true
+    },
+    {
+      "id": "2",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": false,
+      "action": true
+    },
+    {
+      "id": "3",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": false,
+      "action": true
+    },
+    {
+      "id": "4",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": true,
+      "action": false
+    },
+    {
+      "id": "5",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": true,
+      "action": true
+    },
+    {
+      "id": "6",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": false,
+      "action": false
+    },
+    {
+      "id": "7",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": true,
+      "action": false
+    },
+    {
+      "id": "8",
+      "check": true,
+      "name": "Faruq Olaseni",
+      "email": "Janet@gmail.com",
+      "phone": "+2348028397558",
+      "orders": 10,
+      "ordersTotal": 2500000,
+      "createdDate": "2023-07-18T21:39:24.097Z",
+      "status": false,
+      "action": true
+    }
   ]
 }

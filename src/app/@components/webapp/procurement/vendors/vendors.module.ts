@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CreateVendorsComponent } from './create-vendors/create-vendors.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { EffectsModule } from '@ngrx/effects';
+import { VendorsEffects } from 'src/app/@core/stores/vendors/vendors.effects';
 
 @NgModule({
   declarations: [VendorsComponent, CreateVendorsComponent],
@@ -36,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
+    EffectsModule.forFeature([VendorsEffects]),
   ],
   exports: [VendorsComponent],
   entryComponents: [CreateVendorsComponent],

@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { appReducer } from './@core/store/app/app.reducer';
+import { appReducer } from './@core/stores/app/app.reducer';
 
 @NgModule({
   declarations: [AppComponent],

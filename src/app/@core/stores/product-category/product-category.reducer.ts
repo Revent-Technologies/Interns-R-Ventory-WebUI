@@ -2,11 +2,11 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as fromProductCategoryActions from './product-category.actions';
 import { ProductCategory } from '../../interfaces/product-category.interface';
 
-export interface ProductCategoryState {
+export interface State {
   productCategory: ProductCategory[];
 }
 
-const initialState: ProductCategoryState = {
+const initialState: State = {
   productCategory: [],
 };
 
@@ -24,7 +24,7 @@ const productCategoryReducerInternal = createReducer(
 );
 
 export function ProductCategoryReducer(
-  state: ProductCategoryState | undefined,
+  state: State | undefined,
   action: Action
 ) {
   return productCategoryReducerInternal(state, action);

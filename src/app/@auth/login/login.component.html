@@ -17,9 +17,6 @@
                   formControlName="username"
                 />
               </mat-form-field>
-              <div>
-                {{ usernameErrorMessage }}
-              </div>
 
               <div>
                 <small>
@@ -34,12 +31,13 @@
               <mat-form-field appearance="outline">
                 <input
                   matInput
+                  type="password"
                   placeholder="Password"
                   formControlName="password"
                 />
               </mat-form-field>
               <div>
-                {{ passwordErrorMessage }}
+                {{ loginError }}
               </div>
 
               <div>

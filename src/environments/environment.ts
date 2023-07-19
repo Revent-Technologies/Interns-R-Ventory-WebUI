@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   product_category: 'http://localhost:3000/productCategory',
+  user: 'http://localhost:3000/users',
+  vendors: 'http://localhost:3000/vendors',
 };
 
 /*
