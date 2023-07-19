@@ -8,10 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WarehouseRoutingModule } from './warehouse-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  MatSlideToggle,
-  MatSlideToggleModule,
-} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule,} from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -21,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [WarehouseComponent, NewWarehouseComponent],
@@ -41,6 +39,7 @@ import { WarehouseService } from 'src/app/@core/services/warehouse.service';
     MatIconModule,
     MatSortModule,
     HttpClientModule,
+    EffectsModule.forFeature([])
    
    
 
