@@ -1,0 +1,141 @@
+@use "src/app/@core/styles/abstracts/media-query" as *;
+
+#customers {
+  .create-btn-container {
+    display: flex;
+    justify-content: right;
+
+    .mob-change {
+      @include zns-media-query-max(zns-sm) {
+        font-size: 0.7rem !important;
+      }
+    }
+
+    button {
+      margin-right: 1rem;
+    }
+  }
+
+  .all-cat-section {
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid #efeff0;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 0.75rem;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+
+      margin-top: 0.9rem;
+      button {
+        opacity: 0.7;
+      }
+    }
+
+    .bottom {
+      div {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+      }
+      .price {
+        font-family: Inter;
+        font-weight: 500;
+      }
+    }
+    h5 {
+      color: #8b8d97;
+      opacity: 0.8;
+    }
+    small {
+      opacity: 0.8;
+    }
+
+    .down-icon {
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  .table-content {
+    margin-top: 2rem;
+    width: 100%;
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      margin: 0 auto;
+      margin-bottom: -1.6rem;
+      @include zns-media-query-max(zns-sm) {
+        flex-direction: column;
+      }
+
+      .table-filter {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+    }
+
+    .table-title {
+      line-height: normal;
+      font-size: 1rem;
+      @include zns-media-query-max(zns-sm) {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .input-width {
+      width: 7.4375rem;
+    }
+  }
+
+  .down-icon {
+    margin-bottom: 0.3rem;
+  }
+
+  .filter-icon {
+    margin-bottom: 0.19rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+  }
+  .search-input {
+    @include zns-media-query-max(zns-sm) {
+      width: 100%;
+    }
+  }
+
+  .two-column {
+    @include zns-media-query-max(zns-sm) {
+      margin-top: 0.8rem;
+    }
+  }
+
+  .active-row {
+    color: #519c66;
+    background: #32936f29;
+    padding: 0.25rem 0.6875rem;
+    border-radius: 0.5rem;
+  }
+
+  .inactive-row {
+    color: #f9ebe5;
+    background: #808080;
+    padding: 0.25rem 0.6875rem;
+    border-radius: 0.5rem;
+  }
+
+  .table-action-col {
+    display: flex;
+    justify-content: left;
+
+    img {
+      margin-right: 1rem;
+    }
+  }
+}

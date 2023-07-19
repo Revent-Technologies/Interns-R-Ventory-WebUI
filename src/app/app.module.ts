@@ -8,8 +8,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { appReducer } from './@core/stores/app/app.reducer';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +26,7 @@ import { appReducer } from './@core/stores/app/app.reducer';
     }),
     BrowserAnimationsModule,
     AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

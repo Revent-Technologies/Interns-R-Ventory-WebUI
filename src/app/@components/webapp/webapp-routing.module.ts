@@ -22,6 +22,13 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'sales',
+        data: { breadcrumb: 'Sales' },
+        loadChildren: () =>
+          import('src/app/@components/webapp/sales/sales.module').then(
+            (m) => m.SalesModule),
+      },
+      {
         path: 'procurement',
         data: { breadcrumb: 'Procurement' },
         canActivate: [AuthGuard],
@@ -31,6 +38,7 @@ const routes: Routes = [
             'src/app/@components/webapp/procurement/procurement.module'
           ).then((m) => m.ProcurementModule),
       },
+      
       {
         path: 'inventory',
         data: { breadcrumb: 'Inventory' },
@@ -48,4 +56,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class WebappRoutingModule {}
+export class WebappRoutingModule { }
