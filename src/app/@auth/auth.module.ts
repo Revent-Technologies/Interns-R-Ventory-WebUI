@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from '../@core/stores/auth/auth.effects';
 
 @NgModule({
   declarations: [LoginComponent, ForgotPasswordComponent],
@@ -14,6 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    EffectsModule.forFeature([AuthEffects]),
   ],
 })
 export class AuthModule {}

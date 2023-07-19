@@ -1,6 +1,7 @@
 @use "src/app/@core/styles/abstracts/media-query" as *;
 
 #Product-category {
+  width: 100%;
   .create-btn-container {
     display: flex;
     justify-content: right;
@@ -9,10 +10,6 @@
       @include zns-media-query-max(zns-sm) {
         font-size: 0.7rem !important;
       }
-    }
-
-    button {
-      margin-right: 1rem;
     }
   }
 

@@ -1,0 +1,83 @@
+<section id="new-vendor-modal">
+  <div class="new-category-header">
+    <h6 class="zns-heading-6 fw-500 mb-0">Create New Product Category</h6>
+    <div matRipple class="close-icon-container" (click)="closeDialog()">
+      <img src="/assets/icons/modal-close-icon.svg" alt="modal close icon" />
+    </div>
+  </div>
+
+  <div class="paragraph">
+    <p class="zns-para-1">Category Information</p>
+  </div>
+  <form [formGroup]="vendorForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-style1 input md">
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              formControlName="vendorName"
+              type="text"
+              placeholder="Vendor Name"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-style1 input md">
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              formControlName="vendorEmail"
+              type="text"
+              placeholder="Vendor Email"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-style1 input md tele">
+          <mat-form-field appearance="outline" class="telephone">
+            <label class="label zns-para"></label>
+            <mat-select>
+              <mat-option
+                *ngFor="let country of countryCode"
+                [value]="country.code"
+                >{{ country.country }}: {{ country.code }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="tele-input">
+            <input
+              matInput
+              formControlName="vendorPhone"
+              type="text"
+              placeholder="8023456789"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button
+        matRipple
+        class="btn zns-btn-primary-outline zns-btn-md zns-btn-full"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        matRipple
+        class="btn zns-btn-primary zns-btn-md zns-btn-full add"
+        (click)="onSubmit()"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</section>

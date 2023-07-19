@@ -1,82 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { Subscription } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
+import * as ProductCategoryActions from 'src/app/@core/stores/product-category/product-category.actions';
+import { ProductCategoryService } from 'src/app/@core/services/product-category.service';
+import { ProductCategory } from 'src/app/@core/interfaces/product-category.interface';
+import * as fromApp from 'src/app/@core/stores/app/app.reducer';
+import * as productCategorySelectors from 'src/app/@core/stores/product-category/product-category.selectors';
 
-export interface Category {
-  check: boolean;
-  category: string;
-  createdBy: string;
-  date: Date;
-  lastToUpdate: string;
-  updated: Date;
-  status: boolean;
-  action: boolean;
-}
-
-const dummyData: Category[] = [
-  {
-    check: false,
-    category: 'Casual Shoes',
-    createdBy: 'Kola',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: true,
-    action: true,
-  },
-  {
-    check: true,
-    category: 'Casual Shoes',
-    createdBy: 'Faruq',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: false,
-    action: false,
-  },
-  {
-    check: false,
-    category: 'Casual Shoes',
-    createdBy: 'Fatimah',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: true,
-    action: false,
-  },
-  {
-    check: true,
-    category: 'Casual Shoes',
-    createdBy: 'Naveedah',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: true,
-    action: false,
-  },
-  {
-    check: true,
-    category: 'Casual Shoes',
-    createdBy: 'Mareh',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: true,
-    action: true,
-  },
-  {
-    check: false,
-    category: 'Casual Shoes',
-    createdBy: 'Abuchi',
-    date: new Date(),
-    lastToUpdate: 'Fatima',
-    updated: new Date(),
-    status: false,
-    action: true,
-  },
-];
+// import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-products-category',
@@ -85,7 +18,11 @@ const dummyData: Category[] = [
 })
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private store: Store<fromApp.AppState>,
+    private pc: ProductCategoryService
+  ) {}
 
   // Table data
   displayedColumns: string[] = [
@@ -98,10 +35,14 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     'status',
     'action',
   ];
-  datasource: Category[] = [];
+
+  dataSource!: ProductCategory[];
 
   ngOnInit(): void {
-    this.datasource = dummyData;
+    // this.datasource = dummyData;
+
+    this.getProductsCategory();
+    this.listenToGetProductCategory();
   }
 
   openForm() {
@@ -122,13 +63,28 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
         if (data) {
           console.log(data.categoryName);
         } else {
-          console.log('No dat passed');
         }
       })
     );
   }
 
+  getProductsCategory() {
+    this.store.dispatch(ProductCategoryActions.getProductCategory());
+  }
+
+  listenToGetProductCategory() {
+    this.subscription.add(
+      this.store
+        .select(productCategorySelectors.fetchProductCategory)
+        .subscribe((data) => {
+          this.dataSource = data;
+        })
+    );
+  }
+
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

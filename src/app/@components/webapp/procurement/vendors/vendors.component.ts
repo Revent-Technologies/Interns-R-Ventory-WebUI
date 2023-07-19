@@ -1,107 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Category {
-  check: boolean;
-  name: string;
-  email: string;
-  phone: string;
-  orders: number;
-  ordersTotal: number;
-  createdDate: Date;
-  status: boolean;
-  action: boolean;
-}
-
-const dummyData: Category[] = [
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: true,
-    action: true,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: false,
-    action: true,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: false,
-    action: true,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: true,
-    action: false,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: true,
-    action: true,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: false,
-    action: false,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: true,
-    action: false,
-  },
-  {
-    check: true,
-    name: 'Faruq Olaseni',
-    email: 'Janet@gmail.com',
-    phone: '+2348028397558',
-    orders: 10,
-    ordersTotal: 2500000,
-    createdDate: new Date(),
-    status: false,
-    action: true,
-  },
-];
+import { MatDialog } from '@angular/material/dialog';
+import { CreateVendorsComponent } from './create-vendors/create-vendors.component';
+import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as fromApp from 'src/app/@core/stores/app/app.reducer';
+import * as vendorSelectors from 'src/app/@core/stores/vendors/vendors.selectors';
+import { Vendor } from 'src/app/@core/interfaces/vendor.interface';
+import * as VendorActions from 'src/app/@core/stores/vendors/vendors.actions';
 
 @Component({
   selector: 'app-vendors',
@@ -109,6 +14,12 @@ const dummyData: Category[] = [
   styleUrls: ['./vendors.component.scss'],
 })
 export class VendorsComponent implements OnInit {
+  subscription = new Subscription();
+  constructor(
+    public dialog: MatDialog,
+    private store: Store<fromApp.AppState>
+  ) {}
+
   // Table data
   displayedColumns: string[] = [
     'check',
@@ -121,11 +32,38 @@ export class VendorsComponent implements OnInit {
     'status',
     'action',
   ];
-  datasource: Category[] = [];
-
-  constructor() {}
+  dataSource: Vendor[] = [];
 
   ngOnInit(): void {
-    this.datasource = dummyData;
+    // Get Vendors
+    this.store.dispatch(VendorActions.getVendors());
+
+    // Listen to vendors
+    this.store.select(vendorSelectors.getVendors).subscribe((data) => {
+      this.dataSource = data;
+    });
+  }
+
+  openForm() {
+    const popup = this.dialog.open(CreateVendorsComponent, {
+      backdropClass: 'zns-dialog-backdrop',
+      autoFocus: true,
+      panelClass: 'zns-dialog',
+      disableClose: true,
+      data: {
+        name: 'Kolawole Omotosho',
+        type: 'React',
+      },
+    });
+
+    this.subscription.add(
+      popup.afterClosed().subscribe((data) => {
+        if (data) {
+          console.log(data.vendorName);
+        } else {
+          console.log('No data passed yet');
+        }
+      })
+    );
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WebappComponent } from './webapp.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from 'src/app/@core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         data: { breadcrumb: 'Dashboard' },
+        canActivate: [AuthGuard],
       },
       {
         path: 'sales',
@@ -29,8 +31,10 @@ const routes: Routes = [
       {
         path: 'procurement',
         data: { breadcrumb: 'Procurement' },
+        canActivate: [AuthGuard],
+
         loadChildren: () =>
-          import( 
+          import(
             'src/app/@components/webapp/procurement/procurement.module'
           ).then((m) => m.ProcurementModule),
       },
@@ -38,6 +42,7 @@ const routes: Routes = [
       {
         path: 'inventory',
         data: { breadcrumb: 'Inventory' },
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('src/app/@components/webapp/inventory/inventory.module').then(
             (m) => m.InventoryModule
