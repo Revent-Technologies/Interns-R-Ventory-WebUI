@@ -16,9 +16,11 @@ import { CustomersRoutingModule } from './customers.routing-module';
 import { AddNewCustomerComponent } from './add-new-customer/add-new-customer.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [CustomersComponent, AddNewCustomerComponent],
+  declarations: [CustomersComponent, AddNewCustomerComponent, CustomerDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -36,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
+    RouterModule
   ],
   exports: [CustomersComponent],
 })

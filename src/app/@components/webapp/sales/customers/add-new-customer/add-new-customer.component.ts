@@ -49,8 +49,8 @@ export class AddNewCustomerComponent implements OnInit {
   ) { }
 
   customerForm: FormGroup = this.fB.group({
-    vendorName: this.customerName,
-    vendorEmail: this.customerEmail,
+    customerName: this.customerName,
+    customerEmail: this.customerEmail,
     customerAddress: this.customerAddress,
     customerCity: this.customerCity,
     customerPhone: this.customerPhone,

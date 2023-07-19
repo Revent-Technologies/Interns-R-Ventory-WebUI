@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCustomerComponent } from './add-new-customer/add-new-customer.component';
+import { Router } from '@angular/router';
+
 
 export interface Category {
   check: boolean;
@@ -127,7 +129,12 @@ export class CustomersComponent implements OnInit {
   datasource: Category[] = [];
 
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) { }
+
+   navigateToOtherComponent() {
+    this.router.navigate(['/deets']);
+  }
+
 
   ngOnInit(): void {
     this.datasource = dummyData;
