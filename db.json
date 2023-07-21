@@ -10,7 +10,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "2",
       "check": true,
@@ -21,7 +20,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "3",
       "check": false,
@@ -32,7 +30,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "4",
       "check": true,
@@ -43,7 +40,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "5",
       "check": false,
@@ -53,6 +49,89 @@
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
+    },
+    {
+      "id": 6,
+      "check": false,
+      "categoriesName": "bn1(nnnnn)",
+      "createdBy": "",
+      "date": "2023-07-20T00:42:55.773Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T00:42:55.773Z",
+      "status": "",
+      "warehouseName": "bn1",
+      "warehouseCode": "nnnnn"
+    },
+    {
+      "id": 7,
+      "check": false,
+      "categoriesName": "jkj(nnnnn)",
+      "createdBy": "",
+      "date": "2023-07-20T00:46:19.838Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T00:46:19.838Z",
+      "status": "",
+      "warehouseName": "jkj",
+      "warehouseCode": "nnnnn"
+    },
+    {
+      "id": 8,
+      "check": false,
+      "categoriesName": "bb(n)",
+      "createdBy": "",
+      "date": "2023-07-20T00:47:06.812Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T00:47:06.812Z",
+      "status": "",
+      "warehouseName": "bb",
+      "warehouseCode": "n"
+    },
+    {
+      "id": 9,
+      "check": false,
+      "createdBy": "",
+      "date": "2023-07-20T01:42:23.187Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T01:42:23.187Z",
+      "status": "",
+      "warehouseName": "bh",
+      "warehouseCode": "bxh"
+    },
+    {
+      "id": 10,
+      "check": false,
+      "categoriesName": "njjkj(ji)",
+      "createdBy": "",
+      "date": "2023-07-20T01:45:59.302Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T01:45:59.302Z",
+      "status": "",
+      "warehouseName": "njjkj",
+      "warehouseCode": "ji"
+    },
+    {
+      "id": 11,
+      "check": false,
+      "categoriesName": "bn1(nnnnnj)",
+      "createdBy": "",
+      "date": "2023-07-20T01:49:13.954Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-20T01:49:13.954Z",
+      "status": "",
+      "warehouseName": "bn1",
+      "warehouseCode": "nnnnnj"
+    },
+    {
+      "id": 12,
+      "check": false,
+      "categoriesName": "Lag(la)",
+      "createdBy": "",
+      "date": "2023-07-21T09:10:00.365Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-21T09:10:00.365Z",
+      "status": "",
+      "warehouseName": "Lag",
+      "warehouseCode": "la"
     }
   ],
   "productCategory": [

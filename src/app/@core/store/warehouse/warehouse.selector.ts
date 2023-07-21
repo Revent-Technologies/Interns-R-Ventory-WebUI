@@ -1,16 +1,23 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { WarehouseState } from "./warehouse.reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export const selectWarehouseState = createFeatureSelector<WarehouseState>(
-    "warehouse"
+import * as fromApp from '../app/app.reducer';
+import * as fromWarehouse from '../warehouse/warehouse.reducer';
+
+const getWarehouseState =
+  createFeatureSelector<fromWarehouse.State>('warehouse');
+
+export const getWarehouse = createSelector(
+  getWarehouseState,
+  (state) => state.warehouses
+); 
+
+export const getWarehouseSuccess = createSelector(
+  getWarehouseState,
+  (state) => state.loading
 );
 
-export const selectWarehouses = createSelector(
-    selectWarehouseState,
-    (state) => state.warehouses
-);
 
-export const selectLoading = createSelector(
-    selectWarehouseState,
-    (state) => state.loading
-);
+// export const getNewWarehouse = createSelector(
+//     getWarehouseState,
+//     (state) => state.newWarehouse
+// )

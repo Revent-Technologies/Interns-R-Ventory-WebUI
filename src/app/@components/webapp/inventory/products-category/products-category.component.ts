@@ -5,7 +5,7 @@ import { ProductCategoryReducer } from 'src/app/@core/store/product-category/pro
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { Subscription } from 'rxjs';
-import * as fromProductCategory from 'src/app/@core/store/product-category/product-category.actions';
+import * as fromProductCategoryActions from 'src/app/@core/store/product-category/product-category.actions';
 import { ProductCategoryService } from 'src/app/@core/services/product-category.service';
 import { ProductCategory } from 'src/app/@core/interfaces/product-category.interface';
 
@@ -23,68 +23,7 @@ export interface Category {
   action: boolean;
 }
 
-// const dummyData: Category[] = [
-//   {
-//     check: false,
-//     category: 'Casual Shoes',
-//     createdBy: 'Kola',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: true,
-//     action: true,
-//   },
-//   {
-//     check: true,
-//     category: 'Casual Shoes',
-//     createdBy: 'Faruq',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: false,
-//     action: false,
-//   },
-//   {
-//     check: false,
-//     category: 'Casual Shoes',
-//     createdBy: 'Fatimah',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: true,
-//     action: false,
-//   },
-//   {
-//     check: true,
-//     category: 'Casual Shoes',
-//     createdBy: 'Naveedah',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: true,
-//     action: false,
-//   },
-//   {
-//     check: true,
-//     category: 'Casual Shoes',
-//     createdBy: 'Mareh',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: true,
-//     action: true,
-//   },
-//   {
-//     check: false,
-//     category: 'Casual Shoes',
-//     createdBy: 'Abuchi',
-//     date: new Date(),
-//     lastToUpdate: 'Fatima',
-//     updated: new Date(),
-//     status: false,
-//     action: true,
-//   },
-// ];
+
 
 @Component({
   selector: 'app-products-category',
@@ -114,8 +53,6 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   datasource!: ProductCategory[];
 
   ngOnInit(): void {
-    // this.datasource = dummyData;
-
     this.getProductsCategory();
     this.listenToGetProductCategory();
   }
@@ -145,7 +82,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   }
 
   getProductsCategory() {
-    this.store.dispatch(fromProductCategory.getProductCategory());
+    this.store.dispatch(fromProductCategoryActions.getProductCategory());
   }
 
   listenToGetProductCategory() {

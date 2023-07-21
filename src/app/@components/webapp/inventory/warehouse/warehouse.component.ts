@@ -4,6 +4,12 @@ import { NewWarehouseComponent } from './new-warehouse/new-warehouse.component';
 import { Subscription } from 'rxjs';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import { Warehouse } from 'src/app/@core/interfaces';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../../@core/store/app/app.reducer';
+import * as WarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
+import * as fromWarehouse from 'src/app/@core/store/warehouse/warehouse.selector';
+import { getWarehouse } from 'src/app/@core/store/warehouse/warehouse.selector';
+// import * as fromWarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
 
 @Component({
   selector: 'app-warehouse',
@@ -15,7 +21,8 @@ export class WarehouseComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    private store: Store<fromApp.AppState>
   ) {}
 
   displayedColumns: string[] = [
@@ -29,14 +36,14 @@ export class WarehouseComponent implements OnInit {
     'action',
   ];
 
-  dataSource: Warehouse[] = [];
+  dataSource!: Warehouse[];
 
   ngOnInit() {
-    this.subscription.add(
-      this.warehouseService.getWarehouses().subscribe((warehouses) => {
-        this.dataSource = warehouses;
-      })
-    );
+    this.store.dispatch(WarehouseActions.LoadWarehouse());
+
+    this.store.select(fromWarehouse.getWarehouse).subscribe((data) => {
+      this.dataSource = data;
+    });
   }
 
   openDialogNew() {

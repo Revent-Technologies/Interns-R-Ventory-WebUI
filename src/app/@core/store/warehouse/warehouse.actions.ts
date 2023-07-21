@@ -1,6 +1,21 @@
-import { createAction, props } from "@ngrx/store";
-import { Warehouse } from "../../interfaces/warehouse.interface";
+import { createAction, props } from '@ngrx/store';
+import { Warehouse } from '../../interfaces/warehouse.interface';
+import { NewWarehouse} from '../../interfaces/new-warehouse.interface';
 
-export const loadWarehouses = createAction('[Warehouse] Load Warehouse');
-export const WarehousesLoaded = createAction('[Warehouse] Warehouses Loaded', props<{ warehouses: Warehouse[] }>());
+export const LoadWarehouse = createAction('[Warehouse] Load Warehouse');
+
+export const LoadWarehouseSuccess = createAction(
+  '[Warehouse] Load Warehouse Success',
+  props<{ payload: Warehouse[] }>()
+);
+
+export const AddWarehouse = createAction(
+  '[Warehouse] Add warehouse',
+  props<{newWarehouse: NewWarehouse}>()
+);
+
+export const AddWarehouseSuccess = createAction(
+  '[Warehouse] Add warehouse success',
+  props<{warehouse:Warehouse}>()
+);
 

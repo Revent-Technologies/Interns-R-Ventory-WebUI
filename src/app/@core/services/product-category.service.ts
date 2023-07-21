@@ -11,6 +11,6 @@ export class ProductCategoryService {
   constructor(private http: HttpClient) {}
 
   fetchCategory() {
-    return this.http.get<Category[]>(`${environment.product_category}`);
+    return this.http.get<Category[]>(`${environment.productCategory}`);
   }
 }

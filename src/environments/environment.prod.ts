@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  product_category: 'http://localhost:3000/product_category',
+  productCategory: 'http://localhost:3000/product-category',
+  warehouse: 'http://localhost:3000/warehouse',
 };

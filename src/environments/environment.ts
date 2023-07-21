@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  product_category: 'http://localhost:3000/productCategory',
+  productCategory: 'http://localhost:3000/product-category',
+  warehouse: 'http://localhost:3000/warehouse',
 };
 
 /*
