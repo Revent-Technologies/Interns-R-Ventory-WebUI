@@ -7,7 +7,7 @@ export interface State {
   loading: boolean;
 }
 
-const initialState: State = {
+export const initialState: State = {
   warehouses: [],
   loading: false,
   newWarehouse: null

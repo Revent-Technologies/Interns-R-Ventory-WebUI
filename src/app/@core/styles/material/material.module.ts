@@ -51,7 +51,7 @@ const material = [
   MatIconModule,
   MatSidenavModule,
   MatDialogModule,
-  MatFormFieldModule
+  MatFormFieldModule,
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromWarehouseEffects from 'src/app/@core/store/warehouse/warehouse.effects';
 
+
 @NgModule({
   declarations: [WebappComponent, SidebarComponent, DashboardComponent],
   imports: [

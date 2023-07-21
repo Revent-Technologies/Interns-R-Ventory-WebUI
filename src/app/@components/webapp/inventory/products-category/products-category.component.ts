@@ -1,29 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ProductCategoryReducer } from 'src/app/@core/store/product-category/product-category.reducer';
-
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
 import { Subscription } from 'rxjs';
-import * as fromProductCategoryActions from 'src/app/@core/store/product-category/product-category.actions';
+import * as ProductCategoryActions from 'src/app/@core/stores/product-category/product-category.actions';
 import { ProductCategoryService } from 'src/app/@core/services/product-category.service';
 import { ProductCategory } from 'src/app/@core/interfaces/product-category.interface';
+import * as fromApp from 'src/app/@core/stores/app/app.reducer';
+import * as productCategorySelectors from 'src/app/@core/stores/product-category/product-category.selectors';
 
 // import { MatTableDataSource } from '@angular/material/table';
-
-export interface Category {
-  id: number;
-  check: boolean;
-  category: string;
-  createdBy: string;
-  date: string;
-  lastToUpdate: string;
-  updated: string;
-  status: boolean;
-  action: boolean;
-}
-
-
 
 @Component({
   selector: 'app-products-category',
@@ -34,7 +20,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   constructor(
     public dialog: MatDialog,
-    private store: Store<{ productCategory: { category: ProductCategory[] } }>,
+    private store: Store<fromApp.AppState>,
     private pc: ProductCategoryService
   ) {}
 
@@ -50,7 +36,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     'action',
   ];
 
-  datasource!: ProductCategory[];
+  dataSource!: ProductCategory[];
 
   ngOnInit(): void {
     this.getProductsCategory();
@@ -75,22 +61,22 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
         if (data) {
           console.log(data.categoryName);
         } else {
-          console.log('No data passed');
         }
       })
     );
   }
 
   getProductsCategory() {
-    this.store.dispatch(fromProductCategoryActions.getProductCategory());
+    this.store.dispatch(ProductCategoryActions.getProductCategory());
   }
 
   listenToGetProductCategory() {
     this.subscription.add(
-      this.store.select('productCategory').subscribe((data) => {
-        console.log(data);
-        this.datasource = data.category;
-      })
+      this.store
+        .select(productCategorySelectors.fetchProductCategory)
+        .subscribe((data) => {
+          this.dataSource = data;
+        })
     );
   }
 

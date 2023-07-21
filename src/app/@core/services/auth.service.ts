@@ -1,26 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  loggedIn = true;
+export class AuthService implements OnInit, OnDestroy {
+  ngOnInit(): void {}
 
-  isAuthenticated() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.loggedIn);
-      }, 2000);
-    });
+  constructor() {}
 
-    return promise;
-  }
-
-  login() {
-    this.loggedIn = true;
-  }
-
-  logout() {
-    this.loggedIn = false;
-  }
+  ngOnDestroy(): void {}
 }

@@ -15,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromProductCategoryEffects from 'src/app/@core/store/product-category/product-category.effects';
+import * as fromProductCategoryEffects from 'src/app/@core/stores/product-category/product-category.effects';
 
 @NgModule({
   declarations: [ProductsCategoryComponent, AddNewCategoryComponent],

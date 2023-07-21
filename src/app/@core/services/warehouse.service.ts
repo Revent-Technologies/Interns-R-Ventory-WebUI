@@ -1,15 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Warehouse } from '../interfaces/warehouse.interface';
-import { environment } from 'src/environments/environment';
+import { Observable, tap } from 'rxjs';
+import { Warehouse } from '../interfaces';
+import { Store } from '@ngrx/store';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class WarehouseService {
-  // constructor(private http: HttpClient) {}
+  private service= 'http://localhost:3000/warehouse';
 
-  // fetchWarehouse() {
-  //   return this.http.get<Warehouse[]>(`${environment.warehouse}`);
-  // }
+  constructor(private http: HttpClient, private store: Store<WarehouseState>) {}
+
+  getWarehouses(): Observable<Warehouse[]> {
+    return this.http.get<Warehouse[]>(this.service).pipe(
+        tap((warehouses) => {
+            this.store.dispatch(WarehouseActions.WarehousesLoaded({ warehouses}));
+        })
+    );
+  }
 }

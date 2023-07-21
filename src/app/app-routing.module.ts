@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TempGuardService } from './temp-guard.service';
 
 const routes: Routes = [
   {
@@ -19,7 +18,6 @@ const routes: Routes = [
 
   {
     path: 'app',
-    canActivate: [TempGuardService],
     loadChildren: () =>
       import('src/app/@components/webapp/webapp.module').then(
         (m) => m.WebappModule
