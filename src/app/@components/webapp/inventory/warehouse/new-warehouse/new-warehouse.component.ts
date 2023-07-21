@@ -18,7 +18,6 @@ import { NewWarehouse } from 'src/app/@core/interfaces';
 })
 export class NewWarehouseComponent implements OnInit {
   warehouseForm!: FormGroup;
-  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,9 +62,10 @@ export class NewWarehouseComponent implements OnInit {
       };
 
       this.store.dispatch(WarehouseActions.AddWarehouse({ newWarehouse }));
+
+      
       this.warehouseForm.reset();
     }
-    // this.warehouseForm.reset();
   }
   closeDialog() {
     this.dialogRef.close();

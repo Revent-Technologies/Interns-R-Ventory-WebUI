@@ -8,8 +8,8 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../@core/store/app/app.reducer';
 import * as WarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
 import * as fromWarehouse from 'src/app/@core/store/warehouse/warehouse.selector';
-import { getWarehouse } from 'src/app/@core/store/warehouse/warehouse.selector';
-// import * as fromWarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
+
+
 
 @Component({
   selector: 'app-warehouse',
@@ -19,6 +19,8 @@ import { getWarehouse } from 'src/app/@core/store/warehouse/warehouse.selector';
 export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
 
+
+  
   constructor(
     public dialog: MatDialog,
     private warehouseService: WarehouseService,
@@ -45,6 +47,8 @@ export class WarehouseComponent implements OnInit {
       this.dataSource = data;
     });
   }
+
+  
 
   openDialogNew() {
     this.dialog.open(NewWarehouseComponent, {
