@@ -37,11 +37,11 @@
         </div>
       </div>
 
-      <div class="col-12">
-        <div class="input-style1 input md tele">
+      <div class="w-100 d-flex">
+        <div class="input-style1 input-md col-4">
           <mat-form-field appearance="outline" class="telephone">
             <label class="label zns-para"></label>
-            <mat-select>
+            <mat-select placeholder="+1">
               <mat-option
                 *ngFor="let country of countryCode"
                 [value]="country.code"
@@ -49,6 +49,8 @@
               >
             </mat-select>
           </mat-form-field>
+        </div>
+        <div class="input-style1 input-md col-8">
           <mat-form-field appearance="outline" class="tele-input">
             <input
               matInput

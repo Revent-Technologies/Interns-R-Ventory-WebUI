@@ -4,6 +4,11 @@
       "id": "1",
       "username": "test@test.com",
       "password": "12345678"
+    },
+    {
+      "id": "2",
+      "username": "kola@test.com",
+      "password": "kolawole"
     }
   ],
   "warehouse": [
