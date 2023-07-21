@@ -9,15 +9,15 @@ import { Store } from '@ngrx/store';
   providedIn: 'root',
 })
 export class WarehouseService {
-  private service= 'http://localhost:3000/warehouse';
+  // private service= 'http://localhost:3000/warehouse';
 
-  constructor(private http: HttpClient, private store: Store<WarehouseState>) {}
+  // constructor(private http: HttpClient, private store: Store<WarehouseState>) {}
 
-  getWarehouses(): Observable<Warehouse[]> {
-    return this.http.get<Warehouse[]>(this.service).pipe(
-        tap((warehouses) => {
-            this.store.dispatch(WarehouseActions.WarehousesLoaded({ warehouses}));
-        })
-    );
-  }
+  // getWarehouses(): Observable<Warehouse[]> {
+  //   return this.http.get<Warehouse[]>(this.service).pipe(
+  //       tap((warehouses) => {
+  //           this.store.dispatch(WarehouseActions.WarehousesLoaded({ warehouses}));
+  //       })
+  //   );
+  // }
 }

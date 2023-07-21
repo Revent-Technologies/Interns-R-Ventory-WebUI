@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { ProductCategoryEffects } from './@core/store/product-category/product-category.effects';
 // import { warehouseReducer } from './@core/store/warehouse/warehouse.reducer';
 
-import * as fromApp from './@core/store/app/app.reducer'
+import * as fromApp from './@core/stores/app/app.reducer'
 
 
 @NgModule({

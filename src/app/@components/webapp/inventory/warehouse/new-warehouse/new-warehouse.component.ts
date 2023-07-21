@@ -7,8 +7,8 @@ import {
 } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
-import * as fromApp from '../../../../../@core/store/app/app.reducer';
-import * as WarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
+import * as fromApp from '../../../../../@core/stores/app/app.reducer';
+import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
 import { NewWarehouse } from 'src/app/@core/interfaces';
 
 @Component({

@@ -5,9 +5,9 @@ import { Subscription } from 'rxjs';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import { Warehouse } from 'src/app/@core/interfaces';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../../@core/store/app/app.reducer';
-import * as WarehouseActions from 'src/app/@core/store/warehouse/warehouse.actions';
-import * as fromWarehouse from 'src/app/@core/store/warehouse/warehouse.selector';
+import * as fromApp from '../../../../@core/stores/app/app.reducer';
+import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
+import * as fromWarehouse from 'src/app/@core/stores/warehouse/warehouse.selector';
 
 
 

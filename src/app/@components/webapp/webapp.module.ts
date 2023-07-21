@@ -7,7 +7,7 @@ import { HeaderModule } from './header/header.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromWarehouseEffects from 'src/app/@core/store/warehouse/warehouse.effects';
+import * as fromWarehouseEffects from 'src/app/@core/stores/warehouse/warehouse.effects';
 
 
 @NgModule({
