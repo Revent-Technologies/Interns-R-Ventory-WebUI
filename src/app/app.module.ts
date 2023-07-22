@@ -10,7 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { appReducer } from './@core/stores/app/app.reducer';
+// import { ProductCategoryReducer } from './@core/store/product-category/product-category.reducer';
+// import { ProductCategoryEffects } from './@core/store/product-category/product-category.effects';
+// import { warehouseReducer } from './@core/store/warehouse/warehouse.reducer';
+
+import * as fromApp from './@core/stores/app/app.reducer'
 
 
 @NgModule({
@@ -18,7 +22,7 @@ import { appReducer } from './@core/stores/app/app.reducer';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

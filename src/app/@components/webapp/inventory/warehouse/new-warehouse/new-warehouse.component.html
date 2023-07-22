@@ -19,7 +19,7 @@
             <input
               matInput
               placeholder="WareHouse Name"
-              formControlName="warehousename"
+              formControlName="warehouseName"
             />
           </mat-form-field>
         </div>
@@ -39,7 +39,6 @@
     </div>
 
     <div class="actions">
-      
       <button
         matRipple
         class="btn zns-btn-primary-outline zns-btn-md zns-btn-full mb-4"
@@ -52,6 +51,7 @@
         matRipple
         class="btn zns-btn-primary zns-btn-md zns-btn-full add"
         (click)="addWarehouse()"
+        [disabled]="this.warehouseForm.invalid"
       >
         Add
       </button>

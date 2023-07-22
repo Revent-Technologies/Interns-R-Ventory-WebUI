@@ -2,13 +2,16 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from './auth.actions';
 
 export interface State {
+  [x: string]: any;
   permitted: boolean;
   loginMessage: string;
+
 }
 
 export const initialState: State = {
   permitted: false,
   loginMessage: '',
+ 
 };
 
 const authReducerInternal = createReducer(
