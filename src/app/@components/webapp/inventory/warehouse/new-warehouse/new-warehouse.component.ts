@@ -61,10 +61,11 @@ export class NewWarehouseComponent implements OnInit {
         ...this.warehouseForm.value,
       };
 
+
       this.store.dispatch(WarehouseActions.AddWarehouse({ newWarehouse }));
 
       
-      this.warehouseForm.reset();
+      this.dialogRef.close();
     }
   }
   closeDialog() {
@@ -77,7 +78,7 @@ export class NewWarehouseComponent implements OnInit {
       const warehouseCode = this.warehouseForm.value;
 
       console.log(warehouseName, warehouseCode);
-      this.dialogRef.close();
+      this.addWarehouse();
     }
   }
 }
