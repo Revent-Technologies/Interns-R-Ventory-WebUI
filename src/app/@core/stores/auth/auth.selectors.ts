@@ -11,3 +11,13 @@ export const getAuthMessage = createSelector(
   getAuthState,
   (state: fromAuth.State) => state.loginMessage
 );
+
+export const getForgotPasswordSuccess = createSelector(
+  getAuthState,
+  (state: fromAuth.State) => state.forgotPasswordSuccess
+);
+
+export const getForgotPasswordFailure = createSelector(
+  getAuthState,
+  (state: fromAuth.State) => state.forgotPasswordFailure
+);

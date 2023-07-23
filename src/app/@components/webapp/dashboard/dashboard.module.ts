@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { HeaderModule } from '../header/header.module';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/@core/guards/auth.guard';
 
 @NgModule({
   declarations: [DashboardComponent],

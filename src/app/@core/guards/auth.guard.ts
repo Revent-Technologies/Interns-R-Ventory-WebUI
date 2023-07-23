@@ -45,7 +45,7 @@ export class AuthGuard implements CanActivate, OnDestroy {
         if (authState.permitted === true) {
           return true;
         } else {
-          return this.router.createUrlTree(['auth'], {
+          return this.router.createUrlTree(['/login'], {
             queryParams: { returnUrl: url },
           });
         }

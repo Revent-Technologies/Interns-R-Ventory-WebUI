@@ -92,8 +92,4 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
-
-  // onForgotPassword(){
-  //   this.router.navigate(['/forgot-password'])
-  // }
 }
