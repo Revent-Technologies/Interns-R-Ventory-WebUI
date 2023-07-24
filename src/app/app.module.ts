@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { warehouseReducer } from './@core/store/warehouse/warehouse.reducer';
 
 import * as fromApp from './@core/stores/app/app.reducer'
+import { AuthModule } from './@auth/auth.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import * as fromApp from './@core/stores/app/app.reducer'
     }),
     BrowserAnimationsModule,
     AppRoutingModule,
+    AuthModule,
     RouterModule
   ],
   providers: [],
