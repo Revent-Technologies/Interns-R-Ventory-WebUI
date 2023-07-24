@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.store.select(authSelectors.getAuthPermission).subscribe((data) => {
         if (data === true) {
           console.log('logging in...');
+          this.loginForm.reset();
 
           this.router.navigate(['app']);
         } else {

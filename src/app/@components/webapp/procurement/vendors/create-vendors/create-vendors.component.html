@@ -37,20 +37,23 @@
         </div>
       </div>
 
-      <div class="w-100 d-flex">
-        <div class="input-style1 input-md col-4">
+      <div class="w-100 d-flex flex-row justify-content-right px-3">
+        <div class="input-style1 input-md leftPhone pr-1">
           <mat-form-field appearance="outline" class="telephone">
-            <mat-select placeholder="+234">
+            <mat-select #selectedValue placeholder="+1">
+              <mat-select-trigger>
+                {{ selectedValue?.value || "+1" }}
+              </mat-select-trigger>
               <mat-option
                 *ngFor="let country of countryCode"
                 [value]="country.code"
-                >{{ country.country }}: {{ country.code }}</mat-option
+                >{{ country.code }}: {{ country.country }}</mat-option
               >
             </mat-select>
           </mat-form-field>
         </div>
 
-        <div class="input-style1 input-md col-8">
+        <div class="input-style1 input-md phone">
           <mat-form-field appearance="outline" class="tele-input">
             <input
               matInput

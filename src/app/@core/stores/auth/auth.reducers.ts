@@ -25,6 +25,7 @@ const authReducerInternal = createReducer(
       loginMessage: '',
     };
   }),
+
   on(AuthActions.loginFailed, (state, action) => {
     return {
       ...state,

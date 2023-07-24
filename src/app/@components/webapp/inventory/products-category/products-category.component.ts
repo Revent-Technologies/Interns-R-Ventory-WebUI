@@ -18,6 +18,8 @@ import * as productCategorySelectors from 'src/app/@core/stores/product-category
 })
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  currentLength!: number;
+
   constructor(
     public dialog: MatDialog,
     private store: Store<fromApp.AppState>,
@@ -59,8 +61,28 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     this.subscription.add(
       popUp.afterClosed().subscribe((data) => {
         if (data) {
-          console.log(data.categoryName);
+          let sending: ProductCategory = {
+            id: this.currentLength + 1,
+            check: false,
+            category: data.categoryName,
+            createdBy: 'Kola',
+            date: new Date().getTime().toString(),
+            lastToUpdate: 'Kola',
+            updated: new Date().getTime().toString(),
+            status: true,
+            action: false,
+          };
+
+          this.store.dispatch(
+            ProductCategoryActions.startAddNewProductCategory({
+              payload: sending,
+            })
+          );
+
+          this.getProductsCategory();
+          console.log(data);
         } else {
+          console.log('Canceled');
         }
       })
     );
@@ -76,6 +98,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
         .select(productCategorySelectors.fetchProductCategory)
         .subscribe((data) => {
           this.dataSource = data;
+          this.currentLength = data.length;
         })
     );
   }
