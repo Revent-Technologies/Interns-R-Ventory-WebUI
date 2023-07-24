@@ -29,6 +29,7 @@ export class CreateVendorsComponent implements OnInit {
     city: '',
     street: '',
     countryName: '',
+    state: ''
   });
 
   ngOnInit(): void {}

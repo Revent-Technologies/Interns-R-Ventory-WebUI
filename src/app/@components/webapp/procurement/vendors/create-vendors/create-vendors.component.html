@@ -106,7 +106,11 @@
         <div class="w-100 d-flex">
           <div class="input-style1 input-md col-6">
             <mat-form-field appearance="outline" class="telephone">
-              <mat-select placeholder="Country" #countrySelect>
+              <mat-select
+                #countrySelect
+                placeholder="Country"
+                formControlName="countryName"
+              >
                 <mat-option
                   *ngFor="let country of countries"
                   [value]="country"
@@ -123,6 +127,7 @@
                 <mat-option
                   *ngFor="let state of states[countrySelect.value]"
                   [value]=""
+                  formControlName="state"
                   >{{ state }}</mat-option
                 >
               </mat-select>
