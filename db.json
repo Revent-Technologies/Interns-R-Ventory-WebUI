@@ -22,7 +22,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "2",
       "check": true,
@@ -33,7 +32,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "3",
       "check": false,
@@ -44,7 +42,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "4",
       "check": true,
@@ -55,7 +52,6 @@
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
     },
-
     {
       "id": "5",
       "check": false,
@@ -65,6 +61,42 @@
       "updatedBy": "Faruq Olaseni",
       "updateDate": "2023-07-13T10:45:00.000Z",
       "status": ""
+    },
+    {
+      "id": 12,
+      "check": false,
+      "categoriesName": "Lag(la)",
+      "createdBy": "",
+      "date": "2023-07-21T09:10:00.365Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-21T09:10:00.365Z",
+      "status": "",
+      "warehouseName": "Lag",
+      "warehouseCode": "la"
+    },
+    {
+      "id": 13,
+      "check": false,
+      "categoriesName": "Abuja(Abj)",
+      "createdBy": "",
+      "date": "2023-07-21T09:29:09.850Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-21T09:29:09.850Z",
+      "status": "",
+      "warehouseName": "Abuja",
+      "warehouseCode": "Abj"
+    },
+    {
+      "id": 14,
+      "check": false,
+      "categoriesName": "Ekiti(eki)",
+      "createdBy": "",
+      "date": "2023-07-21T09:56:54.668Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-21T09:56:54.668Z",
+      "status": "",
+      "warehouseName": "Ekiti",
+      "warehouseCode": "eki"
     }
   ],
   "productCategory": [

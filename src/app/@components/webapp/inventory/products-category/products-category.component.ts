@@ -39,8 +39,6 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   dataSource!: ProductCategory[];
 
   ngOnInit(): void {
-    // this.datasource = dummyData;
-
     this.getProductsCategory();
     this.listenToGetProductCategory();
   }

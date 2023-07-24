@@ -7,10 +7,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../@core/stores/auth/auth.effects';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [LoginComponent, ForgotPasswordComponent],
   imports: [
+    CommonModule,
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
