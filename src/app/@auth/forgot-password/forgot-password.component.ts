@@ -14,7 +14,7 @@ import * as fromApp from 'src/app/@core/stores/app/app.reducer';
 })
 export class ForgotPasswordComponent implements OnInit {
   emailForm!: FormGroup;
-  private subscription: Subscription = new Subscription();
+  subscription = new Subscription();
   errorMessage = '';
 
   constructor(
@@ -30,7 +30,6 @@ export class ForgotPasswordComponent implements OnInit {
         .select(authSelectors.getForgotPasswordFailure)
         .subscribe((message) => {
           this.errorMessage = message;
-         
         })
     );
   }
