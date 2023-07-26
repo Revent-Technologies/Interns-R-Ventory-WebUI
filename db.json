@@ -246,7 +246,7 @@
   ],
   "vendors": [
     {
-      "id": "1",
+      "id": 1,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -258,7 +258,7 @@
       "action": true
     },
     {
-      "id": "2",
+      "id": 2,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -270,7 +270,7 @@
       "action": true
     },
     {
-      "id": "3",
+      "id": 3,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -282,7 +282,7 @@
       "action": true
     },
     {
-      "id": "4",
+      "id": 4,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -294,7 +294,7 @@
       "action": false
     },
     {
-      "id": "5",
+      "id": 5,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -306,7 +306,7 @@
       "action": true
     },
     {
-      "id": "6",
+      "id": 6,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -318,7 +318,7 @@
       "action": false
     },
     {
-      "id": "7",
+      "id": 7,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
@@ -330,7 +330,7 @@
       "action": false
     },
     {
-      "id": "8",
+      "id": 8,
       "check": true,
       "name": "Faruq Olaseni",
       "email": "Janet@gmail.com",
