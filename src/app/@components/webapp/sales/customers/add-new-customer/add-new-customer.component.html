@@ -28,23 +28,34 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="input-style1 input md tele">
-                    <mat-form-field appearance="outline" class="telephone">
-                        <label class="label zns-para"></label>
-                        <mat-select>
-                            <mat-option *ngFor="let country of countryCode" [value]="country.code">{{ country.country
-                                }}: {{
-                                country.code }}</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="tele-input">
-                        <input matInput formControlName="customerPhone" type="text" placeholder="8023456789" />
-                    </mat-form-field>
+            <div class="w-100 d-flex flex-row justify-content-right px-3">
+                <div class="input-style1 input-md leftPhone pr-1">
+                  <mat-form-field appearance="outline" class="telephone">
+                    <mat-select #selectedValue placeholder="+1">
+                      <mat-select-trigger>
+                        {{ selectedValue?.value || "+1" }}
+                      </mat-select-trigger>
+                      <mat-option
+                        *ngFor="let country of countryCode"
+                        [value]="country.code"
+                        >{{ country.code }}: {{ country.country }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
                 </div>
+        
+                <div class="input-style1 input-md phone">
+                  <mat-form-field appearance="outline" class="tele-input">
+                    <input
+                      matInput
+                      formControlName="vendorPhone"
+                      type="text"
+                      placeholder="8023456789"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
             </div>
-        </div>
-
         <mat-slide-toggle class="reverse-toggle" (click)="toggle()">Add Address</mat-slide-toggle>
         <div class="row post" *ngIf="isExpanded">
             <div class="col-12">
@@ -85,7 +96,7 @@
 
 
 
-        <div class="actions">
+        <div class="actions post">
             <button matRipple class="btn zns-btn-primary-outline zns-btn-md zns-btn-full " (click)="closeDialog()">
                 Cancel
             </button>
