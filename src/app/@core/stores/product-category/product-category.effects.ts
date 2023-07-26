@@ -15,7 +15,7 @@ export class ProductCategoryEffects {
       ofType(ProductCategoryActions.getProductCategory),
       mergeMap(() => {
         return this.http
-          .get<ProductCategory[]>(`${environment.product_category}`)
+          .get<ProductCategory[]>(`${environment.productCategory}`)
           .pipe(
             map((data) => {
               console.log(data);
@@ -33,7 +33,7 @@ export class ProductCategoryEffects {
       ofType(ProductCategoryActions.startAddNewProductCategory),
       mergeMap((action) => {
         return this.http
-          .post(`${environment.product_category}`, action.payload)
+          .post(`${environment.productCategory}`, action.payload)
           .pipe(
             map((data) => {
               console.log(data);
