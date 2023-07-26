@@ -8,6 +8,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../@core/stores/auth/auth.effects';
 import { CommonModule } from '@angular/common';
+import { NotificationModule } from '../@core/shared/notification/notification.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [LoginComponent, ForgotPasswordComponent],
@@ -18,6 +20,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    NotificationModule,
     EffectsModule.forFeature([AuthEffects]),
   ],
 })
