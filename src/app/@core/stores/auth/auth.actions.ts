@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Notification } from '../../interfaces';
 
 export const loginStart = createAction(
   '[Auth] Login start',
@@ -29,3 +30,10 @@ export const forgotPasswordFailure = createAction(
     errorMessage: string;
   }>()
 );
+
+// export const showNotification = createAction(
+//   '[Auth] Show Notification',
+//   props<{
+//     notifiaction: Notification;
+//   }>()
+// );
