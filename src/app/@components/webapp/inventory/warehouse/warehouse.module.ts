@@ -17,32 +17,28 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { MatSortModule } from '@angular/material/sort';
 import { EffectsModule } from '@ngrx/effects';
+import { NotificationModule } from "../../../../@core/shared/notification/notification.module";
 
 @NgModule({
-  declarations: [WarehouseComponent, NewWarehouseComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HeaderModule,
-    MatToolbarModule,
-    MatDialogModule,
-    WarehouseRoutingModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatCheckboxModule,
-    MatTableModule,
-    MatIconModule,
-    MatSortModule,
-    // EffectsModule.forFeature([
-    //   fromWarehouseEffects.WarehouseEffects,
-    // ]),
-   
-   
-
-  ],
-  exports: [WarehouseComponent],
+    declarations: [WarehouseComponent, NewWarehouseComponent],
+    exports: [WarehouseComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HeaderModule,
+        MatToolbarModule,
+        MatDialogModule,
+        WarehouseRoutingModule,
+        MatFormFieldModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatCheckboxModule,
+        MatTableModule,
+        MatIconModule,
+        MatSortModule,
+        NotificationModule
+    ]
 })
 export class WarehouseModule {}

@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1.5rem auto 1.5rem;
     gap: 2rem;
+  
 
     .notification-icon-container {
       display: -webkit-box;
@@ -14,9 +15,10 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-    }
+      
 
-   
+      
+    }
 
     .notification-body-container {
       display: -webkit-box;
@@ -33,9 +35,11 @@
       -ms-flex-pack: center;
       justify-content: center;
       gap: 0rem;
+   
 
       p {
         color: inherit;
+       
 
         &:nth-child(2) {
           line-height: 1.5rem;

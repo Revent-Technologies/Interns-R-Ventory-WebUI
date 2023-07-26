@@ -63,40 +63,76 @@
       "status": ""
     },
     {
-      "id": 12,
+      "id": 6,
       "check": false,
-      "categoriesName": "Lag(la)",
+      "categoriesName": "abuja(abj)",
       "createdBy": "",
-      "date": "2023-07-21T09:10:00.365Z",
+      "date": "2023-07-26T14:31:10.678Z",
       "updatedBy": "",
-      "updateDate": "2023-07-21T09:10:00.365Z",
+      "updateDate": "2023-07-26T14:31:10.678Z",
       "status": "",
-      "warehouseName": "Lag",
-      "warehouseCode": "la"
+      "warehouseName": "abuja",
+      "warehouseCode": "abj"
     },
     {
-      "id": 13,
+      "id": 7,
       "check": false,
-      "categoriesName": "Abuja(Abj)",
+      "categoriesName": "delta(del)",
       "createdBy": "",
-      "date": "2023-07-21T09:29:09.850Z",
+      "date": "2023-07-26T15:01:56.086Z",
       "updatedBy": "",
-      "updateDate": "2023-07-21T09:29:09.850Z",
+      "updateDate": "2023-07-26T15:01:56.086Z",
       "status": "",
-      "warehouseName": "Abuja",
-      "warehouseCode": "Abj"
+      "warehouseName": "delta",
+      "warehouseCode": "del"
     },
     {
-      "id": 14,
+      "id": 8,
       "check": false,
-      "categoriesName": "Ekiti(eki)",
+      "categoriesName": "huah(jaufi)",
       "createdBy": "",
-      "date": "2023-07-21T09:56:54.668Z",
+      "date": "2023-07-26T15:04:24.871Z",
       "updatedBy": "",
-      "updateDate": "2023-07-21T09:56:54.668Z",
+      "updateDate": "2023-07-26T15:04:24.871Z",
       "status": "",
-      "warehouseName": "Ekiti",
-      "warehouseCode": "eki"
+      "warehouseName": "huah",
+      "warehouseCode": "jaufi"
+    },
+    {
+      "id": 9,
+      "check": false,
+      "categoriesName": "lasu(ls)",
+      "createdBy": "",
+      "date": "2023-07-26T15:11:08.363Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-26T15:11:08.363Z",
+      "status": "",
+      "warehouseName": "lasu",
+      "warehouseCode": "ls"
+    },
+    {
+      "id": 10,
+      "check": false,
+      "categoriesName": "ondo(ondo)",
+      "createdBy": "",
+      "date": "2023-07-26T15:14:31.530Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-26T15:14:31.530Z",
+      "status": "",
+      "warehouseName": "ondo",
+      "warehouseCode": "ondo"
+    },
+    {
+      "id": 11,
+      "check": false,
+      "categoriesName": "hisu(mzn)",
+      "createdBy": "",
+      "date": "2023-07-26T15:15:51.688Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-26T15:15:51.688Z",
+      "status": "",
+      "warehouseName": "hisu",
+      "warehouseCode": "mzn"
     }
   ],
   "productCategory": [
@@ -240,6 +276,17 @@
       "date": "1690210431106",
       "lastToUpdate": "Kola",
       "updated": "1690210431106",
+      "status": true,
+      "action": false
+    },
+    {
+      "id": 14,
+      "check": false,
+      "category": "good",
+      "createdBy": "Kola",
+      "date": "1690376274621",
+      "lastToUpdate": "Kola",
+      "updated": "1690376274621",
       "status": true,
       "action": false
     }

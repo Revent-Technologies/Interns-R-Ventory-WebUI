@@ -36,7 +36,12 @@ const warehouseReducerInternal = createReducer(
     ...state,
     warehouses: [...state.warehouses, action.warehouse],
     loading: false,
-  }))
+  })),
+
+  
+ 
+ 
+
 );
 
 export function warehouseReducer(state: State | undefined, action: Action) {
