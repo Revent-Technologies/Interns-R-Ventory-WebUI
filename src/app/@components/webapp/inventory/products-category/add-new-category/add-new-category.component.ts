@@ -5,7 +5,7 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -20,8 +20,8 @@ import { countryCodes } from 'src/app/@core/constants';
   styleUrls: ['./add-new-category.component.scss'],
 })
 export class AddNewCategoryComponent {
-  catergoryName = '';
-  c = countryCodes
+  categoryName = '';
+  c = countryCodes;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -30,11 +30,14 @@ export class AddNewCategoryComponent {
   ) {}
 
   categoryForm = this.fb.group({
-    categoryName: this.catergoryName,
+    categoryName: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
   });
 
   onSubmit() {
-    console.log(this.categoryForm);
+    console.log(this.categoryForm.value, 'value from inner');
     this.ref.close(this.categoryForm.value);
   }
 

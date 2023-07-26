@@ -37,29 +37,105 @@
         </div>
       </div>
 
-      <div class="col-12">
-        <div class="input-style1 input md tele">
+      <div class="w-100 d-flex flex-row justify-content-right px-3">
+        <div class="input-style1 input-md leftPhone pr-1">
           <mat-form-field appearance="outline" class="telephone">
-            <label class="label zns-para"></label>
-            <mat-select>
+            <mat-select #selectedValue placeholder="+1">
+              <mat-select-trigger>
+                {{ selectedValue?.value || "+1" }}
+              </mat-select-trigger>
               <mat-option
                 *ngFor="let country of countryCode"
                 [value]="country.code"
-                >{{ country.country }}: {{ country.code }}</mat-option
+                >{{ country.code }}: {{ country.country }}</mat-option
               >
             </mat-select>
           </mat-form-field>
+        </div>
+
+        <div class="input-style1 input-md phone">
           <mat-form-field appearance="outline" class="tele-input">
             <input
               matInput
               formControlName="vendorPhone"
               type="text"
-              placeholder="8023456789"
+              placeholder="+2348023456789"
             />
           </mat-form-field>
         </div>
       </div>
     </div>
+
+    <div class="col-12 my-3">
+      <span class="address zns-para-1">Add Address</span>
+      <mat-slide-toggle #address></mat-slide-toggle>
+    </div>
+
+    <ng-container *ngIf="address.checked">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-style1 input md">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                formControlName="vendorEmail"
+                type="text"
+                placeholder="Building No., Street Address"
+                formControlName="street"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="input-style1 input md">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                formControlName="vendorEmail"
+                type="text"
+                placeholder="City"
+                formControlName="city"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="w-100 d-flex">
+          <div class="input-style1 input-md col-6">
+            <mat-form-field appearance="outline" class="telephone">
+              <mat-select
+                #countrySelect
+                placeholder="Country"
+                formControlName="countryName"
+              >
+                <mat-option
+                  *ngFor="let country of countries"
+                  [value]="country"
+                  >{{ country }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="input-style1 input-md col-6">
+            <mat-form-field appearance="outline" class="telephone">
+              <label class="label zns-para"></label>
+              <mat-select placeholder="State">
+                <mat-option
+                  *ngFor="let state of states[countrySelect.value]"
+                  [value]=""
+                  formControlName="state"
+                  >{{ state }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </ng-container>
 
     <div class="actions">
       <button
