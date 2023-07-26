@@ -11,7 +11,7 @@
     <p class="zns-para-1">WareHouse Information</p>
   </div>
 
-  <form [formGroup]="warehouseForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="warehouseForm">
     <div class="row">
       <div class="col-12">
         <div class="input-style1 input-md">
@@ -55,6 +55,11 @@
       >
         Add
       </button>
+
+
+       <div *ngIf="showNotification" class="notification">
+      <app-notification></app-notification>
+    </div>
     </div>
   </form>
 </section>
