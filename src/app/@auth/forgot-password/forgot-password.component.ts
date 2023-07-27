@@ -7,7 +7,10 @@ import * as AuthActions from 'src/app/@core/stores/auth/auth.actions';
 import { Subscription, take } from 'rxjs';
 import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
 import * as fromApp from 'src/app/@core/stores/app/app.reducer';
-import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { Notification } from 'src/app/@core/interfaces';
 import { NotificationComponent } from 'src/app/@core/shared/notification/notification.component';
 @Component({
@@ -38,7 +41,6 @@ export class ForgotPasswordComponent implements OnInit {
           this.errorMessage = message;
         })
     );
-    
   }
 
   buildForm() {
@@ -55,15 +57,6 @@ export class ForgotPasswordComponent implements OnInit {
       this.store.dispatch(AuthActions.forgotPassword({ payload: { email } }));
     }
 
-    // this.subscription.add(
-    //   this.store
-    //     .select(authSelectors.getForgotPasswordSuccess)
-    //     .subscribe((data) => {
-    //       if (data) {
-    //         this.router.navigate(['../login']);
-    //       }
-    //     })
-    // );
     this.subscription.add(
       this.store
         .select(authSelectors.getForgotPasswordSuccess)
@@ -79,17 +72,32 @@ export class ForgotPasswordComponent implements OnInit {
           }
         })
     );
+
+    this.subscription.add(
+      this.store
+        .select(authSelectors.getForgotPasswordFailure)
+        .subscribe((errorMessage) => {
+          if (errorMessage) {
+            const notificationData: Notification = {
+              state: 'warning',
+              message: 'Invalid Email!',
+            };
+            this.openNotification(notificationData);
+            this.showNotification = true;
+          }
+        })
+    );
   }
 
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {
       data,
-      // duration: 5000,
+      duration: 5000,
       verticalPosition: this.verticalPosition,
-      // panelClass:
-      //   data.state === 'success'
-      //     ? 'notification-icon-container'
-      //     : 'notification-icon-container',
+      panelClass:
+        data.state === 'success'
+          ? 'zns-notification-success'
+          : 'zns-notification-error',
     });
   }
 
@@ -97,26 +105,3 @@ export class ForgotPasswordComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 }
-
-
-
-//With ngrx
- // this.subscription.add(
-    //   this.store
-    //     .select(authSelectors.getForgotPasswordSuccess)
-    //     .subscribe((data) => {
-    //       if (data) {
-
-    //         this.notificationData={
-    //           state:'success',
-    //           title: '',
-    //           message: 'Welcome to R-Ventory',
-    //         };
-    //         this.store.dispatch(
-    //           NotificationActions.showSuccessNotification(this.notificationData)
-    //         );
-    //         this.router.navigate(['../login']);
-    //       }
-    //     })
-    // );
-    // }

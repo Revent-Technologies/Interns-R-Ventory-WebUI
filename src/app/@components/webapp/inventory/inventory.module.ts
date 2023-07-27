@@ -21,7 +21,7 @@ import { NotificationModule } from 'src/app/@core/shared/notification/notificati
     WarehouseModule,
     RouterModule,
     HttpClientModule,
-    NotificationModule
+   
   ],
 })
 export class InventoryModule {}

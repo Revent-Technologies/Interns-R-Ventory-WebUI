@@ -13,9 +13,13 @@ import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.acti
 import { NewWarehouse } from 'src/app/@core/interfaces';
 import * as warehouseSelectors from 'src/app/@core/stores/warehouse/warehouse.selector';
 import { getNewWarehouse } from 'src/app/@core/stores/warehouse/warehouse.selector';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { NotificationComponent } from 'src/app/@core/shared/notification/notification.component';
 import { Notification } from 'src/app/@core/interfaces';
+import { NotificationService } from 'src/app/@core/services/notification.service';
 
 @Component({
   selector: 'app-new-warehouse',
@@ -26,6 +30,7 @@ export class NewWarehouseComponent implements OnInit {
   warehouseForm!: FormGroup;
   subcription = new Subscription();
   showNotification = false;
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +38,7 @@ export class NewWarehouseComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editdata: any,
     public dialogRef: MatDialogRef<NewWarehouseComponent>,
     private store: Store<fromApp.AppState>,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar // private notification: NotificationService
   ) {}
 
   ngOnInit() {
@@ -78,30 +83,30 @@ export class NewWarehouseComponent implements OnInit {
       };
 
       this.store.dispatch(WarehouseActions.AddWarehouse({ newWarehouse }));
-      this.store
-        .select(warehouseSelectors.getNewWarehouse)
-        .pipe(filter((newWarehouse) => !!newWarehouse))
-        .subscribe((newWarehouse) => {
-          if (newWarehouse) {
-            const notificationData: Notification = {
-              state: 'success',
-              message: 'Successfully Added',
-            };
-            this.openNotification(notificationData);
-            this.showNotification = true;
-            // this.dialogRef.close();
-          }
-        });
-      this.dialogRef.close();
-    }
-    // this.subcription.add(
 
-    // );
+      this.dialogRef.close();
+
+      const notificationData: Notification = {
+        state: 'success',
+        message: 'Successfully Added',
+      };
+      this.openNotification(notificationData);
+      // const notificationData: Notification = {
+      //   state: 'success',
+      //   message: 'Warehouse added successfully!',
+      // };
+      // this.notificationService.openSnackBar(
+      //   notificationData,
+      //   'zns-notification-success'
+      // );
+    }
   }
 
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {
       data,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['zns-notification-success'],
     });
   }
 

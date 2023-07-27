@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../@core/stores/app/app.reducer';
 import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
 import * as fromWarehouse from 'src/app/@core/stores/warehouse/warehouse.selector';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -25,7 +25,8 @@ export class WarehouseComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private warehouseService: WarehouseService,
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+    private snackBar:MatSnackBar
   ) {}
 
   displayedColumns: string[] = [
