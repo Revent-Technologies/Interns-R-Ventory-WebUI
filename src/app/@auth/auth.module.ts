@@ -10,7 +10,6 @@ import { AuthEffects } from '../@core/stores/auth/auth.effects';
 import { CommonModule } from '@angular/common';
 import { NotificationModule } from '../@core/shared/notification/notification.module';
 
-
 @NgModule({
   declarations: [LoginComponent, ForgotPasswordComponent],
   imports: [

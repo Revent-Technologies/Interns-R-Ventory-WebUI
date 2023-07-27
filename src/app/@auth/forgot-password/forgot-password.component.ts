@@ -47,6 +47,10 @@ export class ForgotPasswordComponent implements OnInit {
     this.emailForm = this.fb.group({
       email: [null, [Validators.required]],
     });
+
+    this.emailForm.get('email')?.valueChanges.subscribe(() => {
+      this.errorMessage = '';
+    });
   }
 
   onLogin() {
@@ -64,7 +68,7 @@ export class ForgotPasswordComponent implements OnInit {
           if (data) {
             const notificationData: Notification = {
               state: 'success',
-              message: 'Welcome to R-Ventory!',
+              message: 'Successfully Logged in!',
             };
             this.openNotification(notificationData);
             this.showNotification = true;
@@ -88,6 +92,8 @@ export class ForgotPasswordComponent implements OnInit {
         })
     );
   }
+
+  
 
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {
