@@ -10,6 +10,8 @@ import { AuthEffects } from '../@core/stores/auth/auth.effects';
 import { CommonModule } from '@angular/common';
 import { NotificationModule } from '../@core/shared/notification/notification.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [LoginComponent, ForgotPasswordComponent],
@@ -20,6 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatButtonModule,
     NotificationModule,
     EffectsModule.forFeature([AuthEffects]),
   ],

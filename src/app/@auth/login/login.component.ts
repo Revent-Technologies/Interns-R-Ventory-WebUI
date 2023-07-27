@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   // loginUser!: User | undefined;
   loginError = '';
+  hide = true;
 
   constructor(
     private fb: FormBuilder,

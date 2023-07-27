@@ -16,12 +16,18 @@
                   placeholder="Username"
                   formControlName="username"
                 />
+
+                <mat-error>{{ showDescriptionErrors("username") }}</mat-error>
+
+                <mat-error *ngIf="loginError.includes('Username')">{{
+                  loginError
+                }}</mat-error>
               </mat-form-field>
             </div>
           </div>
 
           <!-- Username Error -->
-          <div class="errors">
+          <!-- <div class="errors">
             <div class="zns-para">
               {{ showDescriptionErrors("username") }}
             </div>
@@ -29,7 +35,7 @@
             <div class="zns-para" *ngIf="loginError.includes('Username')">
               {{ loginError }}
             </div>
-          </div>
+          </div> -->
 
           <div class="col-12">
             <div
@@ -39,17 +45,35 @@
               <mat-form-field appearance="outline">
                 <input
                   matInput
-                  type="password"
+                  [type]="hide ? 'password' : 'text'"
                   placeholder="Password"
                   formControlName="password"
                 />
+                <button
+                  class="hide"
+                  type="button"
+                  mat-icon-button
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+
+                <mat-error>{{ showDescriptionErrors("password") }}</mat-error>
+
+                <mat-error *ngIf="loginError.includes('Password')">{{
+                  loginError
+                }}</mat-error>
               </mat-form-field>
             </div>
           </div>
 
           <!-- Password Error -->
 
-          <div class="errors">
+          <!-- <div class="errors">
             <div class="zns-para">
               {{ showDescriptionErrors("password") }}
             </div>
@@ -57,7 +81,7 @@
             <div class="zns-para" *ngIf="loginError.includes('Password')">
               {{ loginError }}
             </div>
-          </div>
+          </div> -->
         </div>
 
         <button
