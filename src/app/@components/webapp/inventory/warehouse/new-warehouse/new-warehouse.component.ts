@@ -105,6 +105,7 @@ export class NewWarehouseComponent implements OnInit {
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {
       data,
+      duration: 3000,
       verticalPosition: this.verticalPosition,
       panelClass: ['zns-notification-success'],
     });

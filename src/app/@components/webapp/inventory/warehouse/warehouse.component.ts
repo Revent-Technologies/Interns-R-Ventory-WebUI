@@ -9,6 +9,7 @@ import * as fromApp from '../../../../@core/stores/app/app.reducer';
 import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
 import * as fromWarehouse from 'src/app/@core/stores/warehouse/warehouse.selector';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -19,14 +20,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
+  dataSource!: MatTableDataSource<Warehouse>;
 
-
-  
   constructor(
     public dialog: MatDialog,
     private warehouseService: WarehouseService,
     private store: Store<fromApp.AppState>,
-    private snackBar:MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   displayedColumns: string[] = [
@@ -40,17 +40,20 @@ export class WarehouseComponent implements OnInit {
     'action',
   ];
 
-  dataSource!: Warehouse[];
+  // dataSource!: Warehouse[];
 
   ngOnInit() {
     this.store.dispatch(WarehouseActions.LoadWarehouse());
 
     this.store.select(fromWarehouse.getWarehouse).subscribe((data) => {
-      this.dataSource = data;
+      // this.dataSource = data;
+      this.dataSource = new MatTableDataSource(data);
     });
   }
 
-  
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   openDialogNew() {
     this.dialog.open(NewWarehouseComponent, {

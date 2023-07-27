@@ -42,7 +42,7 @@
                 </svg>
               </span>
 
-              <input matInput placeholder="search" />
+              <input matInput placeholder="search" #searchInput (keyup)="applyFilter(searchInput.value)" />
             </mat-form-field>
           </div>
         </div>

@@ -13,12 +13,7 @@ import { User } from 'src/app/@core/interfaces/auth.interface';
 import * as fromApp from 'src/app/@core/stores/app/app.reducer';
 import * as AuthActions from 'src/app/@core/stores/auth/auth.actions';
 import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
-import { Notification } from 'src/app/@core/interfaces';
-import { NotificationComponent } from 'src/app/@core/shared/notification/notification.component';
-import {
-  MatSnackBar,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,16 +23,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
 
   loginForm!: FormGroup;
-
+  // loginUser!: User | undefined;
   loginError = '';
-  showNotification = false;
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private store: Store<fromApp.AppState>,
-    private snackBar: MatSnackBar
+    private store: Store<fromApp.AppState>
   ) {}
 
   ngOnInit() {
@@ -104,24 +96,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.store.select(authSelectors.getAuthPermission).subscribe((data) => {
         if (data) {
           console.log('logging in...');
-
-          const notificationData: Notification = {
-            state: 'success',
-            message: 'Welcome to R-Ventory!',
-          };
-          this.openNotification(notificationData);
-          this.showNotification = true;
-
-          this.router.navigate(['app']);
           this.loginForm.reset();
+          this.router.navigate(['app']);
         } else {
-          const notificationData: Notification = {
-            state: 'warning',
-            message: 'Invalid Email!',
-          };
-          this.openNotification(notificationData);
-          this.showNotification = true;
-
           console.log('cant login');
         }
       })
@@ -151,18 +128,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     }
     return '';
-  }
-
-  openNotification(data: Notification) {
-    this.snackBar.openFromComponent(NotificationComponent, {
-      data,
-      duration: 5000,
-      verticalPosition: this.verticalPosition,
-      panelClass:
-        data.state === 'success'
-          ? 'zns-notification-success'
-          : 'zns-notification-error',
-    });
   }
 
   ngOnDestroy(): void {

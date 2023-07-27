@@ -253,6 +253,18 @@
       "status": "",
       "warehouseName": "Abuja",
       "warehouseCode": "Abj"
+    },
+    {
+      "id": 25,
+      "check": false,
+      "categoriesName": "Alausa(Als)",
+      "createdBy": "",
+      "date": "2023-07-27T20:51:42.339Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-27T20:51:42.339Z",
+      "status": "",
+      "warehouseName": "Alausa",
+      "warehouseCode": "Als"
     }
   ],
   "productCategory": [
