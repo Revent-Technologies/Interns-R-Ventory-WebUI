@@ -61,7 +61,7 @@ export class AddNewCustomerComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.customerForm.value);
+    // console.log(this.customerForm.value);
     this.Ref.close(this.customerForm.value);
   }
 

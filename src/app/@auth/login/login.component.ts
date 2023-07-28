@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmitForm() {
     if (this.loginForm.valid) {
-      console.log('Valid form submitted');
+      // console.log('Valid form submitted');
       const valueSubmitted: User = this.loginForm.value;
 
       // Authenticate
@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           // Navigate to dashboard
           this.loginForm.reset();
         } else {
-          console.log('cant login');
+          // console.log('cant login');
         }
       })
     );

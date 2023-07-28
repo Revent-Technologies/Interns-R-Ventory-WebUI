@@ -80,9 +80,9 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
           );
 
           this.getProductsCategory();
-          console.log(data);
+          // console.log(data);
         } else {
-          console.log('Canceled');
+          // console.log('Canceled');
         }
       })
     );
