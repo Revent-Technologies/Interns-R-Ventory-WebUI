@@ -1,4 +1,8 @@
 <section id="new-warehouse">
+  <div *ngIf="showNotification" class="custom-success-notification">
+    <app-notification></app-notification>
+  </div>
+
   <div class="new-warehouse-header">
     <h6 class="zns-heading-6 fw-700 mb-0">Add New WareHouse</h6>
 
@@ -55,11 +59,6 @@
       >
         Add
       </button>
-
-
-       <div *ngIf="showNotification" class="notification">
-      <app-notification></app-notification>
-    </div>
     </div>
   </form>
 </section>
