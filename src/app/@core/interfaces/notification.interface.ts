@@ -1,5 +1,5 @@
 export interface Notification {
-  state?: 'success' | 'warning';
+  state?: 'success' | 'warning' | 'error';
   title?: string;
   message: string;
 }

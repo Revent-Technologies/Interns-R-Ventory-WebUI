@@ -63,10 +63,21 @@
     color: #0051ca;
   }
 
-  .errors {
-    margin-top: -1.7rem;
-    margin-left: 1rem;
-    color: #c90b0b;
+  // .errors {
+  //   margin-top: -1.7rem;
+  //   margin-left: 1rem;
+  //   color: #c90b0b;
+  // }
+
+  .hide {
+    width: 1rem !important;
+    height: 1rem;
+    top: 60% !important;
+    font-size: 0.8rem;
+
+    @include zns-media-query-max(zns-xsm) {
+      top: 70%;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCategoryComponent } from './add-new-category/add-new-category.component';
@@ -8,8 +8,9 @@ import { ProductCategoryService } from 'src/app/@core/services/product-category.
 import { ProductCategory } from 'src/app/@core/interfaces/product-category.interface';
 import * as fromApp from 'src/app/@core/stores/app/app.reducer';
 import * as productCategorySelectors from 'src/app/@core/stores/product-category/product-category.selectors';
-
-// import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-products-category',
@@ -18,6 +19,8 @@ import * as productCategorySelectors from 'src/app/@core/stores/product-category
 })
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   currentLength!: number;
 
   constructor(
@@ -38,7 +41,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     'action',
   ];
 
-  dataSource!: ProductCategory[];
+  dataSource: MatTableDataSource<ProductCategory> | null = null;
 
   ngOnInit(): void {
     this.getProductsCategory();
@@ -80,9 +83,9 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
           );
 
           this.getProductsCategory();
-          console.log(data);
+          // console.log(data);
         } else {
-          console.log('Canceled');
+          // console.log('Canceled');
         }
       })
     );
@@ -96,11 +99,19 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.store
         .select(productCategorySelectors.fetchProductCategory)
-        .subscribe((data) => {
-          this.dataSource = data;
+        .subscribe((data: ProductCategory[]) => {
+          this.dataSource = new MatTableDataSource(data);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
           this.currentLength = data.length;
         })
     );
+  }
+
+  filterSearch(data: Event) {
+    const value = (data.target as HTMLInputElement).value;
+
+    this.dataSource!.filter = value;
   }
 
   ngOnDestroy(): void {

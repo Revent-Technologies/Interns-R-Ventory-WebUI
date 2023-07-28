@@ -140,7 +140,7 @@ export class CustomersComponent implements OnInit {
     this.datasource = dummyData;
   }
   openDialog() {
-    console.log('clicked')
+    // console.log('clicked')
     const dialogRef1 = this.dialog.open(AddNewCustomerComponent, {
       panelClass: 'zns-dialog',
       backdropClass: 'zns-dialog-backdrop',
