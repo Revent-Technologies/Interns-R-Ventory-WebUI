@@ -68,9 +68,9 @@ export class VendorsComponent implements OnInit, OnDestroy {
     this.subscription.add(
       popup.afterClosed().subscribe((data) => {
         if (data) {
-          // console.log(data.vendorName);
+          console.log(data.vendorName);
         } else {
-          // console.log('No data passed yet');
+          console.log('No data passed yet');
         }
       })
     );
