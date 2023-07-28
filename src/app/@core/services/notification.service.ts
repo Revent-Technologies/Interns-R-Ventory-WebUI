@@ -4,9 +4,9 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { Subscription } from 'rxjs';
-import { Notification } from '../interfaces/notification.interface';
 import { NotificationComponent } from '../shared/notification/notification.component';
+import { Subscription } from 'rxjs';
+import { Notification } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class NotificationService implements OnDestroy {
   ) {
     const snackBarRef = this.snackBar.openFromComponent(NotificationComponent, {
       data: message,
-      duration: doNotDismiss === false ? 15000 : undefined,
+      duration: doNotDismiss === false ? 3000 : undefined,
       panelClass: [notificationClass],
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

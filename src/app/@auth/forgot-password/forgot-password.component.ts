@@ -55,7 +55,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   onLogin() {
     if (this.emailForm.valid) {
-      console.log('Valid Form');
+      // console.log('Valid Form');
       const email = this.emailForm.get('email')?.value;
 
       this.store.dispatch(AuthActions.forgotPassword({ payload: { email } }));

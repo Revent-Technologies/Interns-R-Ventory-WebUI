@@ -47,7 +47,7 @@ export class NewWarehouseComponent implements OnInit {
       warehouseName: ['', Validators.required],
       warehouseCode: ['', Validators.required],
     });
-    console.log(this.editdata);
+    // console.log(this.editdata);
 
     // if (this.editdata) {
     //   this.warehouseForm.controls['warehouseName'].setValue(

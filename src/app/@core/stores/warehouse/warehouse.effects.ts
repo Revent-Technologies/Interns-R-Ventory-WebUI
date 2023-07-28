@@ -18,7 +18,7 @@ export class WarehouseEffects {
       mergeMap((action) => {
         return this.http.get<Warehouse[]>(`${environment.warehouse}`).pipe(
           map((data) => {
-            console.log(data);
+            // console.log(data);
             return WarehouseActions.LoadWarehouseSuccess({ payload: data });
           })
         );

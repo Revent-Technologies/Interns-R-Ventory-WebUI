@@ -1,4 +1,4 @@
-import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,7 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { Notification } from 'src/app/@core/interfaces';
 import { User } from 'src/app/@core/interfaces/auth.interface';
+import { NotificationService } from 'src/app/@core/services/notification.service';
 import * as fromApp from 'src/app/@core/stores/app/app.reducer';
 import * as AuthActions from 'src/app/@core/stores/auth/auth.actions';
 import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
@@ -25,11 +27,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   // loginUser!: User | undefined;
   loginError = '';
+  hide = true;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -80,7 +85,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmitForm() {
     if (this.loginForm.valid) {
-      console.log('Valid form submitted');
+      // console.log('Valid form submitted');
       const valueSubmitted: User = this.loginForm.value;
 
       // Authenticate
@@ -94,12 +99,24 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.subscription.add(
       this.store.select(authSelectors.getAuthPermission).subscribe((data) => {
-        if (data) {
-          console.log('logging in...');
-          this.loginForm.reset();
+        if (data === true) {
           this.router.navigate(['app']);
+
+          // Display snackbar
+          const notificationData: Notification = {
+            state: 'success',
+            title: 'Login Success',
+            message: `Welcome ${this.loginForm.controls['username'].value}!`,
+          };
+          this.notificationService.openSnackBar(
+            notificationData,
+            'zns-notification-success'
+          );
+
+          // Navigate to dashboard
+          this.loginForm.reset();
         } else {
-          console.log('cant login');
+          // console.log('cant login');
         }
       })
     );
