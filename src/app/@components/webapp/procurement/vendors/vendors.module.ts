@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { EffectsModule } from '@ngrx/effects';
 import { VendorsEffects } from 'src/app/@core/stores/vendors/vendors.effects';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [VendorsComponent, CreateVendorsComponent],
@@ -39,6 +40,8 @@ import { VendorsEffects } from 'src/app/@core/stores/vendors/vendors.effects';
     MatDialogModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatPaginatorModule,
+    MatSortModule,
 
     EffectsModule.forFeature([VendorsEffects]),
   ],

@@ -70,10 +70,14 @@
   // }
 
   .hide {
-    width: 2rem !important;
+    width: 1rem !important;
     height: 1rem;
-    top: 30%;
+    top: 60% !important;
     font-size: 0.8rem;
+
+    @include zns-media-query-max(zns-xsm) {
+      top: 70%;
+    }
   }
 }
 

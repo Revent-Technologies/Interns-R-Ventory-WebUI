@@ -16,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromProductCategoryEffects from 'src/app/@core/stores/product-category/product-category.effects';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [ProductsCategoryComponent, AddNewCategoryComponent],
@@ -34,6 +35,7 @@ import * as fromProductCategoryEffects from 'src/app/@core/stores/product-catego
     MatInputModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatSortModule,
     EffectsModule.forFeature([
       fromProductCategoryEffects.ProductCategoryEffects,
     ]),

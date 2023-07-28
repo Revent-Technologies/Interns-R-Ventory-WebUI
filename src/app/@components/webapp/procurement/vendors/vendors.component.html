@@ -103,7 +103,7 @@
                   />
                 </svg>
               </span>
-              <input matInput placeholder="Search" />
+              <input matInput placeholder="Search"  (keyup)="filterSearch($event)"/>
             </mat-form-field></div
         ></span>
         <span>
@@ -120,9 +120,14 @@
     </div>
 
     <!-- Table -->
-    <ng-container>
+    <ng-container *ngIf="dataSource !== null">
       <div class="table-responsive product-table">
-        <table mat-table [dataSource]="dataSource" class="mat-elevattion-z8">
+        <table
+          matSort
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevattion-z8"
+        >
           <ng-container matColumnDef="check">
             <th mat-header-cell *matHeaderCellDef>
               <mat-checkbox color="primary" checked> </mat-checkbox>
@@ -137,7 +142,7 @@
           </ng-container>
 
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Vendor Name
               <span
                 ><img
@@ -155,7 +160,7 @@
           </ng-container>
 
           <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Email
               <span
                 ><img
@@ -173,7 +178,7 @@
           </ng-container>
 
           <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Phone
               <span
                 ><img
@@ -191,7 +196,7 @@
           </ng-container>
 
           <ng-container matColumnDef="orders">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Orders
               <span
                 ><img
@@ -209,7 +214,7 @@
           </ng-container>
 
           <ng-container matColumnDef="ordersTotal">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Orders Total
               <span
                 ><img
@@ -227,7 +232,7 @@
           </ng-container>
 
           <ng-container matColumnDef="createdDate">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Vendor Since
               <span
                 ><img
@@ -247,7 +252,7 @@
           </ng-container>
 
           <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Status
               <span
                 ><img
@@ -268,7 +273,7 @@
           </ng-container>
 
           <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Action
               <span
                 ><img
@@ -296,8 +301,10 @@
         </table>
       </div>
       <mat-paginator
-        [length]="5"
-        [pageSizeOptions]="[5, 10, 15, 20]"
+        [pageSize]="5"
+        [length]="dataLength"
+        [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"
+        showFirstLastButtons
       ></mat-paginator>
     </ng-container>
   </div>

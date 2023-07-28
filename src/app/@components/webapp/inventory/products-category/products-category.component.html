@@ -80,7 +80,11 @@
                   />
                 </svg>
               </span>
-              <input matInput placeholder="Search" />
+              <input
+                matInput
+                (keyup)="filterSearch($event)"
+                placeholder="Search"
+              />
             </mat-form-field></div
         ></span>
         <span>
@@ -97,13 +101,14 @@
     </div>
 
     <!-- Table -->
-    <ng-container>
+    <ng-container *ngIf="dataSource !== null">
       <div class="table-responsive product-table">
-        <table mat-table [dataSource]="dataSource">
+        <table matSort mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="check">
             <th mat-header-cell *matHeaderCellDef>
               <mat-checkbox color="primary" checked> </mat-checkbox>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <mat-checkbox
                 color="primary"
@@ -113,7 +118,7 @@
           </ng-container>
 
           <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Categories
               <span
                 ><img
@@ -122,6 +127,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span class="d-flex justify-content-start align-items-center">
                 <span> {{ row.category }}</span>
@@ -130,7 +136,7 @@
           </ng-container>
 
           <ng-container matColumnDef="createdBy">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Created By
               <span
                 ><img
@@ -139,6 +145,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span class="d-flex justify-content-start align-items-center">
                 <span> {{ row.createdBy }}</span>
@@ -147,7 +154,7 @@
           </ng-container>
 
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Create Date
               <span
                 ><img
@@ -156,6 +163,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span class="d-flex justify-content-start align-items-center">
                 <span> {{ row.date }}</span>
@@ -164,7 +172,7 @@
           </ng-container>
 
           <ng-container matColumnDef="lastToUpdate">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Last Update By
               <span
                 ><img
@@ -173,6 +181,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span class="d-flex justify-content-start align-items-center">
                 <span> {{ row.lastToUpdate }}</span>
@@ -181,7 +190,7 @@
           </ng-container>
 
           <ng-container matColumnDef="updated">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Last Date Updated
               <span
                 ><img
@@ -190,6 +199,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span class="d-flex justify-content-start align-items-center">
                 <span> {{ row.updated }}</span>
@@ -198,7 +208,7 @@
           </ng-container>
 
           <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Status
               <span
                 ><img
@@ -207,6 +217,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <span
                 [ngClass]="row.status ? 'status-active' : 'status-inactive'"
@@ -218,7 +229,7 @@
           </ng-container>
 
           <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-sort-header mat-header-cell *matHeaderCellDef>
               Action
               <span
                 ><img
@@ -227,6 +238,7 @@
                   alt="sort-icon"
               /></span>
             </th>
+
             <td mat-cell *matCellDef="let row">
               <div class="table-action-col">
                 <span><img src="assets/icons/edit.svg" alt="edit-icon" /></span>
@@ -245,8 +257,10 @@
         </table>
       </div>
       <mat-paginator
-        [length]="5"
-        [pageSizeOptions]="[5, 10, 15, 20]"
+        [pageSize]="5"
+        [length]="currentLength"
+        [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"
+        showFirstLastButtons
       ></mat-paginator>
     </ng-container>
   </div>
