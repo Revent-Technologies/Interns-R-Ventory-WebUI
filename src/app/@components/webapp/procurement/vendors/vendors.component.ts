@@ -70,6 +70,7 @@ export class VendorsComponent implements OnInit, OnDestroy {
         if (data) {
           console.log(data.vendorName);
         } else {
+          // No data passed
           console.log('No data passed yet');
         }
       })
