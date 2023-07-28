@@ -6,7 +6,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Subscription, filter } from 'rxjs';
+import { Subscription, filter, take } from 'rxjs';
 import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import * as fromApp from '../../../../../@core/stores/app/app.reducer';
 import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
@@ -19,6 +19,7 @@ import {
 } from '@angular/material/snack-bar';
 import { NotificationComponent } from 'src/app/@core/shared/notification/notification.component';
 import { Notification } from 'src/app/@core/interfaces';
+import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
 import { NotificationService } from 'src/app/@core/services/notification.service';
 
 @Component({
@@ -69,6 +70,21 @@ export class NewWarehouseComponent implements OnInit {
     if (this.warehouseForm.valid) {
       const warehouseName = this.warehouseForm.value.warehouseName;
       const warehouseCode = this.warehouseForm.value.warehouseCode;
+
+      //Retriving the field for the user info
+
+      // let loggedInUserEmail: string | null = null;
+      // this.subcription.add(
+      //   this.store
+      //     .select(authSelectors.getLoggedInUserEmail)
+      //     .subscribe((data) => {
+      //       console.log('User Email:', data);
+      //       if (typeof data === 'string'){
+      //         loggedInUserEmail = data;
+      //       }
+          
+      //     })
+      // );
 
       const newWarehouse: NewWarehouse = {
         id: '',

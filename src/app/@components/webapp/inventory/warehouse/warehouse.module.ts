@@ -38,7 +38,8 @@ import { NotificationModule } from "../../../../@core/shared/notification/notifi
         MatTableModule,
         MatIconModule,
         MatSortModule,
-        NotificationModule
+        NotificationModule,
+        
     ]
 })
 export class WarehouseModule {}

@@ -1,5 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from './auth.actions';
+import { User } from '../../interfaces/auth.interface';
 
 export interface State {
   [x: string]: any;
@@ -7,6 +8,7 @@ export interface State {
   loginMessage: string;
   forgotPasswordSuccess: boolean;
   forgotPasswordFailure: string;
+  // user:User | null;
 }
 
 export const initialState: State = {
@@ -14,6 +16,7 @@ export const initialState: State = {
   loginMessage: '',
   forgotPasswordSuccess: false,
   forgotPasswordFailure: '',
+  // user: null,
 };
 
 const authReducerInternal = createReducer(
@@ -23,6 +26,7 @@ const authReducerInternal = createReducer(
       ...state,
       permitted: true,
       loginMessage: '',
+      // user:user
     };
   }),
 
