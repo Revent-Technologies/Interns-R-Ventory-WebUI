@@ -17,17 +17,25 @@
                   formControlName="username"
                 />
               </mat-form-field>
+            </div>
+          </div>
 
-              <div>
-                <small>
-                  {{ showDescriptionErrors("username") }}
-                </small>
-              </div>
+          <!-- Username Error -->
+          <div class="errors">
+            <div class="zns-para">
+              {{ showDescriptionErrors("username") }}
+            </div>
+
+            <div class="zns-para" *ngIf="loginError.includes('Username')">
+              {{ loginError }}
             </div>
           </div>
 
           <div class="col-12">
-            <div class="input-style1 input-md">
+            <div
+              class="input-style1 input-md"
+              [ngClass]="loginError.includes('Password') ? 'border-error' : ''"
+            >
               <mat-form-field appearance="outline">
                 <input
                   matInput
@@ -36,15 +44,18 @@
                   formControlName="password"
                 />
               </mat-form-field>
-              <div>
-                {{ loginError }}
-              </div>
+            </div>
+          </div>
 
-              <div>
-                <small>
-                  {{ showDescriptionErrors("password") }}
-                </small>
-              </div>
+          <!-- Password Error -->
+
+          <div class="errors">
+            <div class="zns-para">
+              {{ showDescriptionErrors("password") }}
+            </div>
+
+            <div class="zns-para" *ngIf="loginError.includes('Password')">
+              {{ loginError }}
             </div>
           </div>
         </div>
@@ -56,7 +67,7 @@
         >
           Login
         </button>
-      </form> 
+      </form>
     </div>
 
     <a routerLink="../forgot-password">Forgot Password? </a>

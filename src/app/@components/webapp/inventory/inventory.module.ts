@@ -8,6 +8,7 @@ import { WarehouseModule } from './warehouse/warehouse.module';
 import { InventoryComponent } from './inventory.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NotificationModule } from 'src/app/@core/shared/notification/notification.module';
 
 @NgModule({
   declarations: [InventoryComponent],
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsCategoryModule,
     WarehouseModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
 })
 export class InventoryModule {}

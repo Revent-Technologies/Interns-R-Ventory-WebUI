@@ -9,3 +9,11 @@ export const getProductCategorySuccessful = createAction(
   '[Product Category]  Get Product Successful',
   props<{ category: ProductCategory[] }>()
 );
+
+export const startAddNewProductCategory = createAction(
+  '[Product Category] Add New Product Category',
+  props<{ payload: ProductCategory }>()
+);
+
+export const addNewProductCategorySuccess = createAction('[Product Category] Add Product Category Success')
+export const addNewProductCategoryFailure = createAction('[Product Category] Add Product Category Failure')

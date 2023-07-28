@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  user: 'http://localhost:3000/user',
-  product_category: 'http://localhost:3000/productCategory',
+  productCategory: 'http://localhost:3000/productCategory',
+  user: 'http://localhost:3000/users',
   vendors: 'http://localhost:3000/vendors',
   warehouse: 'http://localhost:3000/warehouse',
 };

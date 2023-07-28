@@ -38,6 +38,8 @@ import { VendorsEffects } from 'src/app/@core/stores/vendors/vendors.effects';
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
+    MatSlideToggleModule,
+
     EffectsModule.forFeature([VendorsEffects]),
   ],
   exports: [VendorsComponent],
