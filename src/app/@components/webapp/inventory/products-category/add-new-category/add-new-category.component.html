@@ -9,7 +9,7 @@
   <div class="paragraph">
     <p class="zns-para-1">Category Information</p>
   </div>
-  <form [formGroup]="categoryForm">
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-12">
         <div class="input-style1 input md">
@@ -37,8 +37,8 @@
       <button
         type="submit"
         matRipple
+        [disabled]="categoryForm.invalid"
         class="btn zns-btn-primary zns-btn-md zns-btn-full add"
-        (click)="onSubmit()"
       >
         Add
       </button>

@@ -1,5 +1,10 @@
 import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -34,14 +39,42 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.store.select(authSelectors.getAuthMessage).subscribe((message) => {
         this.loginError = message;
+
+        if (this.loginError.includes('Username')) {
+          //   this.loginForm.get("username")?.valid = true;
+          this.loginForm.controls['username'].setErrors({
+            usernameError: true,
+          });
+        } else if (this.loginError.includes('Password')) {
+          this.loginForm.controls['password'].setErrors({
+            passwordError: true,
+          });
+        } else {
+          this.loginForm.controls['username'].setErrors(null);
+          this.loginForm.controls['password'].setErrors(null);
+        }
       })
     );
   }
 
   buildLoginForm() {
     this.loginForm = this.fb.group({
-      username: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(6)]],
+      username: [
+        null,
+        [
+          Validators.required,
+          Validators.email,
+          this.customValidator.bind(this),
+        ],
+      ],
+      password: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(6),
+          this.customValidator.bind(this),
+        ],
+      ],
     });
   }
 
@@ -61,15 +94,25 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.subscription.add(
       this.store.select(authSelectors.getAuthPermission).subscribe((data) => {
-        if (data === true) {
+        if (data) {
           console.log('logging in...');
-
+          this.loginForm.reset();
           this.router.navigate(['app']);
         } else {
           console.log('cant login');
         }
       })
     );
+  }
+
+  customValidator(control: FormControl): { [s: string]: boolean } | null {
+    if (this.loginError.includes('username')) {
+      return { usernameError: true };
+    } else if (this.loginError.includes('password')) {
+      return { passwordError: true };
+    } else {
+      return null;
+    }
   }
 
   showDescriptionErrors(control: string) {

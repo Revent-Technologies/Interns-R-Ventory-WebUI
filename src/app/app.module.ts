@@ -10,12 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-// import { ProductCategoryReducer } from './@core/store/product-category/product-category.reducer';
-// import { ProductCategoryEffects } from './@core/store/product-category/product-category.effects';
-// import { warehouseReducer } from './@core/store/warehouse/warehouse.reducer';
 
-import * as fromApp from './@core/stores/app/app.reducer'
+import * as fromApp from './@core/stores/app/app.reducer';
 import { AuthModule } from './@auth/auth.module';
+import { NotificationModule } from './@core/shared/notification/notification.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -32,7 +31,11 @@ import { AuthModule } from './@auth/auth.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    NotificationModule
+  // MatSnackBarModule
+  
+  
   ],
   providers: [],
   bootstrap: [AppComponent],

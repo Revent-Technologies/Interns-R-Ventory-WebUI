@@ -20,3 +20,4 @@ export const getNewWarehouse = createSelector(
   getWarehouseState,
   (state) => state.newWarehouse
 );
+ 

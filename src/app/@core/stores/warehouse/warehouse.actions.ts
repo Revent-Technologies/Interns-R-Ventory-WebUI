@@ -19,3 +19,12 @@ export const AddWarehouseSuccess = createAction(
   props<{warehouse:Warehouse}>()
 );
 
+// export const updateWarehouse = createAction(
+//   '[Warehouse] Update Warehouse',
+//   props<{ updatedWarehouse: Warehouse}>(),
+// );
+
+// export const updateWarehousesSuccess = createAction(
+//   '[Warehouse] Update Warehouse Success',
+//   props<{ updatedWarehouse: Warehouse }>()
+// );
