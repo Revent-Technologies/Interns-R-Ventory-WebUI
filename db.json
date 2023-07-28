@@ -265,6 +265,54 @@
       "status": "",
       "warehouseName": "Alausa",
       "warehouseCode": "Als"
+    },
+    {
+      "id": 26,
+      "check": false,
+      "categoriesName": "Lagos(LG)",
+      "createdBy": "",
+      "date": "2023-07-28T10:46:57.362Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-28T10:46:57.362Z",
+      "status": "",
+      "warehouseName": "Lagos",
+      "warehouseCode": "LG"
+    },
+    {
+      "id": 27,
+      "check": false,
+      "categoriesName": "Abuja(Abj)",
+      "createdBy": "",
+      "date": "2023-07-28T10:56:24.894Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-28T10:56:24.894Z",
+      "status": "",
+      "warehouseName": "Abuja",
+      "warehouseCode": "Abj"
+    },
+    {
+      "id": 28,
+      "check": false,
+      "categoriesName": "Ikorodu(Ikd)",
+      "createdBy": "",
+      "date": "2023-07-28T10:58:50.812Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-28T10:58:50.812Z",
+      "status": "",
+      "warehouseName": "Ikorodu",
+      "warehouseCode": "Ikd"
+    },
+    {
+      "id": 29,
+      "check": false,
+      "categoriesName": "Abuja2(Abj)",
+      "createdBy": "",
+      "date": "2023-07-28T11:09:28.028Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-28T11:09:28.028Z",
+      "status": "",
+      "warehouseName": "Abuja2",
+      "warehouseCode": "Abj"
     }
   ],
   "productCategory": [

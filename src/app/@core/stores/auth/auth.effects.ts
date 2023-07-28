@@ -30,6 +30,7 @@ export class AuthEffects {
 
                 if (cleanData.password === action.password) {
                   return AuthActions.loginSuccess();
+                  // return AuthActions.loginSuccess({ user: cleanData });
                 } else {
                   // console.log('password incorrect');
 

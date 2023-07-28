@@ -13,6 +13,7 @@ export interface NewWarehouse {
   categoriesName: string;
   warehouseName: string;
   warehouseCode: string;
+  // createdBy: string;
 };
 
 

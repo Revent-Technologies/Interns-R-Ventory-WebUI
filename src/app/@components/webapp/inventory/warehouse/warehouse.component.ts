@@ -10,8 +10,8 @@ import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.acti
 import * as fromWarehouse from 'src/app/@core/stores/warehouse/warehouse.selector';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-warehouse',
@@ -20,7 +20,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
-  dataSource!: MatTableDataSource<Warehouse>;
+  dataSource: MatTableDataSource<Warehouse> | null = null;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) tableSort!:MatSort;
 
   constructor(
     public dialog: MatDialog,
@@ -48,11 +50,13 @@ export class WarehouseComponent implements OnInit {
     this.store.select(fromWarehouse.getWarehouse).subscribe((data) => {
       // this.dataSource = data;
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort= this.tableSort;
     });
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource!.filter = filterValue.trim().toLowerCase();
   }
 
   openDialogNew() {
