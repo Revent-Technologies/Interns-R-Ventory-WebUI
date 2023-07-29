@@ -313,6 +313,18 @@
       "status": "",
       "warehouseName": "Abuja2",
       "warehouseCode": "Abj"
+    },
+    {
+      "id": 30,
+      "check": false,
+      "categoriesName": "ikorodu(ikd)",
+      "createdBy": "",
+      "date": "2023-07-29T21:04:41.149Z",
+      "updatedBy": "",
+      "updateDate": "2023-07-29T21:04:41.149Z",
+      "status": "",
+      "warehouseName": "ikorodu",
+      "warehouseCode": "ikd"
     }
   ],
   "productCategory": [
