@@ -4,7 +4,7 @@
   <div class="cta-container">
     <button
       matRipple
-      class="btn zns-btn-primary zns-btn-md mb-4"
+      class="btn zns-btn-primary zns-btn-md "
       (click)="openDialogNew()"
     >
       Create New WareHouse
@@ -16,8 +16,8 @@
       <p class="table-title">WareHouse</p>
 
       <div class="table-filter">
-        <div class="col-12 search">
-          <div class="input-style1 input-md">
+       <span>
+          <div class="input-style1 search">
             <mat-form-field appearance="outline">
               <span matPrefix class="img-fluid">
                 <svg
@@ -50,10 +50,10 @@
               />
             </mat-form-field>
           </div>
-        </div>
+       </span>
 
-        <div class="col-12 filter">
-          <div class="input-style1 input-md input-width">
+        <span>
+          <div class="input-style1  input-width1">
             <mat-form-field appearance="outline">
               <span matPrefix class="img-fluid">
                 <img src="assets/icons/fi_filter.svg" alt="filter-svg" />
@@ -61,12 +61,12 @@
               <input matInput placeholder="filter" />
             </mat-form-field>
           </div>
-        </div>
+        </span>
       </div>
     </div>
 
     <ng-container *ngIf="dataSource !== null">
-      <div class="table-responsive">
+      <div class="table-responsive warehouse-table">
         <table
           matSort
           mat-table
@@ -224,7 +224,7 @@
       </div>
       <mat-paginator
         [length]="dataSource.data.length"
-        [pageSize]="10"
+        [pageSize]="5"
         [pageSizeOptions]="[5, 10, 15, 20]"
         showFirstLastButtons
         aria-label="Select page of users"
