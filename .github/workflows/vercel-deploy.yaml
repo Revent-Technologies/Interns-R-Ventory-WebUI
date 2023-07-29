@@ -1,9 +1,9 @@
 name: Deploy to Vercel
 
 on:
-  pull:
+  pull_request:
     branches:
-      - dev  # Change this to your main branch name
+      - dev  # Change this to your dev branch name
 
 jobs:
   build:
