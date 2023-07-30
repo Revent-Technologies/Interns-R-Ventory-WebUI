@@ -25,6 +25,7 @@ export class WarehouseComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) tableSort!: MatSort;
   selection = new SelectionModel<Warehouse>(true, []);
+  filterValue: string = '';
 
   constructor(
     public dialog: MatDialog,
@@ -58,7 +59,9 @@ export class WarehouseComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource!.filter = filterValue.trim().toLowerCase();
+    filterValue = filterValue.trim().toLowerCase();
+    this.dataSource!.filter = filterValue;
+    // this.dataSource!.filter = filterValue.trim().toLowerCase();
   }
 
   openDialogNew() {
@@ -81,26 +84,26 @@ export class WarehouseComponent implements OnInit {
       backdropClass: 'zns-dialog-backdrop',
     });
   }
-  isAllSelected(){
+  isAllSelected() {
     const numSelected = this.selection.selected.length;
-        const numRows = this.dataSource?.data.length;
-         return numSelected === numRows;
+    const numRows = this.dataSource?.data.length;
+    return numSelected === numRows;
   }
 
-  masterToggle(){
+  masterToggle() {
     if (this.isAllSelected()) {
       this.selection.clear();
       return;
+    }
+    this.selection.select(...this.dataSource!.data);
   }
-  this.selection.select(...this.dataSource!.data);
-}
 
-checkboxLabel(row?:any): string{
-  if(!row){
-    return `${this.isAllSelected()? "deselect" : "select"} all`;
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
   }
-   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-     row.position + 1
-   }`;
-}
 }

@@ -58,7 +58,7 @@
               <span matPrefix class="img-fluid">
                 <img src="assets/icons/fi_filter.svg" alt="filter-svg" />
               </span>
-              <input matInput  placeholder="filter" />
+              <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)"  placeholder="filter" />
             </mat-form-field>
           </div>
         </span>
