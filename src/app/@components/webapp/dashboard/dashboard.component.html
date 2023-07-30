@@ -1,1 +1,188 @@
-<app-header [title]="'Dashboard'"></app-header>
+<section id="dashboard" class="w-100">
+  <app-header [title]="'Dashboard'"></app-header>
+
+  <!-- Dashboard Content -->
+  <div class="container-fluid w-100 rv-dashboard">
+    <!-- Top section -->
+    <div
+      class="dashboard-menu row w-100 d-flex flex-column flex-md-row justify-content-between align-items-start p-1 align-items-md-center mt-1"
+    >
+      <div
+        class="d-flex flex-row justify-content-start ml-1 justify-content-md-center align-items-md-center"
+      >
+        <div class="mr-3">
+          <span><img src="assets/icons/User-3.svg" alt="User-icon" /></span>
+        </div>
+
+        <div
+          class="d-flex flex-column align-items-start justify-content-center justify-content-between"
+        >
+          <p class="mb-0 pb-0 fw-600 zns-heading-5 zns-neutral-900">
+            Hello Rilwan,
+          </p>
+          <p class="mb-0 zns-para-2 fw-400 zns-neutral">
+            Heres a quick overview of your inventory
+          </p>
+        </div>
+      </div>
+      <div class="d-flex mt-md-1 mt-2">
+        <div>
+          <button
+            mat-stroked-button
+            [matMenuTriggerFor]="warehouse"
+            class="mr-2"
+          >
+            All Warehouse
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M2.72003 5.93994L7.0667 10.2866C7.58003 10.7999 8.42003 10.7999 8.93336 10.2866L13.28 5.93994"
+                stroke="#1D1D1D"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <mat-menu #warehouse>
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+        </div>
+
+        <div>
+          <button mat-stroked-button [matMenuTriggerFor]="period">
+            Last 90 Days
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M2.72003 5.93994L7.0667 10.2866C7.58003 10.7999 8.42003 10.7999 8.93336 10.2866L13.28 5.93994"
+                stroke="#1D1D1D"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <mat-menu #period>
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Ends -->
+
+    <div class="row mt-2">
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption">TOTAL INCOME</p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815,984,90</p>
+              <p class="zns-para pl-2">+ 23.69%</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/money-recive.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption">TOTAL INCOME</p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815,984,90</p>
+              <p class="zns-para pl-2">+ 23.69%</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+              <span>
+                <span class="overlaper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                  >
+                    <path
+                      d="M31.56 4H16.44C8.88 4 7 6.02 7 14.08V36.6C7 41.92 9.92 43.18 13.46 39.38L13.48 39.36C15.12 37.62 17.62 37.76 19.04 39.66L21.06 42.36C22.68 44.5 25.3 44.5 26.92 42.36L28.94 39.66C30.38 37.74 32.88 37.6 34.52 39.36C38.08 43.16 40.98 41.9 40.98 36.58V14.08C41 6.02 39.12 4 31.56 4ZM30 23.5H18C17.18 23.5 16.5 22.82 16.5 22C16.5 21.18 17.18 20.5 18 20.5H30C30.82 20.5 31.5 21.18 31.5 22C31.5 22.82 30.82 23.5 30 23.5ZM32 15.5H16C15.18 15.5 14.5 14.82 14.5 14C14.5 13.18 15.18 12.5 16 12.5H32C32.82 12.5 33.5 13.18 33.5 14C33.5 14.82 32.82 15.5 32 15.5Z"
+                      fill="#FFB664"
+                    />
+                  </svg>
+                </span>
+                <img src="assets/icons/money-under.svg" alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption">TOTAL INCOME</p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815,984,90</p>
+              <p class="zns-para pl-2">+ 23.69%</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/coin.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption">TOTAL INCOME</p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815,984,90</p>
+              <p class="zns-para pl-2">+ 23.69%</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/people.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

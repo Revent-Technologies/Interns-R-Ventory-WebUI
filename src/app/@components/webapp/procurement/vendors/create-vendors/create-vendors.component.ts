@@ -23,13 +23,13 @@ export class CreateVendorsComponent implements OnInit {
   ) {}
 
   vendorForm = this.fb.group({
-    vendorName: this.VendorName,
-    vendorEmail: this.VendorEmail,
-    vendorPhone: this.vendorPhone,
-    city: '',
-    street: '',
-    countryName: '',
-    state: ''
+    vendorName: this.fb.control(this.VendorName),
+    vendorEmail: this.fb.control(this.VendorEmail),
+    vendorPhone: this.fb.control(this.vendorPhone),
+    city: this.fb.control(''),
+    street: this.fb.control(''),
+    countryName: this.fb.control(''),
+    stateName: this.fb.control(''),
   });
 
   ngOnInit(): void {}
