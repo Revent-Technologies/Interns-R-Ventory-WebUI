@@ -1,0 +1,13 @@
+#dashboard {
+  .rv-dashboard {
+    .text-opacity {
+      opacity: 0.8;
+    }
+    .overlaper {
+      position: absolute;
+      top: 47%;
+      right: 6%;
+      z-index: 99;
+    }
+  }
+}

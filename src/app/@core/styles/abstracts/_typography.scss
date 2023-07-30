@@ -70,8 +70,7 @@
 .zns-heading {
   font-size: 4rem;
   color: var(--zns-black);
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 
   @include zns-media-query-max(zns-md) {
     font-size: 2.225rem;
@@ -139,45 +138,45 @@
 
 .zns-sub-heading {
   font-size: 1.25rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
 }
 
 .zns-para-3 {
   font-size: 1.125rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
 }
 
 .zns-para-2 {
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
   margin-bottom: 0;
 }
 
 .zns-para-1 {
   font-size: 0.875rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
 }
 
 .zns-para {
   font-size: 0.625rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin-bottom: 0;
 }
 
 .zns-caption {
   font-size: 0.75rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
   margin-bottom: 0;
 }
 
 .zns-footer {
   font-size: 0.25rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--zns-black);
 }
 
@@ -215,4 +214,7 @@
   font-style: italic;
 }
 
+.zns-gap {
+  grid-gap: 0.5rem;
+}
 /*******************/
