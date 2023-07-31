@@ -20,5 +20,18 @@
     .w-48 {
       width: 48%;
     }
+    mat-button-toggle-group {
+      line-height: 0.6rem;
+      margin-left: 1rem;
+      box-shadow: #edebff;
+    }
+
+    .chart-container {
+      height: 24.1875rem;
+    }
+
+    .dashboard-chart-container {
+      height: 18.3125rem;
+    }
   }
 }
