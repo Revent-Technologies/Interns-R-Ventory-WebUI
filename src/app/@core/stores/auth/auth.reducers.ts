@@ -12,7 +12,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  permitted: false,
+  permitted: true,
   loginMessage: '',
   forgotPasswordSuccess: false,
   forgotPasswordFailure: '',
