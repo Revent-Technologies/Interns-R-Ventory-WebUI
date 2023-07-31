@@ -212,7 +212,7 @@
                 name="fontStyle"
                 aria-label="Font Style"
               >
-                <mat-button-toggle value="bold"
+                <mat-button-toggle value="line"
                   ><span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +237,7 @@
                       />
                     </svg> </span
                 ></mat-button-toggle>
-                <mat-button-toggle value="italic" [checked]="true"
+                <mat-button-toggle value="bar" [checked]="true"
                   ><span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +299,7 @@
             </button>
           </div>
 
-          <div class="w-100 h-75 my-3 border rounded dashboard-chart-container">
+          <div class="w-100 my-1 dashboard-chart-container">
             <div class="w-100 h-100">
               <canvas id="MyChart">{{ chart }}</canvas>
             </div>

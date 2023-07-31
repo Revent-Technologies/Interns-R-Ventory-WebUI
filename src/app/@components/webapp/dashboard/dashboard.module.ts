@@ -8,11 +8,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
+    FormsModule,
     HeaderModule,
     MatMenuModule,
     MatButtonModule,
