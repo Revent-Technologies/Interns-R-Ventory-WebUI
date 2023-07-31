@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -10,11 +11,13 @@ Chart.register(...registerables);
 })
 export class DashboardComponent implements OnInit {
   chart!: any;
-
   constructor() {}
 
   ngOnInit(): void {
     this.createChart();
+
+    this.chart.canvas.parentNode.style.height = '100%';
+    this.chart.canvas.parentNode.style.width = '100%';
   }
 
   createChart() {
@@ -24,25 +27,42 @@ export class DashboardComponent implements OnInit {
       data: {
         // values on X-Axis
         labels: [
-          '2022-05-10',
-          '2022-05-11',
-          '2022-05-12',
-          '2022-05-13',
-          '2022-05-14',
-          '2022-05-15',
-          '2022-05-16',
-          '2022-05-17',
+          'Jan',
+          'Feb',
+          'Mar',
+          'May',
+          'Apr',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
         ],
         datasets: [
           {
             label: 'Sales',
-            data: ['467', '576', '572', '79', '92', '574', '573', '576'],
-            backgroundColor: 'blue',
+            data: [
+              '167',
+              '276',
+              '572',
+              '179',
+              '92',
+              '274',
+              '273',
+              '576',
+              '600',
+              '300',
+              '500',
+              '800',
+            ],
+            backgroundColor: ['#F4CE9B', '#F4CE9B', '#0051CA'],
           },
         ],
       },
       options: {
-        animation: false,
+        maintainAspectRatio: false,
       },
     });
   }
