@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-warehouse',
@@ -22,7 +23,9 @@ export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
   dataSource: MatTableDataSource<Warehouse> | null = null;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) tableSort!:MatSort;
+  @ViewChild(MatSort) tableSort!: MatSort;
+  selection = new SelectionModel<Warehouse>(true, []);
+  filterValue: string = '';
 
   constructor(
     public dialog: MatDialog,
@@ -51,12 +54,14 @@ export class WarehouseComponent implements OnInit {
       // this.dataSource = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort= this.tableSort;
+      this.dataSource.sort = this.tableSort;
     });
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource!.filter = filterValue.trim().toLowerCase();
+    filterValue = filterValue.trim().toLowerCase();
+    this.dataSource!.filter = filterValue;
+    // this.dataSource!.filter = filterValue.trim().toLowerCase();
   }
 
   openDialogNew() {
@@ -70,6 +75,7 @@ export class WarehouseComponent implements OnInit {
   }
 
   editWarehouse(row: any) {
+    row.check = !row.check;
     this.dialog.open(NewWarehouseComponent, {
       data: row,
       disableClose: true,
@@ -77,5 +83,27 @@ export class WarehouseComponent implements OnInit {
       panelClass: 'zns-dialog',
       backdropClass: 'zns-dialog-backdrop',
     });
+  }
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource?.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+    this.selection.select(...this.dataSource!.data);
+  }
+
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
   }
 }
