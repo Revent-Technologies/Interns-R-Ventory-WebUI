@@ -28,7 +28,7 @@ const authReducerInternal = createReducer(
         'userData',
         JSON.stringify({
           username: action.username,
-          expiryDate: new Date().getTime() + 3600000,
+          expiryDate: new Date().getTime() + 10000,
         })
       );
     }
@@ -46,6 +46,14 @@ const authReducerInternal = createReducer(
       ...state,
       permitted: false,
       loginMessage: action.payload,
+    };
+  }),
+
+  on(AuthActions.logOut, (state) => {
+    localStorage.removeItem('userData');
+    return {
+      ...state,
+      permitted: false,
     };
   }),
 
