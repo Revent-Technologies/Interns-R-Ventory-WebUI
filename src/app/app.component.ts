@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from './@core/services/notification.service';
 import { Notification } from './@core/interfaces';
+import { Store } from '@ngrx/store';
+import * as fromApp from './@core/stores/app/app.reducer';
+import * as AuthActions from './@core/stores/auth/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +11,12 @@ import { Notification } from './@core/interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private notificationService: NotificationService) {}
+  data!: string | null;
+
+  constructor(private notificationService: NotificationService, private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
-    this.listenToOfflineOnlineState();
+  
   }
 
   listenToOfflineOnlineState() {

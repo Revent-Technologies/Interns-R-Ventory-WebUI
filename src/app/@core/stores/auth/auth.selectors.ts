@@ -12,10 +12,10 @@ export const getAuthMessage = createSelector(
   (state: fromAuth.State) => state.loginMessage
 );
 
-// export const getLoggedInUserEmail = createSelector(
-//   getAuthState,
-//   (state: fromAuth.State) => state.user?.email??''
-// )
+export const getUsername = createSelector(
+  getAuthState,
+  (state: fromAuth.State) => state.username
+);
 
 export const getForgotPasswordSuccess = createSelector(
   getAuthState,

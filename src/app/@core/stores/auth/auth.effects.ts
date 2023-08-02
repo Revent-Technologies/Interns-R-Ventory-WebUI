@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
-import { defaultIfEmpty, exhaustMap, map, mergeMap, tap } from 'rxjs';
+import { defaultIfEmpty, exhaustMap, map, mergeMap, switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/auth.interface';
@@ -26,21 +26,16 @@ export class AuthEffects {
             map((roughData) => {
               const cleanData = roughData[0];
               if (cleanData) {
-                // console.log('username exist');
-
                 if (cleanData.password === action.password) {
-                  return AuthActions.loginSuccess();
-                  // return AuthActions.loginSuccess({ user: cleanData });
+                  return AuthActions.loginSuccess({
+                    username: action.username,
+                  });
                 } else {
-                  // console.log('password incorrect');
-
                   return AuthActions.loginFailed({
                     payload: 'Password is incorrect',
                   });
                 }
               } else {
-                // console.log('username incorrect');
-
                 return AuthActions.loginFailed({
                   payload: 'Username does not exist',
                 });
@@ -50,6 +45,9 @@ export class AuthEffects {
       })
     );
   });
+
+
+    
 
   forgotPassword$ = createEffect(() => {
     return this.actions$.pipe(

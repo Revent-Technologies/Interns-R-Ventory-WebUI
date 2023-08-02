@@ -257,35 +257,35 @@
     {
       "id": 25,
       "check": false,
-      "categoriesName": "Alausa(Als)",
+      "categoriesName": "Lagos(Lag)",
       "createdBy": "",
-      "date": "2023-07-27T20:51:42.339Z",
+      "date": "2023-08-01T20:22:32.483Z",
       "updatedBy": "",
-      "updateDate": "2023-07-27T20:51:42.339Z",
+      "updateDate": "2023-08-01T20:22:32.483Z",
       "status": "",
-      "warehouseName": "Alausa",
-      "warehouseCode": "Als"
+      "warehouseName": "Lagos",
+      "warehouseCode": "Lag"
     },
     {
       "id": 26,
       "check": false,
-      "categoriesName": "Lagos(LG)",
-      "createdBy": "",
-      "date": "2023-07-28T10:46:57.362Z",
+      "categoriesName": "Ajao(Aj)",
+      "createdBy": "test@test.com",
+      "date": "2023-08-01T20:33:38.132Z",
       "updatedBy": "",
-      "updateDate": "2023-07-28T10:46:57.362Z",
+      "updateDate": "2023-08-01T20:33:38.132Z",
       "status": "",
-      "warehouseName": "Lagos",
-      "warehouseCode": "LG"
+      "warehouseName": "Ajao",
+      "warehouseCode": "Aj"
     },
     {
       "id": 27,
       "check": false,
       "categoriesName": "Abuja(Abj)",
-      "createdBy": "",
-      "date": "2023-07-28T10:56:24.894Z",
+      "createdBy": "kola@test.com",
+      "date": "2023-08-01T21:12:01.320Z",
       "updatedBy": "",
-      "updateDate": "2023-07-28T10:56:24.894Z",
+      "updateDate": "2023-08-01T21:12:01.320Z",
       "status": "",
       "warehouseName": "Abuja",
       "warehouseCode": "Abj"
@@ -293,38 +293,26 @@
     {
       "id": 28,
       "check": false,
-      "categoriesName": "Ikorodu(Ikd)",
-      "createdBy": "",
-      "date": "2023-07-28T10:58:50.812Z",
+      "categoriesName": "fxf(xfc)",
+      "createdBy": "test@test.com",
+      "date": "2023-08-02T11:50:03.611Z",
       "updatedBy": "",
-      "updateDate": "2023-07-28T10:58:50.812Z",
+      "updateDate": "2023-08-02T11:50:03.611Z",
       "status": "",
-      "warehouseName": "Ikorodu",
-      "warehouseCode": "Ikd"
+      "warehouseName": "fxf",
+      "warehouseCode": "xfc"
     },
     {
       "id": 29,
       "check": false,
-      "categoriesName": "Abuja2(Abj)",
+      "categoriesName": "gfuystiu(jhgdiuyo)",
       "createdBy": "",
-      "date": "2023-07-28T11:09:28.028Z",
+      "date": "2023-08-02T12:12:33.895Z",
       "updatedBy": "",
-      "updateDate": "2023-07-28T11:09:28.028Z",
+      "updateDate": "2023-08-02T12:12:33.895Z",
       "status": "",
-      "warehouseName": "Abuja2",
-      "warehouseCode": "Abj"
-    },
-    {
-      "id": 30,
-      "check": false,
-      "categoriesName": "ikorodu(ikd)",
-      "createdBy": "",
-      "date": "2023-07-29T21:04:41.149Z",
-      "updatedBy": "",
-      "updateDate": "2023-07-29T21:04:41.149Z",
-      "status": "",
-      "warehouseName": "ikorodu",
-      "warehouseCode": "ikd"
+      "warehouseName": "gfuystiu",
+      "warehouseCode": "jhgdiuyo"
     }
   ],
   "productCategory": [

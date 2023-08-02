@@ -3,12 +3,12 @@ import * as AuthActions from './auth.actions';
 import { User } from '../../interfaces/auth.interface';
 
 export interface State {
-  [x: string]: any;
+  // [x: string]: any;
   permitted: boolean;
   loginMessage: string;
   forgotPasswordSuccess: boolean;
   forgotPasswordFailure: string;
-  // user:User | null;
+  username: string | null;
 }
 
 export const initialState: State = {
@@ -16,17 +16,27 @@ export const initialState: State = {
   loginMessage: '',
   forgotPasswordSuccess: false,
   forgotPasswordFailure: '',
-  // user: null,
+  username: '',
 };
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state) => {
+  on(AuthActions.loginSuccess, (state, action) => {
+    // if(!localStorage.getItem('userData')){
+    //   localStorage.setItem(
+    //     'userData',
+    //     JSON.stringify({
+    //       username: action.username,
+    //       expiryDate: new Date().getTime() + 3600000,
+    //     })
+    //   );
+    // }
+
     return {
       ...state,
       permitted: true,
       loginMessage: '',
-      // user:user
+      username: action.username,
     };
   }),
 
