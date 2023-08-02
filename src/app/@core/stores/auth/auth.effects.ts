@@ -26,21 +26,16 @@ export class AuthEffects {
             map((roughData) => {
               const cleanData = roughData[0];
               if (cleanData) {
-                // console.log('username exist');
-
                 if (cleanData.password === action.password) {
-                  return AuthActions.loginSuccess();
-                  // return AuthActions.loginSuccess({ user: cleanData });
+                  return AuthActions.loginSuccess({
+                    username: action.username,
+                  });
                 } else {
-                  // console.log('password incorrect');
-
                   return AuthActions.loginFailed({
                     payload: 'Password is incorrect',
                   });
                 }
               } else {
-                // console.log('username incorrect');
-
                 return AuthActions.loginFailed({
                   payload: 'Username does not exist',
                 });

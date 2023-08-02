@@ -8,7 +8,7 @@ export interface State {
   loginMessage: string;
   forgotPasswordSuccess: boolean;
   forgotPasswordFailure: string;
-  // user:User | null;
+  username: string | null;
 }
 
 export const initialState: State = {
@@ -16,17 +16,17 @@ export const initialState: State = {
   loginMessage: '',
   forgotPasswordSuccess: false,
   forgotPasswordFailure: '',
-  // user: null,
+  username: '',
 };
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state) => {
+  on(AuthActions.loginSuccess, (state, action) => {
     return {
       ...state,
       permitted: true,
       loginMessage: '',
-      // user:user
+      username: action.username,
     };
   }),
 
