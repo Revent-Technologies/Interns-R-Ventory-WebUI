@@ -123,11 +123,10 @@
           <div class="input-style1 input-md col-6">
             <mat-form-field appearance="outline" class="telephone">
               <label class="label zns-para"></label>
-              <mat-select placeholder="State">
+              <mat-select placeholder="State" formControlName="stateName">
                 <mat-option
                   *ngFor="let state of states[countrySelect.value]"
-                  [value]=""
-                  formControlName="state"
+                  [value]="state"
                   >{{ state }}</mat-option
                 >
               </mat-select>

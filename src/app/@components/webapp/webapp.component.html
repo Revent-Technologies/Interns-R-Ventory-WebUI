@@ -4,7 +4,7 @@
     (onToggleSideNav)="onToggleSideNav($event)"
   ></app-sidebar>
 
-  <div class="body" [ngClass]="getBodyClass()">
+  <div class="body" [ngClass]="getBodyClass()" (click)="close()">
     <router-outlet></router-outlet>
   </div>
 </section>

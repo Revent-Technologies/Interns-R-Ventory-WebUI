@@ -1,0 +1,38 @@
+#dashboard {
+  .rv-dashboard {
+    .text-opacity {
+      opacity: 0.8;
+    }
+    .overlaper {
+      position: absolute;
+      top: 47%;
+      right: 6%;
+      z-index: 99;
+    }
+    .dashboard-activity {
+      background: #edebff;
+      color: #2f80ed;
+    }
+    .btn-margin {
+      margin-right: -2rem;
+    }
+
+    .w-48 {
+      width: 48%;
+    }
+    mat-button-toggle-group {
+      line-height: 0.6rem;
+      margin-left: 1rem;
+      box-shadow: #edebff;
+    }
+
+    .chart-container {
+      height: 24.1875rem;
+    }
+
+    .dashboard-chart-container {
+      position: relative;
+      height: 18.3125rem;
+    }
+  }
+}
