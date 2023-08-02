@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from './auth.actions';
 import { User } from '../../interfaces/auth.interface';
+import { state } from '@angular/animations';
 
 export interface State {
   // [x: string]: any;
@@ -22,15 +23,15 @@ export const initialState: State = {
 const authReducerInternal = createReducer(
   initialState,
   on(AuthActions.loginSuccess, (state, action) => {
-    // if(!localStorage.getItem('userData')){
-    //   localStorage.setItem(
-    //     'userData',
-    //     JSON.stringify({
-    //       username: action.username,
-    //       expiryDate: new Date().getTime() + 3600000,
-    //     })
-    //   );
-    // }
+    if (!localStorage.getItem('userData')) {
+      localStorage.setItem(
+        'userData',
+        JSON.stringify({
+          username: action.username,
+          expiryDate: new Date().getTime() + 3600000,
+        })
+      );
+    }
 
     return {
       ...state,

@@ -13,10 +13,22 @@ import * as AuthActions from './@core/stores/auth/auth.actions';
 export class AppComponent implements OnInit {
   data!: string | null;
 
-  constructor(private notificationService: NotificationService, private store: Store<fromApp.AppState>) {}
+  constructor(
+    private notificationService: NotificationService,
+    private store: Store<fromApp.AppState>
+  ) {}
 
   ngOnInit(): void {
-  
+    const data = JSON.parse(localStorage.getItem('userData')!);
+    if (data) {
+      this.store.dispatch(
+        AuthActions.loginSuccess({ username: data.username })
+      );
+      const currentTime = new Date().getTime();
+      if (currentTime < data.expiryDate) {
+        console.log(data.expiryDate - currentTime);
+      }
+    }
   }
 
   listenToOfflineOnlineState() {
