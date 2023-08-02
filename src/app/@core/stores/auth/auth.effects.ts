@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
-import { defaultIfEmpty, exhaustMap, map, mergeMap, tap } from 'rxjs';
+import { defaultIfEmpty, exhaustMap, map, mergeMap, switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/auth.interface';
@@ -45,6 +45,9 @@ export class AuthEffects {
       })
     );
   });
+
+
+    
 
   forgotPassword$ = createEffect(() => {
     return this.actions$.pipe(
