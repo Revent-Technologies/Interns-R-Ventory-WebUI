@@ -1,1 +1,730 @@
-<app-header [title]="'Dashboard'"></app-header>
+<section id="dashboard" class="w-100">
+  <app-header [title]="'Dashboard'"></app-header>
+
+  <!-- Dashboard Content -->
+  <div class="container-fluid w-100 rv-dashboard">
+    <!-- Top section -->
+    <div
+      class="dashboard-menu row w-100 d-flex flex-column flex-md-row justify-content-between align-items-start p-1 align-items-md-center mt-1"
+    >
+      <div
+        class="d-flex flex-row justify-content-start ml-1 justify-content-md-center align-items-md-center"
+      >
+        <div class="mr-3">
+          <span><img src="assets/icons/User-3.svg" alt="User-icon" /></span>
+        </div>
+
+        <div
+          class="d-flex flex-column align-items-start justify-content-center justify-content-between"
+        >
+          <p class="mb-0 pb-0 fw-600 zns-sub-heading zns-neutral-900">
+            Hello Rilwan,
+          </p>
+          <p class="mb-0 zns-para-1 fw-600 zns-neutral zns-opacity">
+            Heres a quick overview of your inventory
+          </p>
+        </div>
+      </div>
+      <div class="d-flex mt-md-1 mt-2 btn-margin">
+        <div>
+          <button
+            mat-stroked-button
+            [matMenuTriggerFor]="warehouse"
+            class="mr-2"
+          >
+            All Warehouse
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M2.72003 5.93994L7.0667 10.2866C7.58003 10.7999 8.42003 10.7999 8.93336 10.2866L13.28 5.93994"
+                stroke="#1D1D1D"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <mat-menu #warehouse>
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+        </div>
+
+        <div>
+          <button mat-stroked-button [matMenuTriggerFor]="period">
+            Last 90 Days
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M2.72003 5.93994L7.0667 10.2866C7.58003 10.7999 8.42003 10.7999 8.93336 10.2866L13.28 5.93994"
+                stroke="#1D1D1D"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <mat-menu #period>
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Ends -->
+
+    <!-- Overview Starts -->
+    <div class="row mt-2">
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption zns-neutral fw-600 zns-opacity">
+                TOTAL INCOME
+              </p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815,984,90</p>
+              <p class="zns-para pl-2 fw-700 zns-opacity">+ 23.69%</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/money-recive.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption zns-neutral fw-600 zns-opacity">
+                TOTAL SALES
+              </p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">815</p>
+              <p class="zns-para pl-2 fw-700 zns-opacity">+ 23.69%</p>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center">
+              <span>
+                <span class="overlaper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                  >
+                    <path
+                      d="M31.56 4H16.44C8.88 4 7 6.02 7 14.08V36.6C7 41.92 9.92 43.18 13.46 39.38L13.48 39.36C15.12 37.62 17.62 37.76 19.04 39.66L21.06 42.36C22.68 44.5 25.3 44.5 26.92 42.36L28.94 39.66C30.38 37.74 32.88 37.6 34.52 39.36C38.08 43.16 40.98 41.9 40.98 36.58V14.08C41 6.02 39.12 4 31.56 4ZM30 23.5H18C17.18 23.5 16.5 22.82 16.5 22C16.5 21.18 17.18 20.5 18 20.5H30C30.82 20.5 31.5 21.18 31.5 22C31.5 22.82 30.82 23.5 30 23.5ZM32 15.5H16C15.18 15.5 14.5 14.82 14.5 14C14.5 13.18 15.18 12.5 16 12.5H32C32.82 12.5 33.5 13.18 33.5 14C33.5 14.82 32.82 15.5 32 15.5Z"
+                      fill="#FFB664"
+                    />
+                  </svg>
+                </span>
+                <img src="assets/icons/money-under.svg" alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption zns-neutral fw-600 zns-opacity">
+                TOTAL ITEMS
+              </p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">1000</p>
+              <p class="zns-para pl-2 fw-700 zns-opacity">+ 23.69%</p>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/coin.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 p-1 col-lg-3">
+        <div class="border rounded py-4 px-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="zns-caption zns-neutral fw-600 zns-opacity">
+                TOTAL CUSTOMERS
+              </p>
+              <p class="zns-para-3 fw-600 pb-0 mb-0">432</p>
+              <p class="zns-para pl-2 fw-700 zns-opacity">+ 23.69%</p>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center">
+              <span
+                ><img
+                  src="assets/icons/people.svg"
+                  alt=""
+                  class="overlaper" /><img
+                  src="assets/icons/money-under.svg"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview Ends  -->
+
+    <!-- Chart section -->
+    <div class="row mt-2">
+      <div class="col-12 col-lg-8 p-1">
+        <!-- Chart container -->
+        <div class="border rounded p-3 chart-container">
+          <div class="d-flex w-100 justify-content-between">
+            <div class="zns-para-2 fw-700">
+              <span> Sales Performance </span>
+              <mat-button-toggle-group
+                appearance="legacy"
+                name="fontStyle"
+                aria-label="Font Style"
+              >
+                <mat-button-toggle value="line"
+                  ><span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.16675 1.16675V11.0834C1.16675 12.0517 1.94841 12.8334 2.91675 12.8334H12.8334"
+                        stroke="#000A27"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.91675 9.91659L5.59425 6.78993C6.03758 6.27659 6.82508 6.24158 7.30342 6.72575L7.85758 7.27993C8.33592 7.75826 9.12341 7.72908 9.56675 7.21575L12.2501 4.08325"
+                        stroke="#000A27"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg> </span
+                ></mat-button-toggle>
+                <mat-button-toggle value="bar" [checked]="true"
+                  ><span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.1665 12.8333H12.8332"
+                        stroke="#000A27"
+                        stroke-width="0.8"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.68701 2.33317V12.8332H8.31201V2.33317C8.31201 1.6915 8.04951 1.1665 7.26201 1.1665H6.73701C5.94951 1.1665 5.68701 1.6915 5.68701 2.33317Z"
+                        stroke="#000A27"
+                        stroke-width="0.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1.75 5.83317V12.8332H4.08333V5.83317C4.08333 5.1915 3.85 4.6665 3.15 4.6665H2.68333C1.98333 4.6665 1.75 5.1915 1.75 5.83317Z"
+                        stroke="#000A27"
+                        stroke-width="0.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.91626 8.75016V12.8335H12.2496V8.75016C12.2496 8.1085 12.0163 7.5835 11.3163 7.5835H10.8496C10.1496 7.5835 9.91626 8.1085 9.91626 8.75016Z"
+                        stroke="#000A27"
+                        stroke-width="0.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg> </span
+                ></mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            <button mat-stroked-button>
+              View all
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M5.93994 13.28L10.2866 8.9333C10.7999 8.41997 10.7999 7.57997 10.2866 7.06664L5.93994 2.71997"
+                  stroke="#1D1D1D"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="w-100 my-1 dashboard-chart-container">
+            <div class="w-100 h-100">
+              <canvas id="MyChart">{{ chart }}</canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row mt-4">
+            <div class="col-12 col-md-6">
+              <div class="border rounded pt-3 px-3 pb-0 mb-2 mb-md-0">
+                <div class="zns-para-2 text-center text-md-left">
+                  Total Orders
+                </div>
+
+                <div class="border-top mt-3"></div>
+
+                <div class="d-flex flex-column flex-md-row mt-1">
+                  <div class="d-flex flex-column p-4 text-center">
+                    <span><img src="assets/icons/biker.svg" alt="" /></span>
+                    <p class="pt-1 pb-0 zns-para-1">
+                      Omosheni Adeyemi made an order and paid “N2,456”
+                    </p>
+                    <span class="zns-para zns-opacity fw-600">10 mins ago</span>
+                    <p>
+                      <span class="zns-para zns-opacity mr-1">Due date: </span>
+                      <span class="zns-para">11/22/2023</span>
+                    </p>
+                  </div>
+
+                  <div class="d-flex flex-column p-4 text-center">
+                    <span><img src="assets/icons/biker-2.svg" alt="" /></span>
+                    <p class="pt-1 pb-0 zns-para-1">
+                      Omosheni Adeyemi made an order and paid “N2,456”
+                    </p>
+                    <span class="zns-para zns-opacity fw-600">10 mins ago</span>
+                    <p>
+                      <span class="zns-para zns-opacity mr-1">Due date: </span>
+                      <span class="zns-para">11/22/2023</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span
+                    >Top Customers
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M18.356 3C20.64 3 22.499 4.84201 22.499 7.10514L22.5 9.78245C22.5 9.97864 22.421 10.1689 22.281 10.3076C22.14 10.4473 21.95 10.5256 21.75 10.5256C20.929 10.5256 20.261 11.1875 20.261 12.001C20.261 12.8145 20.929 13.4764 21.75 13.4764C22.164 13.4764 22.5 13.8093 22.5 14.2195V16.8958C22.5 19.159 20.642 21 18.358 21H6.643C4.359 21 2.5 19.159 2.5 16.8958V14.2195C2.5 13.8093 2.836 13.4764 3.25 13.4764C4.072 13.4764 4.74 12.8145 4.74 12.001C4.74 11.2083 4.099 10.6118 3.25 10.6118C3.051 10.6118 2.861 10.5335 2.72 10.3938C2.579 10.2541 2.5 10.0648 2.5 9.86866L2.502 7.10514C2.502 4.84201 4.36 3 6.644 3H18.356ZM12.502 8.15347C12.218 8.15347 11.964 8.31003 11.837 8.56171L11.108 10.0252L9.482 10.26C9.201 10.2997 8.971 10.4899 8.882 10.7575C8.794 11.025 8.865 11.3143 9.069 11.5105L10.248 12.648L9.97 14.2562C9.922 14.5336 10.035 14.8091 10.265 14.9746C10.395 15.0667 10.546 15.1143 10.699 15.1143C10.816 15.1143 10.934 15.0855 11.042 15.0291L12.5 14.2701L13.955 15.0271C14.207 15.1608 14.506 15.14 14.735 14.9736C14.966 14.8091 15.079 14.5336 15.031 14.2562L14.752 12.648L15.931 11.5105C16.136 11.3143 16.207 11.025 16.118 10.7575C16.03 10.4899 15.8 10.2997 15.522 10.261L13.893 10.0252L13.164 8.5627C13.039 8.31102 12.785 8.15446 12.502 8.15347Z"
+                        fill="#E17F0D"
+                      />
+                    </svg>
+                  </span>
+
+                  <button mat-stroked-button>See All</button>
+                </div>
+                <div class="border-top my-2"></div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/User-borderless.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Faruq Daniel</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          10 mins ago
+                        </span>
+                      </span>
+                    </div>
+
+                    <div
+                      class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <span class="zns-para-1 fw-600">N 250, 000</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img
+                          src="assets/icons/female-user-borderles.svg"
+                          alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Fateemah Bello</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          10 mins ago
+                        </span>
+                      </span>
+                    </div>
+
+                    <div
+                      class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <span class="zns-para-1 fw-600">N 220, 000</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 mb-2 pb-2">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/User-2-borderless.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Abuchi Aleke</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          10 mins ago
+                        </span>
+                      </span>
+                    </div>
+
+                    <div
+                      class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <span class="zns-para-1 fw-600">N 350, 000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4 p-1">
+        <div class="border rounded p-3">
+          <!-- Recent Activities -->
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="zns-para-1 fw-600 m-1">Recent Activities</p>
+
+            <button mat-stroked-button class="zns-para-1">
+              See All Activity
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M5.93994 13.28L10.2866 8.9333C10.7999 8.41997 10.7999 7.57997 10.2866 7.06664L5.93994 2.71997"
+                  stroke="#1D1D1D"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Horizontal line -->
+          <div class="border-top w-100 my-3"></div>
+
+          <!-- Activities -->
+          <div
+            class="d-flex w-100 flex-row justify-content-between align-items-center mb-1"
+          >
+            <div class="d-flex w-75 p-2">
+              <span class="pr-2"
+                ><img src="assets/icons/User-borderless.svg" alt=""
+              /></span>
+
+              <div class="">
+                <p class="zns-para-1 mb-0">
+                  Omosheni Adeyemi did this and that and paid “N2,456”
+                </p>
+
+                <p class="zns-para zns-opacity">10 mins ago</p>
+              </div>
+            </div>
+
+            <div>
+              <span class="zns-para-1 dashboard-activity p-1 rounded"
+                >Income</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="d-flex w-100 flex-row justify-content-between align-items-center mb-1"
+          >
+            <div class="d-flex w-75 p-2">
+              <span class="pr-2"
+                ><img src="assets/icons/female-user-borderles.svg" alt=""
+              /></span>
+
+              <div class="">
+                <p class="zns-para-1 mb-0">
+                  Omosheni Adeyemi did this and that and paid “N2,456”
+                </p>
+
+                <p class="zns-para zns-opacity">10 mins ago</p>
+              </div>
+            </div>
+
+            <div>
+              <span class="zns-para-1 dashboard-activity p-1 rounded"
+                >Income</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="d-flex w-100 flex-row justify-content-between align-items-center mb-1"
+          >
+            <div class="d-flex w-75 p-2">
+              <span class="pr-2"
+                ><img src="assets/icons/User-2-borderless.svg" alt=""
+              /></span>
+
+              <div class="">
+                <p class="zns-para-1 mb-0">
+                  Omosheni Adeyemi did this and that and paid “N2,456”
+                </p>
+                <p class="zns-para zns-opacity">10 mins ago</p>
+              </div>
+            </div>
+
+            <div>
+              <span class="zns-para-1 dashboard-activity p-1 rounded"
+                >Expenses</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Sales section -->
+        <div class="border rounded p-3 mt-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="zns-para-1 fw-600 m-1">Top Sales Channel</p>
+
+            <button mat-stroked-button class="zns-para-1">
+              See All
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M5.93994 13.28L10.2866 8.9333C10.7999 8.41997 10.7999 7.57997 10.2866 7.06664L5.93994 2.71997"
+                  stroke="#1D1D1D"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="border-top w-100 my-3"></div>
+
+          <div class="w-100">
+            <mat-tab-group>
+              <mat-tab label="Individual" class="mt-2">
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/Amazon.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Action taken
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/Jumia.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Jumia Nigeria
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/User-2-borderless.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Konga Logistics
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Store" class="mt-2">
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/Amazon.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Action taken
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/Amazon.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Action taken
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <span class="mr-2"
+                        ><img src="assets/icons/Amazon.svg" alt=""
+                      /></span>
+
+                      <span>
+                        <span class="d-block">Amazon</span>
+                        <span class="zns-para zns-opacity fw-600 d-block">
+                          Action taken
+                        </span>
+                      </span>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                      <span class="zns-para-1 fw-600">N 635,089.00 </span>
+                      <span class="zns-para fw-600 zns-opacity"
+                        >July 2023 - Dec 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
