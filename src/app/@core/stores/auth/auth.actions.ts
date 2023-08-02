@@ -11,8 +11,6 @@ export const loginSuccess = createAction(
   props<{ username: string }>()
 );
 
-export const autoLogin = createAction('[Auth] Auto Login')
-
 export const loginFailed = createAction(
   '[Auth] Login failed',
   props<{ payload: string }>()
