@@ -3,7 +3,7 @@ import * as AuthActions from './auth.actions';
 import { User } from '../../interfaces/auth.interface';
 
 export interface State {
-  [x: string]: any;
+  // [x: string]: any;
   permitted: boolean;
   loginMessage: string;
   forgotPasswordSuccess: boolean;
@@ -22,6 +22,16 @@ export const initialState: State = {
 const authReducerInternal = createReducer(
   initialState,
   on(AuthActions.loginSuccess, (state, action) => {
+    // if(!localStorage.getItem('userData')){
+    //   localStorage.setItem(
+    //     'userData',
+    //     JSON.stringify({
+    //       username: action.username,
+    //       expiryDate: new Date().getTime() + 3600000,
+    //     })
+    //   );
+    // }
+
     return {
       ...state,
       permitted: true,
