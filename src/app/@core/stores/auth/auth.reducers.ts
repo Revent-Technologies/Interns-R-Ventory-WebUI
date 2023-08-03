@@ -22,15 +22,16 @@ export const initialState: State = {
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state, action) => {  
-    
-      localStorage.setItem(
-        'userData',
-        JSON.stringify({
-          username: action.username,
-        })
-      );
-
+  on(AuthActions.loginSuccess, (state, action) => {
+    // if (!localStorage.getItem('userData')) {
+    //   localStorage.setItem(
+    //     'userData',
+    //     JSON.stringify({
+    //       username: action.username,
+    //       expiryDate: new Date().getTime() + 10000,
+    //     })
+    //   );
+    // }
 
     return {
       ...state,
@@ -49,7 +50,7 @@ const authReducerInternal = createReducer(
   }),
 
   on(AuthActions.logOut, (state) => {
-    localStorage.removeItem('userData');
+    // localStorage.removeItem('userData');
     return {
       ...state,
       permitted: false,
@@ -76,3 +77,8 @@ const authReducerInternal = createReducer(
 export function authReducer(state: State | undefined, action: Action) {
   return authReducerInternal(state, action);
 }
+///
+// on(AuthActions.logOut, (state) => ({
+//     ...state,
+//     permitted: false
+//   })
