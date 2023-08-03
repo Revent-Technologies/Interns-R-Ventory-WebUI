@@ -4,8 +4,6 @@ import { Notification } from './@core/interfaces';
 import { Store } from '@ngrx/store';
 import * as fromApp from './@core/stores/app/app.reducer';
 import * as AuthActions from './@core/stores/auth/auth.actions';
-import * as authSelectors from './@core/stores/auth/auth.selectors';
-import { Router } from '@angular/router';
 import { AuthService } from './@core/services/auth.service';
 
 @Component({
@@ -20,7 +18,6 @@ export class AppComponent implements OnInit , OnDestroy{
     private notificationService: NotificationService,
     private store: Store<fromApp.AppState>,
     private authService: AuthService,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
