@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService } from './@core/services/notification.service';
 import { Notification } from './@core/interfaces';
 import { Store } from '@ngrx/store';
@@ -6,18 +6,20 @@ import * as fromApp from './@core/stores/app/app.reducer';
 import * as AuthActions from './@core/stores/auth/auth.actions';
 import * as authSelectors from './@core/stores/auth/auth.selectors';
 import { Router } from '@angular/router';
+import { AuthService } from './@core/services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit , OnDestroy{
   data!: string | null;
 
   constructor(
     private notificationService: NotificationService,
     private store: Store<fromApp.AppState>,
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -27,23 +29,9 @@ export class AppComponent implements OnInit {
       this.store.dispatch(
         AuthActions.loginSuccess({ username: data.username })
       );
-      const currentTime = new Date().getTime();
-      console.log(currentTime);
 
-      if (currentTime < data.expiryDate) {
-        console.log(data.expiryDate - currentTime);
-        const timer = data.expiryDate - currentTime;
-        setTimeout(() => {
-          this.store.dispatch(AuthActions.logOut());
-        }, timer);
-      }
-      this.store
-        .select(authSelectors.getAuthPermission)
-        .subscribe((permission) => {
-          if (permission === false) {
-            this.router.navigate(['auth']);
-          }
-        });
+      // Start tracking user activity
+      this.authService.startActivityTracking();
     }
   }
 
@@ -74,4 +62,9 @@ export class AppComponent implements OnInit {
       );
     });
   }
+
+
+  ngOnDestroy(): void {
+  }
+  
 }

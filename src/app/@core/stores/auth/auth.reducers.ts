@@ -22,16 +22,15 @@ export const initialState: State = {
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state, action) => {
-    if (!localStorage.getItem('userData')) {
+  on(AuthActions.loginSuccess, (state, action) => {  
+    
       localStorage.setItem(
         'userData',
         JSON.stringify({
           username: action.username,
-          expiryDate: new Date().getTime() + 10000,
         })
       );
-    }
+
 
     return {
       ...state,

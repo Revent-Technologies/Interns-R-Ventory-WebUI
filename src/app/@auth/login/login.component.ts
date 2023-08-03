@@ -39,15 +39,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.buildLoginForm();
-    
+
     const username = localStorage.getItem('usernmae');
     const password = localStorage.getItem('password');
 
     if (username && password) {
-      this.store.dispatch(AuthActions.loginStart({
-        username:username,
-        password:password
-      }));
+      this.store.dispatch(
+        AuthActions.loginStart({
+          username: username,
+          password: password,
+        })
+      );
     }
     // subscribe to login Error Message
     this.subscription.add(
