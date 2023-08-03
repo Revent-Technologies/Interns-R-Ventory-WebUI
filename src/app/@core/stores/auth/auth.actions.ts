@@ -18,6 +18,9 @@ export const loginFailed = createAction(
 
 export const autoLogin = createAction('[Auth] Auto Login');
 
+export const logoutStart = createAction(
+  '[Auth] Remove localStorageAuth before logout'
+);
 export const logOut = createAction('[Auth] Logout');
 
 export const forgotPassword = createAction(
