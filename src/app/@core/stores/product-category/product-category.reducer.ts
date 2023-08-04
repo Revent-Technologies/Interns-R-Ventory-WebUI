@@ -13,7 +13,7 @@ const initialState: State = {
 const productCategoryReducerInternal = createReducer(
   initialState,
   on(
-    fromProductCategoryActions.getProductCategorySuccessful,
+    fromProductCategoryActions.GetProductCategorySuccessful,
     (state, { category }) => {
       return {
         ...state,

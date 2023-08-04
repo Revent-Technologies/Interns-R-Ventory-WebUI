@@ -22,10 +22,11 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class WarehouseComponent implements OnInit {
   subscription = new Subscription();
   dataSource: MatTableDataSource<Warehouse> | null = null;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) tableSort!: MatSort;
   selection = new SelectionModel<Warehouse>(true, []);
   filterValue: string = '';
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) tableSort!: MatSort;
 
   constructor(
     public dialog: MatDialog,
@@ -45,22 +46,14 @@ export class WarehouseComponent implements OnInit {
     'action',
   ];
 
-  // dataSource!: Warehouse[];
-
   ngOnInit() {
     this.store.dispatch(WarehouseActions.LoadWarehouse());
 
     this.store.select(fromWarehouse.getWarehouse).subscribe((data) => {
-      // this.dataSource = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.tableSort;
     });
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim().toLowerCase();
-    this.dataSource!.filter = filterValue;
   }
 
   openDialogNew() {
@@ -89,6 +82,15 @@ export class WarehouseComponent implements OnInit {
     return numSelected === numRows;
   }
 
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
+  }
+
   masterToggle() {
     if (this.isAllSelected()) {
       this.selection.clear();
@@ -97,12 +99,8 @@ export class WarehouseComponent implements OnInit {
     this.selection.select(...this.dataSource!.data);
   }
 
-  checkboxLabel(row?: any): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.position + 1
-    }`;
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim().toLowerCase();
+    this.dataSource!.filter = filterValue;
   }
 }
