@@ -12,12 +12,11 @@ export class VendorsEffects {
 
   getVendors$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(VendorActions.getVendors),
+      ofType(VendorActions.GetVendors),
       mergeMap((actions) => {
         return this.http.get<Vendor[]>(`${environment.vendors}`).pipe(
           map((vendors) => {
-            // console.log(vendors);
-            return VendorActions.getVendorsSuccessful({ vendors: vendors });
+            return VendorActions.GetVendorsSuccessful({ vendors: vendors });
           })
         );
       })

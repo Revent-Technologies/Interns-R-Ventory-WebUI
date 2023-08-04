@@ -68,7 +68,6 @@ export class AuthEffects {
               if (user.length > 0) {
                 return AuthActions.forgotPasswordSuccess();
               } else {
-                // console.log('email does not exist');
                 return AuthActions.forgotPasswordFailure({
                   errorMessage: 'Email not registered',
                 });

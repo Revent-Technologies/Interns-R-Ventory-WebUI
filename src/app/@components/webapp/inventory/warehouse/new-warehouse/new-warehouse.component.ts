@@ -102,7 +102,7 @@ export class NewWarehouseComponent implements OnInit {
       this.openNotification(notificationData);
     }
   }
-
+  
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {
       data,
@@ -116,15 +116,6 @@ export class NewWarehouseComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // submitForm() {
-  //   if (this.warehouseForm.valid) {
-  //     const warehouseName = this.warehouseForm.value;
-  //     const warehouseCode = this.warehouseForm.value;
-
-  //     console.log(warehouseName, warehouseCode);
-  //     this.addWarehouse();
-  //   }
-  // }
   ngOnDestroy() {
     this.subcription.unsubscribe();
   }

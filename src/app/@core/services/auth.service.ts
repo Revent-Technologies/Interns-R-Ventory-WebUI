@@ -45,8 +45,6 @@ export class AuthService {
           'zns-notification-success'
         );
       }, 10000);
-
-      console.log(this.timer);
     }
   }
 

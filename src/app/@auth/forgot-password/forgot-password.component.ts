@@ -34,6 +34,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+
     this.subscription.add(
       this.store
         .select(authSelectors.getForgotPasswordFailure)
