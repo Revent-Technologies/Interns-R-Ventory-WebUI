@@ -28,5 +28,5 @@ jobs:
         run: ng build --prod
 
       - name: Deploy to Vercel
-        run: VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }} npx vercel --prod --confirm
+        run: VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }} npx vercel --prod --yes
 
