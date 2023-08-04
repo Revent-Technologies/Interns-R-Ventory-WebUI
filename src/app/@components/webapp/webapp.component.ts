@@ -1,5 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../@core/stores/app/app.reducer';
+import * as AuthActions from '../../@core/stores/auth/auth.actions';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -11,11 +14,18 @@ interface SideNavToggle {
   templateUrl: './webapp.component.html',
   styleUrls: ['./webapp.component.scss'],
 })
-export class WebappComponent {
+export class WebappComponent implements OnInit {
   isSideNavCollapsed = false;
   screenWidth = 0;
   toggled = false;
+  data!: string | null;
   @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
+  constructor(private store: Store<fromApp.AppState>) {}
+
+  ngOnInit(): void {
+  
+  }
 
   onToggleSideNav(data: SideNavToggle) {
     this.screenWidth = data.screenWidth;

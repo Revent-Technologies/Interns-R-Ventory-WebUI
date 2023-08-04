@@ -1,17 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService } from './@core/services/notification.service';
 import { Notification } from './@core/interfaces';
+import { Store } from '@ngrx/store';
+import * as fromApp from './@core/stores/app/app.reducer';
+import * as AuthActions from './@core/stores/auth/auth.actions';
+import { AuthService } from './@core/services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  constructor(private notificationService: NotificationService) {}
+export class AppComponent implements OnInit , OnDestroy{
+  data!: string | null;
+
+  constructor(
+    private notificationService: NotificationService,
+    private store: Store<fromApp.AppState>,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
-    this.listenToOfflineOnlineState();
+    const data = JSON.parse(localStorage.getItem('userData')!);
+    if (data) {
+      this.store.dispatch(
+        AuthActions.loginSuccess({ username: data.username })
+      );
+
+      // Start tracking user activity
+      this.authService.startActivityTracking();
+    }
   }
 
   listenToOfflineOnlineState() {
@@ -41,4 +59,9 @@ export class AppComponent implements OnInit {
       );
     });
   }
+
+
+  ngOnDestroy(): void {
+  }
+  
 }
