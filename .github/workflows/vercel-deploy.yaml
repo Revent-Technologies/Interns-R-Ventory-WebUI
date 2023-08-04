@@ -25,6 +25,6 @@ jobs:
         run: ng build --prod
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v2.3.1
+        uses: amondnet/vercel-action@v2
         with:
           vercel_token: ${{ secrets.VERCEL_TOKEN }}
