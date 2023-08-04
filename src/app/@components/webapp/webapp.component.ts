@@ -19,13 +19,12 @@ export class WebappComponent implements OnInit {
   screenWidth = 0;
   toggled = false;
   data!: string | null;
+
   @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
 
   constructor(private store: Store<fromApp.AppState>) {}
 
-  ngOnInit(): void {
-  
-  }
+  ngOnInit(): void {}
 
   onToggleSideNav(data: SideNavToggle) {
     this.screenWidth = data.screenWidth;
@@ -35,11 +34,13 @@ export class WebappComponent implements OnInit {
 
   getBodyClass(): string {
     let styleClass = '';
+
     if (this.isSideNavCollapsed && this.screenWidth > 788) {
       styleClass = 'body-trimmed';
     } else if (this.toggled) {
       styleClass = 'body-opacity';
     }
+
     return styleClass;
   }
 

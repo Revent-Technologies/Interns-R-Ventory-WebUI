@@ -55,10 +55,9 @@ export class ForgotPasswordComponent implements OnInit {
 
   onLogin() {
     if (this.emailForm.valid) {
-      // console.log('Valid Form');
       const email = this.emailForm.get('email')?.value;
 
-      this.store.dispatch(AuthActions.forgotPassword({ payload: { email } }));
+      this.store.dispatch(AuthActions.ForgotPassword({ payload: { email } }));
     }
 
     this.subscription.add(
@@ -70,6 +69,7 @@ export class ForgotPasswordComponent implements OnInit {
               state: 'success',
               message: 'Successfully Logged in!',
             };
+
             this.openNotification(notificationData);
             this.showNotification = true;
             this.router.navigate(['../login']);
@@ -86,14 +86,13 @@ export class ForgotPasswordComponent implements OnInit {
               state: 'warning',
               message: 'Invalid Email!',
             };
+
             this.openNotification(notificationData);
             this.showNotification = true;
           }
         })
     );
   }
-
-  
 
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {

@@ -2,23 +2,32 @@ import { NgModule } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
-import { defaultIfEmpty, exhaustMap, map, mergeMap, switchMap, tap } from 'rxjs';
+import {
+  defaultIfEmpty,
+  exhaustMap,
+  map,
+  mergeMap,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/auth.interface';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @NgModule()
 export class AuthEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   loginCheck$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.loginStart),
+      ofType(AuthActions.LoginStart),
       exhaustMap((action) => {
         return this.http
           .get<User[]>(`${environment.user}?username=${action.username}`)
@@ -27,16 +36,18 @@ export class AuthEffects {
               const cleanData = roughData[0];
               if (cleanData) {
                 if (cleanData.password === action.password) {
-                  return AuthActions.loginSuccess({
+                  this.authService.startActivityTracking();
+
+                  return AuthActions.LoginSuccess({
                     username: action.username,
                   });
                 } else {
-                  return AuthActions.loginFailed({
+                  return AuthActions.LoginFailed({
                     payload: 'Password is incorrect',
                   });
                 }
               } else {
-                return AuthActions.loginFailed({
+                return AuthActions.LoginFailed({
                   payload: 'Username does not exist',
                 });
               }
@@ -46,12 +57,9 @@ export class AuthEffects {
     );
   });
 
-
-    
-
   forgotPassword$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.forgotPassword),
+      ofType(AuthActions.ForgotPassword),
       exhaustMap((action) => {
         return this.http
           .get<User[]>(`${environment.user}?username=${action.payload.email}`)
@@ -71,5 +79,16 @@ export class AuthEffects {
     );
   });
 
+  logoutStart = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.LogoutStart),
+      map(() => {
+        localStorage.removeItem('userData');
+        this.authService.stopTracking();
 
+        this.router.navigate(['auth']);
+        return AuthActions.logOut();
+      })
+    );
+  });
 }

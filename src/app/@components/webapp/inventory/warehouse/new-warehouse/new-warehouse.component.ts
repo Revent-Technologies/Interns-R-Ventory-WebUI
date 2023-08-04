@@ -85,7 +85,7 @@ export class NewWarehouseComponent implements OnInit {
         categoriesName: `${warehouseName}(${warehouseCode})`,
         createdBy: this.loggedInUserEmail,
         date: new Date(),
-        updatedBy: '',
+        updatedBy: this.loggedInUserEmail,
         updateDate: new Date(),
         status: '',
         ...this.warehouseForm.value,
