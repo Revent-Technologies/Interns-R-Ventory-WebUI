@@ -3,12 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
 import {
-  defaultIfEmpty,
   exhaustMap,
   map,
-  mergeMap,
-  switchMap,
-  tap,
+  
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -36,11 +33,8 @@ export class AuthEffects {
               const cleanData = roughData[0];
               if (cleanData) {
                 if (cleanData.password === action.password) {
-<<<<<<< HEAD
-=======
                   this.authService.startActivityTracking();
 
->>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
                   return AuthActions.LoginSuccess({
                     username: action.username,
                   });
@@ -71,12 +65,7 @@ export class AuthEffects {
               if (user.length > 0) {
                 return AuthActions.ForgotPasswordSuccess();
               } else {
-<<<<<<< HEAD
-                // console.log('email does not exist');
                 return AuthActions.ForgotPasswordFailure({
-=======
-                return AuthActions.forgotPasswordFailure({
->>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
                   errorMessage: 'Email not registered',
                 });
               }
@@ -85,8 +74,6 @@ export class AuthEffects {
       })
     );
   });
-<<<<<<< HEAD
-=======
 
   logoutStart = createEffect(() => {
     return this.actions$.pipe(
@@ -100,5 +87,4 @@ export class AuthEffects {
       })
     );
   });
->>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
 }

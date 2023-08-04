@@ -39,17 +39,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.buildLoginForm();
 
-    const username = localStorage.getItem('usernmae');
-    const password = localStorage.getItem('password');
-
-    if (username && password) {
-      this.store.dispatch(
-        AuthActions.LoginStart({
-          username: username,
-          password: password,
-        })
-      );
-    }
 
     // subscribe to login Error Message
     this.subscription.add(
@@ -72,6 +61,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
+  customValidator(control: FormControl): { [s: string]: boolean } | null {
+    if (this.loginError.includes('username')) {
+      return { usernameError: true };
+    } else if (this.loginError.includes('password')) {
+      return { passwordError: true };
+    } else {
+      return null;
+    }
+  }
+
   buildLoginForm() {
     this.loginForm = this.fb.group({
       username: [
@@ -91,16 +90,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         ],
       ],
     });
-  }
-
-  customValidator(control: FormControl): { [s: string]: boolean } | null {
-    if (this.loginError.includes('username')) {
-      return { usernameError: true };
-    } else if (this.loginError.includes('password')) {
-      return { passwordError: true };
-    } else {
-      return null;
-    }
   }
 
   showDescriptionErrors(control: string) {

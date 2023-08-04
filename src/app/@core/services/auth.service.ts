@@ -35,10 +35,6 @@ export class AuthService {
       this.timer = setTimeout(() => {
         // Dispatch logout action here
         this.store.dispatch(AuthActions.LogoutStart());
-<<<<<<< HEAD
-=======
-
->>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
         this.notificationService.openSnackBar(
           {
             state: 'success',
@@ -47,7 +43,7 @@ export class AuthService {
           },
           'zns-notification-success'
         );
-      }, 10000);
+      }, this.idleTimeout);
     }
   }
 

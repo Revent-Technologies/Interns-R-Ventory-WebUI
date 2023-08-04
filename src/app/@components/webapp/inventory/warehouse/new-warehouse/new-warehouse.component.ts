@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
-  MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
@@ -11,8 +10,6 @@ import { WarehouseService } from 'src/app/@core/services/warehouse.service';
 import * as fromApp from '../../../../../@core/stores/app/app.reducer';
 import * as WarehouseActions from 'src/app/@core/stores/warehouse/warehouse.actions';
 import { NewWarehouse } from 'src/app/@core/interfaces';
-import * as warehouseSelectors from 'src/app/@core/stores/warehouse/warehouse.selector';
-import { getNewWarehouse } from 'src/app/@core/stores/warehouse/warehouse.selector';
 import {
   MatSnackBar,
   MatSnackBarVerticalPosition,
@@ -20,7 +17,6 @@ import {
 import { NotificationComponent } from 'src/app/@core/shared/notification/notification.component';
 import { Notification } from 'src/app/@core/interfaces';
 import * as authSelectors from 'src/app/@core/stores/auth/auth.selectors';
-import { NotificationService } from 'src/app/@core/services/notification.service';
 
 @Component({
   selector: 'app-new-warehouse',
