@@ -29,4 +29,3 @@ jobs:
 
       - name: Deploy to Vercel
         run: yes | npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
-
