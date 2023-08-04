@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);

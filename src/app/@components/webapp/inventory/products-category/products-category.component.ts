@@ -19,9 +19,9 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  currentLength!: number;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  currentLength!: number;
 
   constructor(
     public dialog: MatDialog,

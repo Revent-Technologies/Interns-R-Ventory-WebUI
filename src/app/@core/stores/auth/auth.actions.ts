@@ -17,7 +17,7 @@ export const LoginFailed = createAction(
   props<{ payload: string }>()
 );
 
-export const autoLogin = createAction('[Auth] Auto Login');
+export const AutoLogin = createAction('[Auth] Auto Login');
 
 export const LogoutStart = createAction('[Auth] Logout Start');
 export const logOut = createAction('[Auth] Logout');
@@ -33,11 +33,11 @@ export const ForgotPassword = createAction(
   }>()
 );
 
-export const forgotPasswordSuccess = createAction(
+export const ForgotPasswordSuccess = createAction(
   '[Auth] Forgot Password Success'
 );
 
-export const forgotPasswordFailure = createAction(
+export const ForgotPasswordFailure = createAction(
   '[Auth] Forgot Password Failure',
   props<{
     errorMessage: string;

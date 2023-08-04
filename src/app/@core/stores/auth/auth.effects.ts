@@ -3,12 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
 import {
-  defaultIfEmpty,
   exhaustMap,
   map,
-  mergeMap,
-  switchMap,
-  tap,
+  
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -66,9 +63,9 @@ export class AuthEffects {
           .pipe(
             map((user) => {
               if (user.length > 0) {
-                return AuthActions.forgotPasswordSuccess();
+                return AuthActions.ForgotPasswordSuccess();
               } else {
-                return AuthActions.forgotPasswordFailure({
+                return AuthActions.ForgotPasswordFailure({
                   errorMessage: 'Email not registered',
                 });
               }
