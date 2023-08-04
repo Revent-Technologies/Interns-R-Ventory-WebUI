@@ -6,6 +6,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'app',
     pathMatch: 'full',
+
     // loadChildren: () =>
     //   import('src/app/@components/website/website.module').then(
     //     (m) => m.WebsiteModule
