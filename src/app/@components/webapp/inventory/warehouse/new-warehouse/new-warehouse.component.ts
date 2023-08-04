@@ -32,6 +32,7 @@ export class NewWarehouseComponent implements OnInit {
   subcription = new Subscription();
   showNotification = false;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  loggedInUserEmail: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,6 +59,13 @@ export class NewWarehouseComponent implements OnInit {
     //   );
     // }
 
+    this.store
+      .select(authSelectors.getUsername)
+      .pipe(take(1))
+      .subscribe((username) => {
+        this.loggedInUserEmail = username;
+      });
+
     if (this.editdata) {
       this.warehouseForm.patchValue({
         warehouseName: this.editdata.warehouseName,
@@ -71,26 +79,11 @@ export class NewWarehouseComponent implements OnInit {
       const warehouseName = this.warehouseForm.value.warehouseName;
       const warehouseCode = this.warehouseForm.value.warehouseCode;
 
-      //Retriving the field for the user info
-
-      // let loggedInUserEmail: string | null = null;
-      // this.subcription.add(
-      //   this.store
-      //     .select(authSelectors.getLoggedInUserEmail)
-      //     .subscribe((data) => {
-      //       console.log('User Email:', data);
-      //       if (typeof data === 'string'){
-      //         loggedInUserEmail = data;
-      //       }
-          
-      //     })
-      // );
-
       const newWarehouse: NewWarehouse = {
         id: '',
         check: false,
         categoriesName: `${warehouseName}(${warehouseCode})`,
-        createdBy: '',
+        createdBy: this.loggedInUserEmail,
         date: new Date(),
         updatedBy: '',
         updateDate: new Date(),
@@ -107,14 +100,6 @@ export class NewWarehouseComponent implements OnInit {
         message: 'Successfully Added',
       };
       this.openNotification(notificationData);
-      // const notificationData: Notification = {
-      //   state: 'success',
-      //   message: 'Warehouse added successfully!',
-      // };
-      // this.notificationService.openSnackBar(
-      //   notificationData,
-      //   'zns-notification-success'
-      // );
     }
   }
 

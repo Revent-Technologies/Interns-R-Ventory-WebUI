@@ -1,14 +1,15 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from './auth.actions';
 import { User } from '../../interfaces/auth.interface';
+import { state } from '@angular/animations';
 
 export interface State {
-  [x: string]: any;
+  // [x: string]: any;
   permitted: boolean;
   loginMessage: string;
   forgotPasswordSuccess: boolean;
   forgotPasswordFailure: string;
-  // user:User | null;
+  username: string | null;
 }
 
 export const initialState: State = {
@@ -16,17 +17,26 @@ export const initialState: State = {
   loginMessage: '',
   forgotPasswordSuccess: false,
   forgotPasswordFailure: '',
-  // user: null,
+  username: '',
 };
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state) => {
+  on(AuthActions.loginSuccess, (state, action) => {  
+    
+      localStorage.setItem(
+        'userData',
+        JSON.stringify({
+          username: action.username,
+        })
+      );
+
+
     return {
       ...state,
       permitted: true,
       loginMessage: '',
-      // user:user
+      username: action.username,
     };
   }),
 
@@ -35,6 +45,14 @@ const authReducerInternal = createReducer(
       ...state,
       permitted: false,
       loginMessage: action.payload,
+    };
+  }),
+
+  on(AuthActions.logOut, (state) => {
+    localStorage.removeItem('userData');
+    return {
+      ...state,
+      permitted: false,
     };
   }),
 

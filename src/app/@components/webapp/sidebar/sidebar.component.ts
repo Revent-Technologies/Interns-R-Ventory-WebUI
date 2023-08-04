@@ -13,6 +13,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../@core/stores/app/app.reducer';
+import * as AuthActions from '../../../@core/stores/auth/auth.actions';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -40,9 +43,13 @@ export class SidebarComponent implements OnInit {
   @Output() onToggleSideNav = new EventEmitter<SideNavToggle>();
   mobile_close = true;
 
+  constructor(private store: Store<fromApp.AppState>){}
+
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
   }
+
+
 
   collapsed = false;
   screenWidth = 0;
@@ -88,5 +95,9 @@ export class SidebarComponent implements OnInit {
       collapsed: this.collapsed,
       screenWidth: this.screenWidth,
     });
+  }
+
+  logOutApp(){
+    this.store.dispatch(AuthActions.logoutStart());
   }
 }
