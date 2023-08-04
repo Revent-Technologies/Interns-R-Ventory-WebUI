@@ -11,20 +11,20 @@ import { AuthService } from './@core/services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit , OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
   data!: string | null;
 
   constructor(
     private notificationService: NotificationService,
     private store: Store<fromApp.AppState>,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('userData')!);
     if (data) {
       this.store.dispatch(
-        AuthActions.loginSuccess({ username: data.username })
+        AuthActions.LoginSuccess({ username: data.username })
       );
 
       // Start tracking user activity
@@ -62,8 +62,5 @@ export class AppComponent implements OnInit , OnDestroy{
     });
   }
 
-
-  ngOnDestroy(): void {
-  }
-  
+  ngOnDestroy(): void {}
 }

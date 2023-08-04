@@ -58,7 +58,7 @@ export class ForgotPasswordComponent implements OnInit {
       // console.log('Valid Form');
       const email = this.emailForm.get('email')?.value;
 
-      this.store.dispatch(AuthActions.forgotPassword({ payload: { email } }));
+      this.store.dispatch(AuthActions.ForgotPassword({ payload: { email } }));
     }
 
     this.subscription.add(
@@ -92,8 +92,6 @@ export class ForgotPasswordComponent implements OnInit {
         })
     );
   }
-
-  
 
   openNotification(data: Notification) {
     this.snackBar.openFromComponent(NotificationComponent, {

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     if (username && password) {
       this.store.dispatch(
-        AuthActions.loginStart({
+        AuthActions.LoginStart({
           username: username,
           password: password,
         })
@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       // Authenticate
       this.store.dispatch(
-        AuthActions.loginStart({
+        AuthActions.LoginStart({
           username: valueSubmitted.username,
           password: valueSubmitted.password,
         })

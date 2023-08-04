@@ -32,7 +32,7 @@ export class AuthService implements OnInit, OnDestroy {
     if (this.isLoggedIn) {
       this.timer = setTimeout(() => {
         // Dispatch logout action here
-        this.store.dispatch(AuthActions.logoutStart());
+        this.store.dispatch(AuthActions.LogoutStart());
         this.notificationService.openSnackBar(
           this.notification,
           'zns-notification-success'

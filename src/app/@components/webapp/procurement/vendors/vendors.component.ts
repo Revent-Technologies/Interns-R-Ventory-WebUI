@@ -42,7 +42,7 @@ export class VendorsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Get Vendors
-    this.store.dispatch(VendorActions.getVendors());
+    this.store.dispatch(VendorActions.GetVendors());
 
     // Listen to vendors
     this.store.select(vendorSelectors.getVendors).subscribe((data) => {

@@ -77,7 +77,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
           };
 
           this.store.dispatch(
-            ProductCategoryActions.startAddNewProductCategory({
+            ProductCategoryActions.StartAddNewProductCategory({
               payload: sending,
             })
           );
@@ -92,7 +92,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   }
 
   getProductsCategory() {
-    this.store.dispatch(ProductCategoryActions.getProductCategory());
+    this.store.dispatch(ProductCategoryActions.GetProductCategory());
   }
 
   listenToGetProductCategory() {
