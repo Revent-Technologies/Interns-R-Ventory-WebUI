@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as AuthActions from './auth.actions';
-import { defaultIfEmpty, exhaustMap, map, tap } from 'rxjs';
+import { defaultIfEmpty, exhaustMap, map, mergeMap, switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/auth.interface';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @NgModule()
 export class AuthEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private router: Router,
-    private authService: AuthService
+    private router: Router
   ) {}
 
   loginCheck$ = createEffect(() => {
@@ -29,8 +27,6 @@ export class AuthEffects {
               const cleanData = roughData[0];
               if (cleanData) {
                 if (cleanData.password === action.password) {
-                  this.authService.startActivityTracking();
-
                   return AuthActions.loginSuccess({
                     username: action.username,
                   });
@@ -49,6 +45,9 @@ export class AuthEffects {
       })
     );
   });
+
+
+    
 
   forgotPassword$ = createEffect(() => {
     return this.actions$.pipe(
@@ -72,16 +71,5 @@ export class AuthEffects {
     );
   });
 
-  logoutStart = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(AuthActions.logoutStart),
-      map(() => {
-        localStorage.removeItem('userData');
-        this.authService.stopTracking();
 
-        this.router.navigate(['auth']);
-        return AuthActions.logOut();
-      })
-    );
-  });
 }

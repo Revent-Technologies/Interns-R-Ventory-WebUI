@@ -30,6 +30,8 @@ export class AppComponent implements OnInit , OnDestroy{
       // Start tracking user activity
       this.authService.startActivityTracking();
     }
+
+    // this.store.dispatch(AuthActions.autoLogin());
   }
 
   listenToOfflineOnlineState() {
