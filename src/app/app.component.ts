@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('userData')!);
+
     if (data) {
       this.store.dispatch(
         AuthActions.LoginSuccess({ username: data.username })
@@ -30,8 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
       // Start tracking user activity
       this.authService.startActivityTracking();
     }
-
-    // this.store.dispatch(AuthActions.autoLogin());
   }
 
   listenToOfflineOnlineState() {

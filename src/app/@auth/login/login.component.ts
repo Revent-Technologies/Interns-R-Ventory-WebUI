@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
 
   loginForm!: FormGroup;
-  // loginUser!: User | undefined;
   loginError = '';
   hide = true;
 
@@ -51,13 +50,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         })
       );
     }
+
     // subscribe to login Error Message
     this.subscription.add(
       this.store.select(authSelectors.getAuthMessage).subscribe((message) => {
         this.loginError = message;
 
         if (this.loginError.includes('Username')) {
-          //   this.loginForm.get("username")?.valid = true;
           this.loginForm.controls['username'].setErrors({
             usernameError: true,
           });
@@ -94,9 +93,34 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
+  customValidator(control: FormControl): { [s: string]: boolean } | null {
+    if (this.loginError.includes('username')) {
+      return { usernameError: true };
+    } else if (this.loginError.includes('password')) {
+      return { passwordError: true };
+    } else {
+      return null;
+    }
+  }
+
+  showDescriptionErrors(control: string) {
+    const descriptionForm = this.loginForm.get(control);
+
+    if (
+      descriptionForm?.dirty ||
+      (descriptionForm?.touched && descriptionForm.invalid)
+    ) {
+      if (descriptionForm.errors && descriptionForm.errors['required']) {
+        return ` ${control} is required`;
+      } else if (descriptionForm.errors && descriptionForm.errors['email']) {
+        return 'Not a Valid Email';
+      }
+    }
+    return '';
+  }
+
   onSubmitForm() {
     if (this.loginForm.valid) {
-      // console.log('Valid form submitted');
       const valueSubmitted: User = this.loginForm.value;
 
       // Authenticate
@@ -126,36 +150,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
           // Navigate to dashboard
           this.loginForm.reset();
-        } else {
-          // console.log('cant login');
         }
       })
     );
-  }
-
-  customValidator(control: FormControl): { [s: string]: boolean } | null {
-    if (this.loginError.includes('username')) {
-      return { usernameError: true };
-    } else if (this.loginError.includes('password')) {
-      return { passwordError: true };
-    } else {
-      return null;
-    }
-  }
-
-  showDescriptionErrors(control: string) {
-    const descriptionForm = this.loginForm.get(control);
-    if (
-      descriptionForm?.dirty ||
-      (descriptionForm?.touched && descriptionForm.invalid)
-    ) {
-      if (descriptionForm.errors && descriptionForm.errors['required']) {
-        return ` ${control} is required`;
-      } else if (descriptionForm.errors && descriptionForm.errors['email']) {
-        return 'Not a Valid Email';
-      }
-    }
-    return '';
   }
 
   ngOnDestroy(): void {

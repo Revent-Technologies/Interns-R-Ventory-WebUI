@@ -16,7 +16,10 @@ export class VendorsEffects {
       mergeMap((actions) => {
         return this.http.get<Vendor[]>(`${environment.vendors}`).pipe(
           map((vendors) => {
+<<<<<<< HEAD
             // console.log(vendors);
+=======
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
             return VendorActions.GetVendorsSuccessful({ vendors: vendors });
           })
         );

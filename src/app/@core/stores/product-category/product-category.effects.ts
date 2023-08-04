@@ -18,7 +18,10 @@ export class ProductCategoryEffects {
           .get<ProductCategory[]>(`${environment.productCategory}`)
           .pipe(
             map((data) => {
+<<<<<<< HEAD
               // console.log(data);
+=======
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
               return ProductCategoryActions.GetProductCategorySuccessful({
                 category: data,
               });
@@ -36,7 +39,10 @@ export class ProductCategoryEffects {
           .post(`${environment.productCategory}`, action.payload)
           .pipe(
             map((data) => {
+<<<<<<< HEAD
               // console.log(data);
+=======
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
               return ProductCategoryActions.AddNewProductCategorySuccess();
             })
           );

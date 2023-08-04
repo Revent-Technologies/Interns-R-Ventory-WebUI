@@ -15,9 +15,14 @@ export const StartAddNewProductCategory = createAction(
   props<{ payload: ProductCategory }>()
 );
 
+<<<<<<< HEAD
 export const AddNewProductCategorySuccess = createAction(
   '[Product Category] Add Product Category Success'
 );
 export const AddNewProductCategoryFailure = createAction(
   '[Product Category] Add Product Category Failure'
 );
+=======
+export const AddNewProductCategorySuccess = createAction('[Product Category] Add Product Category Success')
+export const AddNewProductCategoryFailure = createAction('[Product Category] Add Product Category Failure')
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e

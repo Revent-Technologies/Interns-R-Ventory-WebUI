@@ -37,7 +37,6 @@ export class AddNewCategoryComponent {
   });
 
   onSubmit() {
-    // console.log(this.categoryForm.value, 'value from inner');
     this.ref.close(this.categoryForm.value);
   }
 

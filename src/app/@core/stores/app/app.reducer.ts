@@ -9,7 +9,6 @@ export interface AppState {
   productCategory: fromProductCategory.State;
   vendors: fromVendor.State;
   warehouse: fromWarehouse.State;
-  // notification: fromNotification.State
 }
 
 export const appReducer: ActionReducerMap<AppState> = {
@@ -17,5 +16,4 @@ export const appReducer: ActionReducerMap<AppState> = {
   productCategory: fromProductCategory.ProductCategoryReducer,
   vendors: fromVendor.vendorsReducer,
   warehouse: fromWarehouse.warehouseReducer,
-  // notification: fromNotification.notificationReducer
 };

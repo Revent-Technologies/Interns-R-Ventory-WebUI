@@ -14,8 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import * as fromApp from './@core/stores/app/app.reducer';
 import { AuthModule } from './@auth/auth.module';
 import { NotificationModule } from './@core/shared/notification/notification.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,10 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     AuthModule,
     RouterModule,
-    NotificationModule
-  // MatSnackBarModule
-  
-  
+    NotificationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

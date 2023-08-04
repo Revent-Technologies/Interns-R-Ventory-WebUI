@@ -14,13 +14,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/auth.interface';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @NgModule()
 export class AuthEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   loginCheck$ = createEffect(() => {
@@ -34,6 +36,11 @@ export class AuthEffects {
               const cleanData = roughData[0];
               if (cleanData) {
                 if (cleanData.password === action.password) {
+<<<<<<< HEAD
+=======
+                  this.authService.startActivityTracking();
+
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
                   return AuthActions.LoginSuccess({
                     username: action.username,
                   });
@@ -64,8 +71,12 @@ export class AuthEffects {
               if (user.length > 0) {
                 return AuthActions.ForgotPasswordSuccess();
               } else {
+<<<<<<< HEAD
                 // console.log('email does not exist');
                 return AuthActions.ForgotPasswordFailure({
+=======
+                return AuthActions.forgotPasswordFailure({
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
                   errorMessage: 'Email not registered',
                 });
               }
@@ -74,4 +85,20 @@ export class AuthEffects {
       })
     );
   });
+<<<<<<< HEAD
+=======
+
+  logoutStart = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.LogoutStart),
+      map(() => {
+        localStorage.removeItem('userData');
+        this.authService.stopTracking();
+
+        this.router.navigate(['auth']);
+        return AuthActions.logOut();
+      })
+    );
+  });
+>>>>>>> 8445dd6b1388ad8b8666c66aede94492828cbf7e
 }
