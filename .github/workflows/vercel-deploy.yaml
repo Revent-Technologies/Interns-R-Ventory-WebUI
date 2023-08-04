@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 14.x  # Adjust the Node.js version if needed
 
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
       - name: Install dependencies
         run: npm install
 
