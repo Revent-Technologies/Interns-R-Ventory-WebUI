@@ -1,29 +1,31 @@
-# Stage 1: Build Angular app
-FROM node:14 as build
+name: Deploy to Vercel
 
-WORKDIR /app
+on:
+  push:
+    branches:
+      - dev  # Change this to your dev branch name
 
-# Copy and install app dependencies
-COPY package*.json ./
-RUN npm install
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-# Copy the rest of the app source code
-COPY . .
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-# Build the Angular app for production
-RUN npm run build --prod
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x  # Adjust the Node.js version if needed
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
 
-# Copy the compiled Angular app from the build stage to the nginx directory
-COPY --from=build /app/dist /usr/share/nginx/html
+      - name: Install dependencies
+        run: npm install
 
-# Copy a custom Nginx configuration (optional)
-# COPY nginx.conf /etc/nginx/nginx.conf
+      - name: Build the Angular app
+        run: ng build --prod
 
-# Expose the port for Nginx (default is 80)
-EXPOSE 80
-
-# Start Nginx server in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+      - name: Deploy to Vercel
+        run: yes | npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} -d ~/work/Interns-R-Ventory-WebUI/Interns-R-Ventory-WebUI

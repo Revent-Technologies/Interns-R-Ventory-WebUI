@@ -11,12 +11,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14.x  # Adjust the Node.js version if needed
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
 
       - name: Install dependencies
         run: npm install
@@ -25,6 +28,4 @@ jobs:
         run: ng build --prod
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v2
-        with:
-          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+        run: yes | npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} -d ~/work/Interns-R-Ventory-WebUI/Interns-R-Ventory-WebUI
