@@ -6,12 +6,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogContainer,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { countryCodes } from 'src/app/@core/constants';
 
 @Component({
@@ -37,7 +32,6 @@ export class AddNewCategoryComponent {
   });
 
   onSubmit() {
-    // console.log(this.categoryForm.value, 'value from inner');
     this.ref.close(this.categoryForm.value);
   }
 

@@ -10,7 +10,7 @@ export interface State {
 export const initialState: State = {
   warehouses: [],
   loading: false,
-  newWarehouse: null
+  newWarehouse: null,
 };
 
 const warehouseReducerInternal = createReducer(
@@ -32,16 +32,10 @@ const warehouseReducerInternal = createReducer(
   })),
 
   on(WarehouseActions.AddWarehouseSuccess, (state, action) => ({
-
     ...state,
     warehouses: [...state.warehouses, action.warehouse],
     loading: false,
-  })),
-
-  
- 
- 
-
+  }))
 );
 
 export function warehouseReducer(state: State | undefined, action: Action) {

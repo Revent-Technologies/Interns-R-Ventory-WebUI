@@ -1,6 +1,4 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-
-import * as fromApp from '../app/app.reducer';
 import * as fromWarehouse from './warehouse.reducer';
 
 const getWarehouseState =
@@ -20,4 +18,3 @@ export const getNewWarehouse = createSelector(
   getWarehouseState,
   (state) => state.newWarehouse
 );
- 

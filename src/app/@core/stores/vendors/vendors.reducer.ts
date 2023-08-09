@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Vendor } from '../../interfaces/vendor.interface';
-import { getVendorsSuccessful } from './vendors.actions';
+import { GetVendorsSuccessful } from './vendors.actions';
 
 export interface State {
   vendors: Vendor[];
@@ -12,7 +12,7 @@ export const initialState: State = {
 
 const vendorsReducerInternal = createReducer(
   initialState,
-  on(getVendorsSuccessful, (state, action) => {
+  on(GetVendorsSuccessful, (state, action) => {
     return {
       ...state,
       vendors: action.vendors,

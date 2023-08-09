@@ -19,9 +19,9 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  currentLength!: number;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  currentLength!: number;
 
   constructor(
     public dialog: MatDialog,
@@ -77,22 +77,19 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
           };
 
           this.store.dispatch(
-            ProductCategoryActions.startAddNewProductCategory({
+            ProductCategoryActions.StartAddNewProductCategory({
               payload: sending,
             })
           );
 
           this.getProductsCategory();
-          // console.log(data);
-        } else {
-          // console.log('Canceled');
         }
       })
     );
   }
 
   getProductsCategory() {
-    this.store.dispatch(ProductCategoryActions.getProductCategory());
+    this.store.dispatch(ProductCategoryActions.GetProductCategory());
   }
 
   listenToGetProductCategory() {
