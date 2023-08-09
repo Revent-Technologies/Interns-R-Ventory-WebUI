@@ -1,13 +1,15 @@
 {
-    "routes": [
-      {
-        "src": "/api/db",
-        "dest": "json-server/db.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/Interns-R-Ventory-WebUI", // Replace with the correct path to your Angular app's build output
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/Interns-R-Ventory-WebUI/index.html" // Replace with the correct path to your Angular app's index.html
+    }
+  ]
+}
