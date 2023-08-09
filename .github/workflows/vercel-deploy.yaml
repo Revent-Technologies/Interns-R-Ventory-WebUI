@@ -36,6 +36,9 @@ jobs:
       - name: Build the Angular app
         run: ng build --prod
 
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
       - name: Deploy to Vercel
         run: |
           echo "Deploying to Vercel..."
