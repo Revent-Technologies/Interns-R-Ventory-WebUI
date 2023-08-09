@@ -1,0 +1,19 @@
+image: node:14
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test
+        caches:
+          - node
+        script:
+          - npm install
+          - ng build --prod
+          - npm test
+
+    - step:
+        name: Deploy to Production
+        deployment: production
+        script:
+          - echo "Deploying to production..."
+          # Add your deployment commands here, e.g., deploying to a server, hosting platform, etc.
