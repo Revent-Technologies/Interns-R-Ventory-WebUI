@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/Interns-R-Ventory-WebUI", // Replace with the correct path to your Angular app's build output
+      "src": "dist/Interns-R-Ventory-WebUI",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/Interns-R-Ventory-WebUI/index.html" // Replace with the correct path to your Angular app's index.html
+      "dest": "/dist/Interns-R-Ventory-WebUI/index.html"
     }
   ]
 }
