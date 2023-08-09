@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as ProductCategoryActions from './product-category.actions';
-import { catchError, map, mergeMap } from 'rxjs';
+import { map, mergeMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ProductCategory } from '../../interfaces/product-category.interface';
 import { environment } from 'src/environments/environment';
@@ -12,14 +12,13 @@ export class ProductCategoryEffects {
 
   getCategory$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(ProductCategoryActions.getProductCategory),
+      ofType(ProductCategoryActions.GetProductCategory),
       mergeMap(() => {
         return this.http
           .get<ProductCategory[]>(`${environment.productCategory}`)
           .pipe(
             map((data) => {
-              // console.log(data);
-              return ProductCategoryActions.getProductCategorySuccessful({
+              return ProductCategoryActions.GetProductCategorySuccessful({
                 category: data,
               });
             })
@@ -30,14 +29,13 @@ export class ProductCategoryEffects {
 
   addNewProductCategory$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(ProductCategoryActions.startAddNewProductCategory),
+      ofType(ProductCategoryActions.StartAddNewProductCategory),
       mergeMap((action) => {
         return this.http
           .post(`${environment.productCategory}`, action.payload)
           .pipe(
             map((data) => {
-              // console.log(data);
-              return ProductCategoryActions.addNewProductCategorySuccess();
+              return ProductCategoryActions.AddNewProductCategorySuccess();
             })
           );
       })

@@ -35,7 +35,6 @@ export class CreateVendorsComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    // console.log(this.vendorForm.value);
     this.ref.close(this.vendorForm.value);
   }
 

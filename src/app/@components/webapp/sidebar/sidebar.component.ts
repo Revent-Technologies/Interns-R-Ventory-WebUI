@@ -43,13 +43,11 @@ export class SidebarComponent implements OnInit {
   @Output() onToggleSideNav = new EventEmitter<SideNavToggle>();
   mobile_close = true;
 
-  constructor(private store: Store<fromApp.AppState>){}
+  constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
   }
-
-
 
   collapsed = false;
   screenWidth = 0;
@@ -97,7 +95,7 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  logOutApp(){
-    this.store.dispatch(AuthActions.logoutStart());
+  logOutApp() {
+    this.store.dispatch(AuthActions.LogoutStart());
   }
 }

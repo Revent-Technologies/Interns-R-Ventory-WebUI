@@ -18,7 +18,6 @@ export class WarehouseEffects {
       mergeMap((action) => {
         return this.http.get<Warehouse[]>(`${environment.warehouse}`).pipe(
           map((data) => {
-            // console.log(data);
             return WarehouseActions.LoadWarehouseSuccess({ payload: data });
           })
         );
@@ -40,19 +39,4 @@ export class WarehouseEffects {
       )
     );
   });
-
-  // LoadWarehouse$ = createEffect(() => {
-  //   return this.actions$.pipe(
-  //     ofType(WarehouseActions.LoadWarehouse),
-  //     mergeMap(() =>
-  //       return this.http
-  //         .get<Warehouse[]>(`${environment.warehouse}`)
-  //         .pipe(
-  //           map((response) => {}
-  //             WarehouseActions.LoadWarehouseSuccess({ payload: response })
-  //           )}
-  //         )
-  //     )
-  //   );
-  // });
 }

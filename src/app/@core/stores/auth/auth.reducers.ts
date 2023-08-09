@@ -22,15 +22,8 @@ export const initialState: State = {
 
 const authReducerInternal = createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state, action) => {  
-    
-      localStorage.setItem(
-        'userData',
-        JSON.stringify({
-          username: action.username,
-        })
-      );
-
+  on(AuthActions.LoginSuccess, (state, action) => {
+  
 
     return {
       ...state,
@@ -40,7 +33,7 @@ const authReducerInternal = createReducer(
     };
   }),
 
-  on(AuthActions.loginFailed, (state, action) => {
+  on(AuthActions.LoginFailed, (state, action) => {
     return {
       ...state,
       permitted: false,
@@ -56,7 +49,7 @@ const authReducerInternal = createReducer(
     };
   }),
 
-  on(AuthActions.forgotPasswordSuccess, (state) => {
+  on(AuthActions.ForgotPasswordSuccess, (state) => {
     return {
       ...state,
       forgotPasswordSuccess: true,
@@ -64,7 +57,7 @@ const authReducerInternal = createReducer(
     };
   }),
 
-  on(AuthActions.forgotPasswordFailure, (state, action) => {
+  on(AuthActions.ForgotPasswordFailure, (state, action) => {
     return {
       ...state,
       forgotPasswordSuccess: false,

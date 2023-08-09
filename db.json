@@ -313,6 +313,18 @@
       "status": "",
       "warehouseName": "gfuystiu",
       "warehouseCode": "jhgdiuyo"
+    },
+    {
+      "id": 30,
+      "check": false,
+      "categoriesName": "Abuja(Abj)",
+      "createdBy": "test@test.com",
+      "date": "2023-08-04T08:57:50.014Z",
+      "updatedBy": "test@test.com",
+      "updateDate": "2023-08-04T08:57:50.014Z",
+      "status": "",
+      "warehouseName": "Abuja",
+      "warehouseCode": "Abj"
     }
   ],
   "productCategory": [
