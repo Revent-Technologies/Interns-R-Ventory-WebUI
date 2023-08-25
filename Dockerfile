@@ -1,29 +1,26 @@
-# Stage 1: Build Angular app
-FROM node:14 as build
+# use the deps image for build, it has all dependencies pre-installed
+FROM node:15.14-buster as build
+
+RUN npm install -g @angular/cli@11.2.x
 
 WORKDIR /app
-
-# Copy and install app dependencies
-COPY package*.json ./
+COPY package.json /app
+COPY package-lock.json /app
 RUN npm install
 
-# Copy the rest of the app source code
-COPY . .
+# add app
+COPY . /app
 
-# Build the Angular app for production
-RUN npm run build --prod
+# generate production ready build
+RUN ng build --configuration=${ENVIRONMENT} --output-path=dist
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+# runtime image
+FROM nginxinc/nginx-unprivileged:1.23-alpine
 
-# Copy the compiled Angular app from the build stage to the nginx directory
+# copy nginx config
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+
+# copy build artifacts to final image
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy a custom Nginx configuration (optional)
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose the port for Nginx (default is 80)
-EXPOSE 80
-
-# Start Nginx server in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
