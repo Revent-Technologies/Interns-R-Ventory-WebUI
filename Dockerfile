@@ -13,6 +13,9 @@ RUN npm install -g @angular/cli
 # Copy the rest of the app source code
 COPY . .
 
+# Install app dependencies
+RUN npm install
+
 # Build the Angular app for production
 RUN npm run build
 
